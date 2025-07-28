@@ -158,15 +158,15 @@
     margin-bottom: 70px;
 
     @include mixins.xl {
-        margin-bottom: 50px;
+      margin-bottom: 50px;
     }
 
     @include mixins.lg {
-        margin-bottom: 40px;
+      margin-bottom: 40px;
     }
 
     @include mixins.md {
-        margin-bottom: 30px;
+      margin-bottom: 30px;
     }
   }
 
@@ -210,6 +210,159 @@
   &__card {
     @include mixins.lg {
       width: 320px;
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+
+    @include mixins.xl {
+      gap: 15px;
+    }
+
+    @include mixins.lg {
+      gap: 10px;
+      grid-auto-flow: column;
+      padding-bottom: 10px;
+      overflow-x: auto;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+
+    @include mixins.lg {
+      width: 320px;
+    }
+  }
+
+  &__item-wrapper {
+    position: relative;
+    padding-bottom: calc(290/380*100%);
+    overflow: hidden;
+    border-radius: 14px;
+  }
+
+  &__item-info {
+    border-radius: 14px;
+    padding: 25px;
+    background-color: var(--dark-card);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item-title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: calc(32/24*100%);
+
+    @include mixins.xl {
+      font-size: 22px;
+    }
+  }
+
+  &__item-text {
+    font-weight: 400;
+    color: var(--light-text);
+    margin: 10px 0 auto;
+
+    @include mixins.xl {
+      br {
+        display: none;
+      }
+    }
+  }
+
+  &__item-btn {
+    margin-top: 25px;
+    height: 76px;
+
+    @include mixins.xl {
+      font-size: 12px;
+    }
+
+    @include mixins.lg {
+      margin-top: 15px;
+    }
+  }
+
+  &__blocks {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+
+    @include mixins.xl {
+      gap: 15px;
+    }
+
+    @include mixins.md {
+        grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  &__block {
+    padding: 45px;
+    background-color: var(--dark-card);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+
+    @include mixins.sm {
+        padding: 30px;
+    }
+
+    @include mixins.xs {
+        padding: 25px;
+    }
+  }
+
+  &__block-title {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: calc(38/30*100%);
+
+    @include mixins.xl {
+        font-size: 26px;
+        br {
+            display: none;
+          }
+    }
+
+    @include mixins.xs {
+        font-size: 24px;
+    }
+
+    span {
+      color: var(--primary);
+    }
+  }
+
+  &__block-text {
+    color: var(--light-text);
+    margin: 10px 0 auto;
+
+    @include mixins.xl {
+        br{display: none;}
+    }
+  }
+
+  &__block-btn{
+    max-width: 330px;
+    height: 76px;
+    margin-top: 25px;
+
+    @include mixins.lg {
+        font-size: 12px;
+    }
+
+    @include mixins.sm {
+        margin-top: 15px;
     }
   }
 }
