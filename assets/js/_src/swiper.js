@@ -341,3 +341,55 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 });
+
+// свайпер луп автоплей
+document.addEventListener('DOMContentLoaded', function () {
+	const swiper = new Swiper('.swiper01', {
+		spaceBetween: 12,
+		slidesPerView: 3.7734,
+		speed: 5000,
+		autoplay: {
+			delay: 0,
+			disableOnInteraction: true,
+		},
+		loop: true,
+		allowTouchMove: true,
+		freeMode: true,
+		freeModeMomentum: false,
+		on: {
+			touchEnd: function () {
+				this.autoplay.start();
+			},
+			mouseLeave: function () {
+				this.autoplay.start();
+			}
+		},
+		breakpoints: {
+			1200: {
+				slidesPerView: 3.7734,
+				speed: 5000,
+				spaceBetween: 12,
+			},
+			991: {
+				speed: 4500,
+				slidesPerView: 3.3,
+				spaceBetween: 11,
+			},
+			767: {
+				speed: 4000,
+				slidesPerView: 3,
+				spaceBetween: 10,
+			},
+			525: {
+				speed: 3500,
+				slidesPerView: 2,
+				spaceBetween: 9,
+			},
+			1: {
+				speed: 3000,
+				slidesPerView: 1,
+				spaceBetween: 8,
+			}
+		}
+	});
+});

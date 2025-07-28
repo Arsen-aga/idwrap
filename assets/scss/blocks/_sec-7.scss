@@ -1,0 +1,157 @@
+@use '../base/mixins' as mixins;
+
+.sec-7 {
+  padding-top: var(--indent);
+}
+
+.sec-7__container {
+  max-width: 1300px;
+}
+
+.sec-7__title {
+  text-align: center;
+}
+
+.sec-7__background {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 50px;
+  padding-bottom: 41.667%;
+}
+
+.sec-7__content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -10.318%;
+  gap: 5px;
+}
+
+.sec-7__card {
+  width: 100%;
+  max-width: 410px;
+  padding: 30px 20px 20px 35px;
+  min-height: 272px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #26211D;
+  border-radius: 14px;
+}
+
+.sec-7__card-title {
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: calc(32/24*100%);
+  margin-bottom: 10px;
+}
+
+.sec-7__card-info {
+   color: var(--light-text);
+}
+
+.sec-7__card-logo {
+  width: 100%;
+  max-width: 220px;
+  margin-left: auto;
+  pointer-events: none;
+}
+
+.sec-7__gallery {
+  margin-top: 30px;
+  overflow: hidden;
+}
+
+.sec-7__gallery-item {
+  max-width: unset !important;
+  min-width: unset !important;
+}
+
+.sec-7__gallery-item ._image-abs {
+  padding-bottom: 66%;
+}
+
+.sec-7__gallery-item img {
+  border-radius: 14px;
+}
+
+.sec-7__gallery .swiper-wrapper {
+  transition-timing-function: linear !important;
+  display: flex;
+}
+
+
+@media (max-width: 1230px) {
+  .sec-7__background {
+    margin-top: 40px;
+  }
+
+  .sec-7__gallery-item {
+    min-width: 400px;
+  }
+
+  .sec-7__card {
+    padding: 20px 15px;
+  }
+
+  .sec-7__card-title br {
+    display: none;
+  }
+
+  .sec-7__card-info br {
+    display: none;
+  }
+
+  .sec-7__card-logo {
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 991.8px) {
+
+  .sec-7__background {
+    margin-top: 30px;
+  }
+
+  .sec-7__content {
+    flex-wrap: wrap;
+  }
+
+  .sec-7__card {
+    max-width: calc(50% - 2.5px);
+    min-height: unset;
+  }
+
+  .sec-7__card:last-child {
+    max-width: 100%;
+  }
+
+  .sec-7__gallery-item {
+    min-width: 350px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .sec-7__card {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .sec-7__card-title {
+    font-size: 22px;
+  }
+
+  .sec-7__card-logo {
+    max-width: 130px;
+  }
+
+  .sec-7__gallery-item {
+    min-width: 300px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .sec-7__gallery-item {
+    min-width: 280px;
+  }
+}
