@@ -1,0 +1,134 @@
+@use './mixins' as mixins;
+
+._main-title {
+  font-family: var(--font-default);
+  font-weight: 500;
+  font-size: 68px;
+  line-height: calc(76/68*100%);
+  color: var(--light-color);
+
+  @include mixins.xl {
+    font-size: 52px;
+  }
+
+  @include mixins.lg {
+    font-size: 42px;
+
+    br{display: none;}
+  }
+
+  @include mixins.md {
+    font-size: 36px;
+
+    br {
+      display: none;
+    }
+  }
+
+  @include mixins.sm {
+    font-size: 30px;
+  }
+}
+
+._title-1 {
+  font-family: var(--font-default);
+  font-weight: 500;
+  font-size: 60px;
+  line-height: calc(70/60*100%);
+  text-align: center;
+  color: var(--light-color);
+  margin-bottom: var(--indent-title);
+
+  @include mixins.xl {
+    font-size: 52px;
+  }
+
+  @include mixins.lg {
+    font-size: 42px;
+  }
+
+  @include mixins.md {
+    font-size: 36px;
+
+    br {
+      display: none;
+    }
+  }
+
+  @include mixins.sm {
+    font-size: 30px;
+  }
+}
+
+._title {
+  font-family: var(--font-default);
+  font-weight: 400;
+  font-size: 56px;
+  line-height: calc(64/56*100%);
+  text-align: center;
+  color: var(--light-color);
+  margin-bottom: var(--indent-title);
+  
+  
+  @include mixins.xl {
+    font-size: 42px;
+  }
+  
+  @include mixins.lg {
+    font-size: 36px;
+  }
+  
+  @include mixins.md {
+    font-size: 30px;
+    
+    br {
+      display: none;
+    }
+  }
+  
+  @include mixins.sm {
+    font-size: 26px;
+  }
+  img{
+    display: inline-block;
+    max-width: 220px;
+    width: 100%;
+  }
+  
+}
+
+._subtitle {
+  font-family: var(--font-default);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: calc(38/30*100%);
+  text-align: center;
+  color: var(--light-color);
+  margin: 20px 0 var(--indent-title);
+
+  @include mixins.xl {
+    font-size: 28px;
+  }
+
+  @include mixins.lg {
+    margin-top: 15px;
+    font-size: 26px;
+  }
+
+  @include mixins.md {
+    font-size: 22px;
+
+    br {
+      display: none;
+    }
+  }
+
+  @include mixins.sm {
+    font-size: 20px;
+  }
+
+  @include mixins.xs {
+    font-size: 18px;
+  }
+
+}

@@ -1,0 +1,215 @@
+@use '../base/mixins' as mixins;
+
+.verified-materials {
+  padding-top: var(--indent);
+
+  &__elems-wrapper {
+    border-top: 1px solid rgba($color: #ffffff, $alpha: 0.1);
+    margin-bottom: 40px;
+
+    @include mixins.lg {
+      margin-bottom: 30px;
+    }
+
+    @include mixins.md {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__elems {
+    display: grid;
+    grid-template-columns: minmax(0, 325px) minmax(0, 394px) minmax(0, 351px);
+    gap: 65px;
+
+    @include mixins.xl {
+      gap: 25px;
+    }
+
+    @include mixins.lg {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-flow: column;
+      gap: 15px;
+      padding-bottom: 10px;
+      overflow-x: auto;
+    }
+  }
+
+  &__elem {
+    padding-top: 34px;
+    position: relative;
+    display: flex;
+    gap: 20px;
+
+    @include mixins.xl {
+      gap: 15px;
+      padding-top: 20px;
+    }
+
+    @include mixins.lg {
+      width: 320px;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      display: block;
+      width: 1px;
+      height: 120px;
+      background-color: var(--light-color);
+      opacity: 0.1;
+      right: -33px;
+      top: 0;
+
+      @include mixins.xl {
+        right: -10px;
+      }
+
+      @include mixins.lg {
+        display: none;
+      }
+    }
+
+    &:last-child::after {
+      display: none;
+    }
+  }
+
+  &__elem-icon {
+    width: 56px;
+    min-width: 56px;
+    height: 56px;
+    min-height: 56px;
+    background-color: var(--primary);
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include mixins.lg {
+      width: 45px;
+      min-width: 45px;
+      height: 45px;
+      min-height: 45px;
+    }
+  }
+
+  &__elem-title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: calc(32/24*100%);
+
+    @include mixins.xl {
+      font-size: 22px;
+    }
+
+    @include mixins.lg {
+      font-size: 20px;
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+  &__elem-text {
+    margin-top: 10px;
+
+    @include mixins.lg {
+      margin-top: 5px;
+      font-size: 16px;
+    }
+  }
+
+  &__partners {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 40px;
+
+    @include mixins.lg {
+      display: grid;
+      grid-auto-flow: column;
+      margin-bottom: 30px;
+      overflow-x: auto;
+      justify-content: start;
+      padding-bottom: 10px;
+    }
+
+    @include mixins.md {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__partner {
+    background-color: var(--light-brown);
+    border-radius: 14px;
+    padding: 13px 30px;
+
+    @include mixins.lg {
+      width: 300px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+    }
+  }
+
+  &__swiper {
+    margin-bottom: 70px;
+
+    @include mixins.xl {
+        margin-bottom: 50px;
+    }
+
+    @include mixins.lg {
+        margin-bottom: 40px;
+    }
+
+    @include mixins.md {
+        margin-bottom: 30px;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    @include mixins.lg {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  &__bottom-title {
+    text-align: left;
+
+    @include mixins.lg {
+      text-align: center;
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 895px;
+    width: 100%;
+
+    @include mixins.lg {
+      grid-auto-flow: column;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+  }
+
+  &__card {
+    @include mixins.lg {
+      width: 320px;
+    }
+  }
+}

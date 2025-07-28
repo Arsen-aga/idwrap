@@ -1,0 +1,55 @@
+@use '../base/mixins' as mixins;
+
+#okleyka-page {
+  .front-block {
+    padding: 0;
+
+    &__inner {
+      padding: 130px 0;
+
+      @include mixins.lg {
+        padding-bottom: 60px;
+      }
+    }
+
+    &__top {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    &__top-logo {
+      display: flex;
+      gap: 18px;
+      max-width: 340px;
+      width: 100%;
+
+      @include mixins.md {
+          justify-content: center;
+      }
+
+      h1{
+        margin: 0;
+      }
+    }
+
+    &__title {
+      margin-bottom: 45px;
+
+      @include mixins.md {
+        margin-bottom: 0;
+      }
+    }
+
+    &__btns {
+      gap: 30px;
+      justify-content: start;
+
+      @include mixins.md {
+        gap: 15px;
+        flex-direction: column;
+      }
+    }
+
+
+  }
+}

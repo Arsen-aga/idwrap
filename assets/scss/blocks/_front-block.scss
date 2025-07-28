@@ -1,0 +1,181 @@
+@use '../base/mixins' as mixins;
+
+
+// main-styles
+.front-block {
+  background-image: url(../images/front-bg-1.webp);
+  padding: 303px 0 487px;
+  position: relative;
+
+  @include mixins.xl {
+    padding: 303px 0 335px;
+  }
+
+  @include mixins.lg {
+    padding: 250px 0 150px;
+
+    .overlay {
+      display: block;
+      background-color: rgba($color: #000000, $alpha: 0.5);
+    }
+  }
+
+  @include mixins.md {
+    padding: 220px 0 100px;
+  }
+
+  @include mixins.sm {
+    padding-bottom: 60px;
+  }
+
+  &__subtitle {
+    position: relative;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: calc(40/32*100%);
+    padding-left: 47px;
+    margin-left: auto;
+    width: fit-content;
+    margin-bottom: 70px;
+
+    @include mixins.lg {
+      font-size: 26px;
+      padding-left: 40px;
+      margin-bottom: 40px;
+    }
+
+    @include mixins.md {
+      margin-bottom: 30px;
+    }
+
+    @include mixins.sm {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      display: block;
+      width: 32px;
+      height: 2px;
+      left: 0;
+      top: 24px;
+      background-color: var(--primary);
+
+      @include mixins.lg {
+        width: 26px;
+      }
+    }
+  }
+
+  &__btns {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    @include mixins.xs {
+      flex-direction: column;
+    }
+  }
+
+  &__btn {
+    max-width: 360px;
+
+    @include mixins.lg {
+      font-size: 12px;
+    }
+
+  }
+}
+
+
+
+
+// additional styles
+.front-block {
+
+  &__top {
+    display: flex;
+    gap: 20px;
+    align-items: start;
+    justify-content: center;
+
+    @include mixins.md {
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    svg {
+      max-width: 272px;
+      width: 100%;
+
+      @include mixins.xl {
+        max-width: 250px;
+      }
+
+      @include mixins.lg {
+        max-width: 180px;
+      }
+    }
+
+  }
+
+  &__link {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: calc(22/14*100%);
+    text-transform: uppercase;
+    color: var(--whatsapp-color);
+    display: flex;
+    align-items: start;
+    gap: 10px;
+
+    @include mixins.sm {
+      font-size: 12px;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+
+      path {
+        fill: var(--whatsapp-color);
+      }
+    }
+  }
+
+  &__list {
+    margin-top: 30px;
+    display: grid;
+    gap: 15px;
+
+    @include mixins.lg {
+        margin-top: 15px;
+    }
+  }
+
+  &__point {
+    display: flex;
+    gap: 15px;
+
+    svg {
+      width: 32px;
+      min-width: 32px;
+      height: 32px;
+      min-height: 32px;
+    }
+  }
+
+  &__point-text {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: calc(26/18*100%);
+    margin-top: 3px;
+  }
+}

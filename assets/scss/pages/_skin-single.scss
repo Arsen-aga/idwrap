@@ -1,0 +1,42 @@
+@use '../base/mixins' as mixins;
+
+#skin-single {
+  .breadcrumbs {
+    position: static;
+    justify-content: start;
+    margin-bottom: 68px;
+
+    @include mixins.xl {
+      margin-bottom: 40px;
+    }
+
+    @include mixins.md {
+      margin-bottom: 20px;
+    }
+  }
+
+  .front-block {
+    &__btns {
+      flex-direction: column;
+      gap: 25px;
+      max-width: 360px;
+      margin-top: 50px;
+
+      @include mixins.xl {
+        margin-top: 40px;
+      }
+
+      @include mixins.lg {
+        margin-top: 30px;
+      }
+
+      @include mixins.md {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .sec-1 {
+    border-bottom: 1px solid rgba($color: #FFFFFF, $alpha: 0.1);
+  }
+}

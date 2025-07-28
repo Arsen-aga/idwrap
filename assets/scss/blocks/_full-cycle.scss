@@ -1,0 +1,9 @@
+@use '../base/mixins' as mixins;
+
+.full-cycle {
+  padding-top: var(--indent);
+
+  &__title {
+    margin-bottom: 0;
+  }
+}

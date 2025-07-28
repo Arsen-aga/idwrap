@@ -1,0 +1,65 @@
+@use '../base/mixins' as mixins;
+
+.default-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  height: 400px;
+
+  @include mixins.lg {
+      .overlay{
+        display: block;
+        background-color: rgba($color: #000000, $alpha: 0.4);
+      }
+  }
+
+  &__inner {
+    position: relative;
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @include mixins.sm {
+        padding: 25px;
+    }
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: calc(32/24*100%);
+
+    @include mixins.sm {
+        font-size: 22px;
+    }
+  }
+
+  &__btns {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    height: 56px;
+    font-size: 12px;
+  }
+
+  &__info {
+    width: 56px;
+    min-width: 56px;
+    height: 56px;
+    min-height: 56px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      background-color: var(--primary-hover);
+    }
+  }
+}

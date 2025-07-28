@@ -1,0 +1,59 @@
+@use '../../node_modules/@fancyapps/ui/dist/fancybox/fancybox';
+@use '../../node_modules/swiper/swiper-bundle';
+
+@use 'base/fonts';
+@use 'base/vars';
+@use 'base/reset';
+@use 'base/containers';
+@use 'base/sticky-footer';
+@use 'base/base';
+@use 'base/titles';
+
+@use 'components/default-card';
+@use 'components/main-swiper';
+@use 'components/accordion';
+
+
+
+
+@use 'blocks/header';
+@use 'blocks/popup-menu';
+@use 'blocks/front-block';
+@use 'blocks/full-cycle';
+@use 'blocks/verified-materials';
+@use 'blocks/sec-1';
+@use 'blocks/range-services';
+@use 'blocks/sec-2';
+@use 'blocks/sec-3';
+@use 'blocks/sec-12';
+@use 'blocks/sec-14';
+@use 'blocks/sec-map';
+@use 'blocks/services-price';
+@use 'blocks/quiz';
+@use 'blocks/sec-6';
+@use 'blocks/sec-0';
+@use 'blocks/full-wrapping';
+@use 'blocks/sec-5';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@use 'blocks/footer';
+@use 'blocks/modals';
+
+@use 'pages/price-page';
+@use 'pages/okleyka-page';
+@use 'pages/skin-single';

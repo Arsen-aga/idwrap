@@ -1,0 +1,32 @@
+@use '../base/mixins' as mixins;
+
+#price-page {
+  .front-block {
+    padding: 0;
+
+    &__inner {
+      padding: 130px 0;
+
+      @include mixins.lg {
+        padding-bottom: 60px;
+      }
+    }
+
+    &__title {
+      @include mixins.md {
+        margin-bottom: 0;
+      }
+    }
+
+    &__btns {
+      gap: 30px;
+
+      @include mixins.md {
+        gap: 15px;
+        flex-direction: column;
+      }
+    }
+
+
+  }
+}

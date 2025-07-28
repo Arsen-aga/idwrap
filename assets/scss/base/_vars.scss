@@ -1,0 +1,74 @@
+@use './mixins' as mixins;
+
+:root {
+  // НЕЛЬЗЯ УДАЛЯТЬ ЭТИ ПЕРЕМЕННЫЕ
+
+  // контейнер
+  --container-width: 1200px;
+  --container-lg-width: 1600px;
+  --container-padding: 15px;
+
+  // шрифты
+  --font-default: 'NTSomic';
+  --font-titles: var(--font-default);
+
+  // размер шрифта
+  --defaul-font-size: 18px;
+  --defaul-line-height: calc(26/18*100%);
+
+  // брекпоинты
+  --xl: 1230px;
+  --lg: 991.8px;
+  --md: 767.98px;
+  --sm: 575.98px;
+  --xs: 468px;
+
+  // глобаьлные цвета
+  --page-bg: #3A3330;
+  --default-color: #ffffff;
+  --link-color: #F37021;
+
+
+  // ЗДЕСЬ МОЖНО ПРОПИСЫВАТЬ СВОИ ПЕРЕМЕННЫЕ
+
+  --primary: #F37021;
+  --primary-hover: #F69459;
+  --whatsapp-color: #25D366;
+  --whatsapp-hover: #2DE873;
+  --telegram-color: #35A9E5;
+  --telegram-hover: #58AFFF;
+  --dark-brown: #2E2826;
+  --light-brown: #36302B;
+  --gray: #999999;
+  --light-text: #9D9390;
+  
+
+  --subtitle: #5C677E;
+  --icons-bg: #927D76;
+  --light-color: #FFFFFF;
+
+
+  --indent: 130px;
+  --indent-md: 80px;
+  --indent-title: 50px;
+
+  @include mixins.xl {
+    --indent-title: 40px;
+  }
+
+  @include mixins.lg {
+    --indent: 40px;
+    --indent-md: 40px;
+    --indent-title: 30px;
+  }
+
+  @include mixins.md {
+    --indent-title: 20px;
+  }
+
+}
+
+.dark {
+  --page-bg: #252526;
+  --text-color: #fff;
+}
