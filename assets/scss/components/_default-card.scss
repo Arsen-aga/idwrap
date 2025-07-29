@@ -7,10 +7,10 @@
   height: 400px;
 
   @include mixins.lg {
-      .overlay{
-        display: block;
-        background-color: rgba($color: #000000, $alpha: 0.4);
-      }
+    .overlay {
+      display: block;
+      background-color: rgba($color: #000000, $alpha: 0.4);
+    }
   }
 
   &__inner {
@@ -21,7 +21,7 @@
     flex-direction: column;
 
     @include mixins.sm {
-        padding: 25px;
+      padding: 25px;
     }
   }
 
@@ -31,7 +31,7 @@
     line-height: calc(32/24*100%);
 
     @include mixins.sm {
-        font-size: 22px;
+      font-size: 22px;
     }
   }
 
@@ -39,6 +39,9 @@
     margin-top: auto;
     display: flex;
     align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 1;
   }
 
   &__link {
@@ -61,5 +64,24 @@
     &:hover {
       background-color: var(--primary-hover);
     }
+  }
+
+  &__usluga-infobox {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    align-items: center;
+    margin-top: auto;
+    color: var(--dark-card);
+
+    @include mixins.xl {
+      gap: 10px;
+    }
+  }
+
+  &__usluga-box {
+    padding: 15px 20px;
+    background-color: #fff;
+    border-radius: 14px;
   }
 }

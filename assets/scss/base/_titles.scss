@@ -68,6 +68,10 @@
   text-align: center;
   color: var(--light-color);
   margin-bottom: var(--indent-title);
+
+  span{
+    color: var(--primary);
+  }
   
   
   @include mixins.xl {
