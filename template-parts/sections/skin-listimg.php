@@ -1,35 +1,32 @@
+<?php
+$list = get_field('skin-listimg_list');
+$img = get_field('skin-listimg_img');
+if($list || $img) : ?>
 <section class="skin-listimg img-full">
-  <!-- <div class="skin-listimg__content">
+  <?php if(have_rows('skin-listimg_list')) : ?>
+  <div class="skin-listimg__content">
     <div class="container">
       <div class="skin-listimg__inner">
+        <?php if(get_field('skin-listimg_title')) :?>
         <h2 class="skin-listimg__title _title">
-          Нанесение<br>
-          полной оклейки:
+          <?php the_field('skin-listimg_title'); ?>
         </h2>
+        <?php endif; ?>
         <ul class="skin-listimg__list list-point">
+          <?php while(have_rows('skin-listimg_list')) : the_row(); ?>
           <li class="skin-listimg__list-point">
-            <strong>защищает от:</strong> камней, пескоструя, реагентов, веток,
-            химии при мойке авто
+            <?php the_sub_field('list_point'); ?>
           </li>
-          <li class="skin-listimg__list-point">
-            <strong>сохраняет цвет и блеск —</strong> без выгорания,
-            пятен и тусклости
-          </li>
-          <li class="skin-listimg__list-point">
-            <strong>предотвращает коррозию —</strong> особенно в зонах риска
-          </li>
-          <li class="skin-listimg__list-point">
-            <strong>упрощает уход —</strong> меньше мойки, меньше полировки
-          </li>
-          <li class="skin-listimg__list-point">
-            <strong>повышает стоимость —</strong> оклеенный авто продаётся
-            быстрее и дороже
-          </li>
+          <?php endwhile; ?>
         </ul>
       </div>
     </div>
-  </div> -->
-  <div class="skin-listimg__img-wrapper">
-    <img class="skin-listimg__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/skin-listimg.webp" alt="">
   </div>
+  <?php endif; ?>
+  <?php if($img):?>
+  <div class="skin-listimg__img-wrapper">
+    <img class="skin-listimg__img _img" src="<?php echo $img['url'];?>" alt="">
+  </div>
+  <?php endif; ?>
 </section>
+<?php endif; ?>

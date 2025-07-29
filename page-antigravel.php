@@ -15,18 +15,18 @@ get_header(); ?>
 
   <?php get_template_part('template-parts/sections/type-first-block'); ?>
 
-
-  <!-- каркас инфо -->
   <?php get_template_part('template-parts/sections/carcase-info'); ?>
-  <!-- skin-option -->
+
   <?php get_template_part('template-parts/sections/skin-option'); ?>
+
   <div class="wrapper-brown">
-    <!-- skin-happen блок с карточками -->
+
     <?php get_template_part('template-parts/sections/skin-happen'); ?>
-    <!-- большой отступ -->
+
     <div class="space-sec"></div>
-    <!-- skin-listimg блок с картинкой и списком -->
+
     <?php get_template_part('template-parts/sections/skin-listimg'); ?>
+
   </div>
 
   <?php get_template_part('template-parts/sections/pasting-of-any-complexity'); ?>
@@ -34,7 +34,9 @@ get_header(); ?>
   <?php get_template_part('template-parts/sections/full-wrapping'); ?>
 
   <div class="wrapper-brown">
+
     <?php get_template_part('template-parts/sections/sec-2');?>
+
   </div>
 
   <?php get_template_part('template-parts/sections/video-reviews');?>
