@@ -33,6 +33,10 @@ get_header(); ?>
   <!-- Виды  -->
   <?php get_template_part('template-parts/sections/polishing-types'); ?>
 
+
+  <!-- материалы мировых производителей карточки -->
+  <?php get_template_part('template-parts/sections/materials-manufacturers'); ?>
+
   <?php get_template_part('template-parts/sections/pasting-of-any-complexity'); ?>
 
   <?php get_template_part('template-parts/sections/full-wrapping'); ?>
