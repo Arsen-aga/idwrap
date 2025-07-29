@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Антигравийная плёнка 
+ * Template Name: Антигравийная плёнка
  * http://dontforget.pro
  * @package WordPress
  * @subpackage clean
