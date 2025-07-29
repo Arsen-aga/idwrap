@@ -28,6 +28,8 @@ get_header(); ?>
     <!-- skin-listimg блок с картинкой и списком -->
     <?php get_template_part('template-parts/sections/skin-listimg'); ?>
   </div>
+  
+  <?php get_template_part('template-parts/sections/verified-materials'); ?>
 
   <?php get_template_part('template-parts/sections/pasting-of-any-complexity'); ?>
 
