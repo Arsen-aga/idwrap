@@ -17,36 +17,31 @@
           </ul>
         </div>
         <h1 class="sec-0__title _main-title">
-          Оклейка<br>
-          автомобилей<br>
-          антигравийной<br>
-          пленкой
+          <?php echo wp_title(''); ?>
         </h1>
+        <?php if(get_field('type-first-block_subtitle')):?>
         <p class="sec-0__guarant">
-          с гарантией на весь срок <br>
-          владения автомобилем
+          <?php the_field('type-first-block_subtitle'); ?>
         </p>
+        <?php endif; ?>
+        <?php if(have_rows('type-first-block_list')) :?>
         <ul class="front-block__list">
+          <?php while(have_rows('type-first-block_list')) : the_row();
+          $icon = get_sub_field('list_icon'); ?>
           <li class="front-block__point">
-            <?php include(get_template_directory() . '/assets/images/icons/front-block-1.svg'); ?>
+            <?php if($icon) {
+              echo $icon['url'];
+            } else {
+              include(get_template_directory() . '/assets/images/icons/front-block-1.svg');
+            }?>
             <p class="front-block__point-text">
-              Полная или частичная оклейка <strong>в срок
-                от&nbsp;1&nbsp;дня</strong>
+              <?php the_sub_field('list_point'); ?>
             </p>
           </li>
-          <li class="front-block__point">
-            <?php include(get_template_directory() . '/assets/images/icons/front-block-2.svg'); ?>
-            <p class="front-block__point-text">
-              <strong>Более 10 видов пленки</strong> от мировых производителей
-            </p>
-          </li>
-          <li class="front-block__point">
-            <?php include(get_template_directory() . '/assets/images/icons/front-block-3.svg'); ?>
-            <p class="front-block__point-text">
-              Оплата только <strong>после вашей проверки</strong> результата оклейки
-            </p>
-          </li>
+          <?php endwhile; ?>
         </ul>
+        <?php endif; ?>
+
         <div class="front-block__btns">
           <a class="front-block__btn _main-btn" href="#quiz" data-fancybox>
             Рассчитать стоимость <br>
@@ -58,13 +53,31 @@
           </a>
         </div>
       </div>
-      <a data-fancybox href="<?php echo get_template_directory_uri(); ?>/assets/video/main-page/long.mp4" class="sec-0__image _image-abs">
-        <img class="_img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-00main/okleika-plenkoi.webp"
-          alt=" Изображение - Оклейка автомобилей полиуретановой пленкой">
-        <video class="sec-0__image-video" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; z-index: 3;" playsinline="" autoplay="" muted="" loop="">
+      <?php
+        $video = get_field('type-first-block_video');
+        $img = get_field('type-first-block_img'); ?>
 
-        </video>
-      </a>
+      <?php if ($img || $video) : ?>
+        <a data-fancybox
+          href="<?php echo $video ? esc_url($video) : ($img ? esc_url($img['url']) : '#'); ?>"
+          class="sec-0__image _image-abs">
+
+          <?php if ($img) : ?>
+            <img class="_img"
+                src="<?php echo esc_url($img['url']); ?>"
+                alt="<?php echo esc_attr($img['alt'] ?: 'Изображение'); ?>">
+          <?php endif; ?>
+
+          <?php if ($video) : ?>
+            <video class="sec-0__image-video"
+                  style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; z-index: 3;"
+                  playsinline autoplay muted loop>
+              <source src="<?php echo esc_url($video); ?>" type="video/mp4">
+            </video>
+          <?php endif; ?>
+        </a>
+      <?php endif; ?>
+
     </div>
   </div>
 </section>

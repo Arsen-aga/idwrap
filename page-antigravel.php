@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Антигравийная плёнка
+ * Template Name: Оклейка автомобиля (single)
  * http://dontforget.pro
  * @package WordPress
  * @subpackage clean
