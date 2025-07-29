@@ -1,0 +1,65 @@
+@use '../base/mixins' as mixins;
+
+.skin-happen {
+  padding-top: var(--indent);
+
+  &__items {
+    display: flex;
+    gap: 10px;
+
+    @include mixins.xl {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    @include mixins.lg {
+      flex-wrap: nowrap;
+      justify-content: start;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+  }
+
+  &__item {
+    border: 1px solid rgba($color: #FFFFFF, $alpha: 0.1);
+    border-radius: 12px;
+    padding: 15px 15px 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 232px;
+    max-width: 232px;
+    width: 100%;
+
+    @include mixins.lg {
+        width: 232px;
+        min-width: 232px;
+    }
+  }
+
+  &__item-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: auto;
+  }
+
+  &__item-num {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: calc(24/16*100%);
+    color: var(--primary);
+  }
+
+  &__item-info {
+    min-height: 72px;
+    display: flex;
+    align-items: start;
+  }
+
+  &__item-title {
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: calc(24/16*100%);
+  }
+}
