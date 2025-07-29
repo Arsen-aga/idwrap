@@ -58,17 +58,18 @@ function fonts() {
 }
 
 function watching() {
-  browserSync.init({
-    proxy: "http://idwrap.local",
-    host: "idwrap.local",
-    open: "external",
-  });
+  // browserSync.init({
+  //   proxy: "http://idwrap.local",
+  //   host: "idwrap.local",
+  //   open: "external",
+  // });
   watch(["assets/scss/**/*.scss"], styles);
   watch(["assets/images/_src/"], images);
   watch(["assets/js/_src/*.js"], scripts);
-  watch(["*.php"]).on("change", () => {
-    browserSync.reload();
-  });
+  // watch(["*.php"]).on("change", () => {
+  //   browserSync.reload();
+  // });
+  watch(["*.php"]);
 }
 
 function cleanDist() {

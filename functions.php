@@ -177,20 +177,20 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 
-function gulp_files()
-{
-  $theme_uri = get_template_directory_uri();
+// function gulp_files()
+// {
+  // $theme_uri = get_template_directory_uri();
 
-  // Подключаем стиль (если файл существует)
-  $css_path = get_template_directory() . '/assets/css/style.css';
-  if (file_exists($css_path)) {
-    wp_enqueue_style('all-styles-css', $theme_uri . '/assets/css/style.css');
-  }
+  // // Подключаем стиль (если файл существует)
+  // $css_path = get_template_directory() . '/assets/css/style.css';
+  // if (file_exists($css_path)) {
+  //   wp_enqueue_style('all-styles-css', $theme_uri . '/assets/css/style.css');
+  // }
 
   // Подключаем скрипт (если файл существует)
-  $js_path = get_template_directory() . '/assets/js/main.min.js';
-  if (file_exists($js_path)) {
-    wp_enqueue_script('all-scripts-js', $theme_uri . '/assets/js/main.min.js', [], null, true);
-  }
-}
-add_action('wp_enqueue_scripts', 'gulp_files');
+  // $js_path = get_template_directory() . '/assets/js/main.min.js';
+  // if (file_exists($js_path)) {
+  //   wp_enqueue_script('all-scripts-js', $theme_uri . '/assets/js/main.min.js', [], null, true);
+  // }
+// }
+// add_action('wp_enqueue_scripts', 'gulp_files');

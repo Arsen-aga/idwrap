@@ -68,12 +68,15 @@ a {
 .space-sec {
   padding-top: var(--indent);
 }
+
 .space-sec-md {
   padding-top: var(--indent-md);
 }
+
 .space-negative-sec {
   margin-top: calc(var(--indent) * -1);
 }
+
 .space-negative-sec-md {
   margin-top: calc(var(--indent-md) * -1);
 }
@@ -511,6 +514,36 @@ a {
   }
 }
 
+._morebox {
+  transition: all 0.25s ease-in-out;
+  pointer-events: all;
+  opacity: 1;
+  z-index: 0;
+  transform: translateY(0);
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    transform: rotate(45deg);
+    background-color: #fff;
+    pointer-events: none;
+    bottom: -3.31px;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+  }
+
+  &._noactive {
+    opacity: 0;
+    transform: translateY(50px);
+    pointer-events: none;
+  }
+}
 
 
 

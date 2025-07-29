@@ -4310,8 +4310,90 @@ get_header(); ?>
     </section>
     <div class="space-sec"></div>
   </div>
-
-  <div class="space-sec"></div>
+  <section class="sec-10">
+    <div class="sec-10__background _image-abs">
+      <img class="_img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-10/1top/background.webp" alt=" Изображение - автомобиль в паркинге">
+    </div>
+    <div class="sec-10__container container relative">
+      <h2 class="sec-10__title _title">
+        После выполнения работ <br>
+        ваш автомобиль будет находиться
+      </h2>
+      <p class="sec-10__subtitle _subtitle">
+        в теплом охраняемом паркинге под видеонаблюдением
+      </p>
+      <div class="sec-10__content">
+        <div class="sec-10__item">
+          <div class="_image-abs">
+            <img class="_img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-10/2bottom/osmotr.webp"
+              alt=" Изображение - оплата после осмотра обложка">
+          </div>
+          <div class="sec-10__item-textbox">
+            <p class="sec-10__item-title">
+              Полную оплату вы <br>
+              производите только после <br>
+              осмотра автомобиля
+            </p>
+          </div>
+        </div>
+        <div class="sec-10__item">
+          <div class="_image-abs">
+            <img class="_img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-10/2bottom/free.webp"
+              alt=" Изображение - бесплатный контрольный осмотр обложка">
+          </div>
+          <div class="sec-10__item-textbox">
+            <p class="sec-10__item-title">
+              Через 2 недели проводим <br>
+              бесплатный контрольный осмотр —
+            </p>
+            <p class="sec-10__item-info _card-info">
+              моем ваш авто и проводим осмотр <br>
+              состояния пленки
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section sec-11 _sec-light">
+    <div class="sec-11__background _image-abs">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-11/background.svg" alt=" Изображение - логотип на фон">
+    </div>
+    <div class="sec-11__container container relative">
+      <div class="sec-11__content">
+        <div class="sec-11__element">
+          <div class="_image-abs">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-11/docs.webp" alt=" Изображение - документы на фон">
+          </div>
+        </div>
+        <h2 class="sec-11__title _title">
+          Гарантия <br>
+          действует <br>
+          <span>на весь срок <br>
+            эксплуатации <br>
+            автомобиля:</span>
+        </h2>
+        <ul class="sec-11__list">
+          <li>
+            <p class="sec-11__info _card-info">
+              гарантия на <span>качество оклейки: </span><br>
+              отсутствие вздутий пленки или отклеиваний
+            </p>
+          </li>
+          <li>
+            <p class="sec-11__info _card-info">
+              гарантия на <span>качество сборки </span>автомобиля
+            </p>
+          </li>
+          <li>
+            <p class="sec-11__info _card-info">
+              гарантия на <span>оригинальность пленки</span>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
   <section class="section sec-12">
     <div class="sec-12__container container">
       <h2 class="sec-12__title _title">
@@ -4406,48 +4488,260 @@ get_header(); ?>
       </div>
     </div>
   </section>
-  <section class="sec-14">
-    <div class="sec-14__container container">
-      <div class="sec-14__layout">
-        <div class="sec-14__content">
-          <h2 class="sec-14__title _title">
-            Ждем вас в <br>
-            студии детейлинга
-          </h2>
-          <div class="sec-14__logo">
-
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo.svg" alt=" Изображение - логотип">
+  <section class="complex-services">
+    <div class="container">
+      <h2 class="complex-services__title _title">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/logo.svg" alt="logo">
+        это полный комплекс услуг<br>
+        для самых требовательных<br>
+        клиентов
+      </h2>
+      <div class="complex-services__swiper main-swiper swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide complex-services__slide main-swiper__slide">
+            <div class="complex-services__item main-swiper__item default-card">
+              <img class="default-card__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/default-card-28.webp" alt="">
+              <div class="overlay"></div>
+              <div class="default-card__inner">
+                <h4 class="default-card__title">
+                  Химчистка<br>
+                  автомобиля
+                </h4>
+              </div>
+            </div>
           </div>
-          <p class="sec-14__time">
-            Ежедневно с 10:00 до 22:00 <br>без выходных
-          </p>
-          <p class="sec-14__li _location">
-            Адрес в Москве:
-          </p>
-          <p class="sec-14__location">
-            ул. Архитектора Щусева, 5, к1
-          </p>
-          <p class="sec-14__li _phone">
-            Телефон для предварительной записи:
-          </p>
-          <a href="tel:+74952980377" class="sec-14__phone">
-            +7 495 298 03 77
-          </a>
-          <a target="_blank" href="https://api.whatsapp.com/send/?phone=79267451861&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!+%D0%A5%D0%BE%D1%87%D1%83+%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C+%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E+%D0%BF%D0%BE+%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%D0%BB%D0%B8%D0%BD%D0%B3%D1%83&type=phone_number&app_absent=0" class="sec-14__whatsapp _whatsapp-btn">
-            <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
-            Написать в WhatsApp
-          </a>
+          <div class="swiper-slide complex-services__slide">
+            <div class="complex-services__item default-card">
+              <img class="default-card__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/default-card-29.webp" alt="">
+              <div class="overlay"></div>
+              <div class="default-card__inner">
+                <h4 class="default-card__title">
+                  Полировка<br>
+                  автомобиля
+                </h4>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide complex-services__slide">
+            <div class="complex-services__item default-card">
+              <img class="default-card__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/default-card-30.webp" alt="">
+              <div class="overlay"></div>
+              <div class="default-card__inner">
+                <h4 class="default-card__title">
+                  Нанесение<br>
+                  защитных<br>
+                  покрытий
+                </h4>
+                <div class="default-card__usluga-infobox">
+                  <ul class="list-point default-card__usluga-box _morebox _noactive" id="more1">
+                    <li>
+                      <p class="sec-13__usluga-info">
+                        керамика
+                      </p>
+                    </li>
+                    <li>
+                      <p class="sec-13__usluga-info">
+                        антидождь
+                      </p>
+                    </li>
+                    <li>
+                      <p class="sec-13__usluga-info">
+                        жидкое стекло
+                      </p>
+                    </li>
+                    <li>
+                      <p class="sec-13__usluga-info">
+                        кварц
+                      </p>
+                    </li>
+                  </ul>
+                  <div class="default-card__btns">
+                    <a class="default-card__link _main-btn info-more" href="#more1">
+                      Подробнее
+                    </a>
+                    <a class="default-card__info" href="#">
+                      <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide complex-services__slide">
+            <div class="complex-services__item default-card">
+              <img class="default-card__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/default-card-31.webp" alt="">
+              <div class="overlay"></div>
+              <div class="default-card__inner">
+                <h4 class="default-card__title">
+                  Шумоизоляция
+                </h4>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide complex-services__slide">
+            <div class="complex-services__item default-card">
+              <img class="default-card__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/default-card-32.webp" alt="">
+              <div class="overlay"></div>
+              <div class="default-card__inner">
+                <h4 class="default-card__title">
+                  Восстановление<br>
+                  кузова
+                </h4>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide complex-services__slide">
+            <div class="complex-services__item default-card">
+              <img class="default-card__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/default-card-33.webp" alt="">
+              <div class="overlay"></div>
+              <div class="default-card__inner">
+                <h4 class="default-card__title">
+                  Антихром
+                </h4>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="sec-14__banner">
-          <div class="_image-abs">
-
-            <img class="_img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-14-banner.webp"
-              alt=" Изображение - баннер секции ждем вас в студии детейлинга">
+        <div class="swiper-scrollbar"></div>
+      </div>
+      <div class="cursor">
+        <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+      </div>
+      <div class="complex-services__cards">
+        <div class="complex-services__card">
+          <img class="complex-services__card-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-13/priemka.webp" alt=" Изображение - приемка и выдача автомобиля">
+          <div class="overlay"></div>
+          <div class="complex-services__card-inner">
+            <span></span>
+            <div class="complex-services__card-content">
+              <p class="complex-services__card-title">
+                Приемка и выдача автомобиля <br>
+                проходит в теплом охраняемом <br>
+                паркинге
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="complex-services__card">
+          <img class="complex-services__card-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-13/podmena.webp" alt=" Изображение - предоставляем подменный автомобиль">
+          <div class="overlay"></div>
+          <div class="complex-services__card-inner">
+            <ul class="complex-services__usluga-list list-point">
+              <li>
+                <p class="complex-services__usluga-info">
+                  полный привод
+                </p>
+              </li>
+              <li>
+                <p class="complex-services__usluga-info">
+                  автопилот
+                </p>
+              </li>
+              <li>
+                <p class="complex-services__usluga-info">
+                  полная шумоизоляция
+                </p>
+              </li>
+              <li>
+                <p class="complex-services__usluga-info">
+                  запуск с ключа
+                </p>
+              </li>
+            </ul>
+            <div class="complex-services__card-content">
+              <p class="complex-services__card-title">
+                Предоставляем подменный автомобиль <br>
+                Geely Manjaro при оклейке на сумму <br>
+                от 300 тыс. руб.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="complex-services__card">
+          <img class="complex-services__card-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-13/zaberi.webp" alt=" Изображение - услуга забери и привези">
+          <div class="overlay"></div>
+          <div class="complex-services__card-inner">
+            <div class="complex-services__card-content _last-content">
+              <span class="complex-services__card-sign _main-btn">
+                По запросу
+              </span>
+              <p class="complex-services__card-title">
+                Услуга «Забери и привези» —
+              </p>
+              <p class="complex-services__card-info">
+                мы сами заберем ваш автомобиль и доставим <br>
+                его после завершения работ
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="complex-services__card">
+          <img class="complex-services__card-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-13/oneday.webp"
+            alt=" Изображение - услуга оклейка автомобиля за один день">
+          <div class="overlay"></div>
+            <div class="complex-services__card-inner">
+            <div class="complex-services__card-content _last-content">
+              <span class="complex-services__card-sign _main-btn">
+                По запросу
+              </span>
+              <p class="complex-services__card-title">
+                Услуга «Оклейка автомобиля <br>
+                за один день» —
+              </p>
+              <p class="complex-services__card-info">
+                по запросу выполним полную оклейку авто <br>
+                всего за 1 день, вместо стандартных 3-4 дней
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+  <div class="wrapper-brown">
+    <section class="sec-14">
+      <div class="sec-14__container container">
+        <div class="sec-14__layout">
+          <div class="sec-14__content">
+            <h2 class="sec-14__title _title">
+              Ждем вас в <br>
+              студии детейлинга
+            </h2>
+            <div class="sec-14__logo">
+
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo.svg" alt=" Изображение - логотип">
+            </div>
+            <p class="sec-14__time">
+              Ежедневно с 10:00 до 22:00 <br>без выходных
+            </p>
+            <p class="sec-14__li _location">
+              Адрес в Москве:
+            </p>
+            <p class="sec-14__location">
+              ул. Архитектора Щусева, 5, к1
+            </p>
+            <p class="sec-14__li _phone">
+              Телефон для предварительной записи:
+            </p>
+            <a href="tel:+74952980377" class="sec-14__phone">
+              +7 495 298 03 77
+            </a>
+            <a target="_blank" href="https://api.whatsapp.com/send/?phone=79267451861&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!+%D0%A5%D0%BE%D1%87%D1%83+%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C+%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E+%D0%BF%D0%BE+%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%D0%BB%D0%B8%D0%BD%D0%B3%D1%83&type=phone_number&app_absent=0" class="sec-14__whatsapp _whatsapp-btn">
+              <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
+              Написать в WhatsApp
+            </a>
+          </div>
+          <div class="sec-14__banner">
+            <div class="_image-abs">
+
+              <img class="_img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-14-banner.webp"
+                alt=" Изображение - баннер секции ждем вас в студии детейлинга">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
   <section id="mapscroll" class="sec-map _sec-light">
     <div class="container">
       <h2 class="sec-map__title _title">
