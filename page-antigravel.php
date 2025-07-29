@@ -14,6 +14,7 @@ get_header(); ?>
 <main class="main" id="skin-single">
 
   <?php get_template_part('template-parts/sections/type-first-block'); ?>
+  <?php get_template_part('template-parts/sections/carcase-info'); ?>
 
   <?php get_template_part('template-parts/sections/pasting-of-any-complexity'); ?>
 

@@ -1,0 +1,77 @@
+@use '../base/mixins' as mixins;
+
+.carcase-info {
+  padding-top: var(--indent);
+
+  &__title {
+    margin-bottom: 0;
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    @include mixins.xl {
+      gap: 15px;
+    }
+
+    @include mixins.lg {
+      grid-auto-flow: column;
+      padding-bottom: 10px;
+      overflow-x: auto;
+      gap: 10px;
+    }
+  }
+
+  &__item {
+    position: relative;
+    height: 550px;
+    border-radius: 14px;
+    overflow: hidden;
+
+    @include mixins.xl {
+        height: 450px;
+
+        .overlay{
+          display: block;
+          background-color: rgba($color: #000000, $alpha: 0.5);
+        }
+    }
+
+    @include mixins.lg {
+        width: 320px;
+    }
+  }
+
+  &__item-inner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 25px;
+
+    @include mixins.xl {
+        padding: 20px;
+    }
+  }
+
+
+  &__item-title {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: calc(32/24*100%);
+
+    @include mixins.xl {
+      font-size: 22px;
+    }
+  }
+
+  &__item-text {
+    margin-top: 10px;
+
+    @include mixins.xl {
+        br{display: none;}
+    }
+  }
+}

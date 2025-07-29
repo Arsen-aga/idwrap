@@ -1,4 +1,4 @@
-<section class="sec-0">
+<section class="sec-0 relative">
   <div class="sec-0__container container">
     <div class="sec-0__layout">
       <div class="sec-0__content">
