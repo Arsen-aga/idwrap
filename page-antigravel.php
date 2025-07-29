@@ -13,7 +13,6 @@ get_header(); ?>
 <!-- Сингловая пленок -->
 <main class="main" id="skin-single">
 
-  <?php get_template_part('template-parts/sections/type-first-block'); ?>
 
   <?php get_template_part('template-parts/sections/carcase-info'); ?>
 
@@ -30,6 +29,13 @@ get_header(); ?>
   </div>
   
   <?php get_template_part('template-parts/sections/verified-materials'); ?>
+
+  <!-- Виды  -->
+  <?php get_template_part('template-parts/sections/polishing-types'); ?>
+
+
+  <!-- материалы мировых производителей карточки -->
+  <?php get_template_part('template-parts/sections/materials-manufacturers'); ?>
 
   <?php get_template_part('template-parts/sections/pasting-of-any-complexity'); ?>
 

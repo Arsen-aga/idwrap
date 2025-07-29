@@ -1,0 +1,34 @@
+@use '../base/mixins' as mixins;
+
+.materials-manufacturers {
+  padding-top: var(--indent);
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+    @include mixins.xl {
+      gap: 10px;
+    }
+
+    @include mixins.lg {
+      padding-bottom: 10px;
+      grid-auto-flow: column;
+      overflow-x: auto;
+    }
+  }
+
+  &__item {
+    @include mixins.lg {
+      width: 320px;
+    }
+  }
+
+  &__item-text {
+    margin-bottom: 0;
+    @include mixins.xl {
+        br{display: none;}
+    }
+  }
+}

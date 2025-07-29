@@ -1,0 +1,113 @@
+@use '../base/mixins' as mixins;
+
+.polishing-types {
+  padding-top: var(--indent);
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+
+    @include mixins.xl {
+      gap: 15px;
+    }
+
+    @include mixins.lg {
+      grid-auto-flow: column;
+      padding-bottom: 10px;
+      overflow-x: auto;
+      gap: 10px;
+    }
+  }
+
+  &__item {
+    padding-bottom: 100%;
+
+    @include mixins.lg {
+      width: 320px;
+      padding-bottom: 0;
+      height: auto;
+    }
+  }
+
+  &__item-inner {
+    @include mixins.lg {
+      position: relative;
+    }
+  }
+
+  &__item-title {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: calc(38/30*100%);
+
+    @include mixins.xl {
+      font-size: 26px;
+    }
+
+    @include mixins.lg {
+      font-size: 22px;
+    }
+  }
+
+  &__item-btn {
+    margin-top: 25px;
+    max-width: 330px;
+
+    @include mixins.xl {
+      margin-top: 15px;
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    &.grid-6 {
+      grid-template-columns: repeat(6, 1fr);
+  
+      @include mixins.xl {
+        gap: 15px;
+      }
+
+      @include mixins.lg {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .default-item {
+        grid-column: span 2;
+
+        @include mixins.lg {
+          grid-column: span 1;
+        }
+
+        &:last-child,
+        &:nth-last-child(2) {
+          grid-column: span 3;
+
+          @include mixins.lg {
+            grid-column: span 1;
+          }
+        }
+      }
+    }
+
+    @include mixins.xl {
+      gap: 15px;
+    }
+
+    @include mixins.lg {
+      gap: 10px;
+      grid-auto-flow: column;
+      padding-bottom: 10px;
+      overflow-x: auto;
+    }
+  }
+
+  &__card {
+    @include mixins.lg {
+      width: 320px;
+    }
+  }
+}

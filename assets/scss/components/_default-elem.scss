@@ -7,10 +7,10 @@
   padding-bottom: calc(550/380*100%);
 
   @include mixins.xl {
-      .overlay{
-        display: block;
-        background-color: rgba($color: #000000, $alpha: 0.5);
-      }
+    .overlay {
+      display: block;
+      background-color: rgba($color: #000000, $alpha: 0.5);
+    }
   }
 
 
@@ -35,6 +35,19 @@
     @include mixins.xl {
       font-size: 22px;
     }
+  }
+
+  &__text {
+    margin-top: 10px;
+  }
+
+  &__list {
+    margin-top: 10px;
+    display: grid;
+    gap: 2px;
+    font-size: 16px;
+    line-height: calc(24/16*100%);
+    color: var(--light-text);
   }
 
   &__btn {
