@@ -1,0 +1,28 @@
+@use '../base/mixins' as mixins;
+
+.skin-option {
+  padding-top: var(--indent);
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    @include mixins.xl {
+      gap: 15px;
+    }
+
+    @include mixins.lg {
+      grid-auto-flow: column;
+      padding-bottom: 10px;
+      overflow-x: auto;
+      gap: 10px;
+    }
+  }
+
+  &__item{
+    @include mixins.lg {
+        width: 320px;
+    }
+  }
+}

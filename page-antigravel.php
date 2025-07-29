@@ -15,6 +15,12 @@ get_header(); ?>
 
   <?php get_template_part('template-parts/sections/type-first-block'); ?>
 
+
+  <!-- каркас инфо -->
+  <?php get_template_part('template-parts/sections/carcase-info'); ?>
+  <!-- каркас инфо -->
+  <?php get_template_part('template-parts/sections/skin-option'); ?>
+
   <?php get_template_part('template-parts/sections/pasting-of-any-complexity'); ?>
 
   <?php get_template_part('template-parts/sections/full-wrapping');?>
