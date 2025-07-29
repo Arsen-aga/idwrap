@@ -234,6 +234,34 @@
       }
     }
 
+    &.grid-6 {
+      grid-template-columns: repeat(6, 1fr);
+      gap: 30px;
+
+      @include mixins.xl {
+        gap: 15px;
+      }
+
+      @include mixins.lg {
+          grid-template-columns: repeat(3, 1fr);
+      }
+
+      .default-item {
+        grid-column: span 2;
+        @include mixins.lg {
+            grid-column: span 1;
+        }
+        
+        &:last-child, 
+        &:nth-last-child(2){
+          grid-column: span 3;
+          @include mixins.lg {
+              grid-column: span 1;
+          }
+        }
+      }
+    }
+
     @include mixins.xl {
       gap: 15px;
     }
@@ -337,12 +365,12 @@
     gap: 60px;
 
     @include mixins.xl {
-        gap: 25px;
+      gap: 25px;
     }
 
     @include mixins.lg {
-        grid-template-columns: 1fr;
-        gap: 20px;
+      grid-template-columns: 1fr;
+      gap: 20px;
     }
   }
 
@@ -358,8 +386,8 @@
     overflow: hidden;
 
     @include mixins.lg {
-        height: auto;
-        padding-bottom: 53%;
+      height: auto;
+      padding-bottom: 53%;
     }
   }
 
@@ -368,7 +396,7 @@
     gap: 32px;
 
     @include mixins.md {
-        gap: 15px;
+      gap: 15px;
     }
   }
 
@@ -378,11 +406,11 @@
     gap: 20px;
 
     @include mixins.md {
-        gap: 10px;
+      gap: 10px;
     }
 
     @include mixins.sm {
-        align-items: start;
+      align-items: start;
     }
   }
 
@@ -399,12 +427,12 @@
     align-items: center;
 
     @include mixins.sm {
-          width: 45px;
-            min-width: 45px;
-            height: 45px;
-            min-height: 45px;
-            padding: 5px;
-            margin-top: 0;
+      width: 45px;
+      min-width: 45px;
+      height: 45px;
+      min-height: 45px;
+      padding: 5px;
+      margin-top: 0;
     }
   }
 
@@ -414,12 +442,12 @@
     line-height: calc(32/24*100%);
 
     @include mixins.lg {
-        font-size: 22px;
+      font-size: 22px;
     }
 
     @include mixins.sm {
-        font-size: 20px;
-        margin-top: 8px;
+      font-size: 20px;
+      margin-top: 8px;
     }
   }
 }
