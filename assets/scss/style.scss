@@ -10,6 +10,8 @@
 @use 'base/titles';
 
 @use 'components/default-card';
+@use 'components/default-item';
+@use 'components/default-elem';
 @use 'components/main-swiper';
 @use 'components/accordion';
 
@@ -40,6 +42,7 @@
 @use 'blocks/sec-11';
 @use 'blocks/complex-services';
 @use 'blocks/carcase-info';
+@use 'blocks/skin-option';
 
 
 

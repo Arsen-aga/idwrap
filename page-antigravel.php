@@ -14,7 +14,12 @@ get_header(); ?>
 <main class="main" id="skin-single">
 
   <?php get_template_part('template-parts/sections/type-first-block'); ?>
+
+
+  <!-- каркас инфо -->
   <?php get_template_part('template-parts/sections/carcase-info'); ?>
+  <!-- каркас инфо -->
+  <?php get_template_part('template-parts/sections/skin-option'); ?>
 
   <?php get_template_part('template-parts/sections/pasting-of-any-complexity'); ?>
 
@@ -1005,107 +1010,107 @@ get_header(); ?>
           <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
         </div>
         <div class="verified-materials__items">
-          <div class="verified-materials__item">
-            <div class="verified-materials__item-wrapper">
-              <img class="verified-materials__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/verified-materials-item-1.webp" alt="">
+          <div class="verified-materials__item default-item">
+            <div class="default-item__wrapper">
+              <img class="default-item__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/verified-materials-item-1.webp" alt="">
             </div>
-            <div class="verified-materials__item-info">
-              <h4 class="verified-materials__item-title">
+            <div class="default-item__info">
+              <h4 class="default-item__title">
                 Глянцевые пленки
               </h4>
-              <p class="verified-materials__item-text">
+              <p class="default-item__text">
                 — придают кузову яркий блеск,<br> усиливая глубину цвета и создавая<br> эффект зеркальной поверхности
               </p>
-              <a class="verified-materials__item-btn _main-btn" href="#">
+              <a class="default-item__btn _main-btn" href="#">
                 Рассчитать стоимость<br>
                 оклейки глянцевой пленкой
               </a>
             </div>
           </div>
-          <div class="verified-materials__item">
-            <div class="verified-materials__item-wrapper">
-              <img class="verified-materials__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/verified-materials-item-2.webp" alt="">
+          <div class="verified-materials__item default-item">
+            <div class="default-item__wrapper">
+              <img class="default-item__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/verified-materials-item-2.webp" alt="">
             </div>
-            <div class="verified-materials__item-info">
-              <h4 class="verified-materials__item-title">
+            <div class="default-item__info">
+              <h4 class="default-item__title">
                 Матовые пленки
               </h4>
-              <p class="verified-materials__item-text">
+              <p class="default-item__text">
                 — придают автомобилю стильный<br>
                 и современный вид, подчеркивая<br>
                 его формы
               </p>
-              <a class="verified-materials__item-btn _main-btn" href="#">
+              <a class="default-item__btn _main-btn" href="#">
                 Рассчитать стоимость<br>
                 оклейки матовой пленкой
               </a>
             </div>
           </div>
-          <div class="verified-materials__item">
-            <div class="verified-materials__item-wrapper">
-              <img class="verified-materials__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/verified-materials-item-3.webp" alt="">
+          <div class="verified-materials__item default-item">
+            <div class="default-item__wrapper">
+              <img class="default-item__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/verified-materials-item-3.webp" alt="">
             </div>
-            <div class="verified-materials__item-info">
-              <h4 class="verified-materials__item-title">
+            <div class="default-item__info">
+              <h4 class="default-item__title">
                 Цветные пленки
               </h4>
-              <p class="verified-materials__item-text">
+              <p class="default-item__text">
                 — позволяют изменить цвет<br>
                 кузова, при этом сохраняя<br>
                 защитные свойства
               </p>
-              <a class="verified-materials__item-btn _main-btn" href="#">
+              <a class="default-item__btn _main-btn" href="#">
                 Рассчитать стоимость<br>
                 оклейки цветной пленкой
               </a>
             </div>
           </div>
-          <div class="verified-materials__item">
-            <div class="verified-materials__item-wrapper">
-              <img class="verified-materials__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/verified-materials-item-4.webp" alt="">
+          <div class="verified-materials__item default-item">
+            <div class="default-item__wrapper">
+              <img class="default-item__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/verified-materials-item-4.webp" alt="">
             </div>
-            <div class="verified-materials__item-info">
-              <h4 class="verified-materials__item-title">
+            <div class="default-item__info">
+              <h4 class="default-item__title">
                 Винилография
               </h4>
-              <p class="verified-materials__item-text">
+              <p class="default-item__text">
                 — нанесение декоративных<br> виниловых пленок для создания<br> уникального дизайна Винилография
               </p>
-              <a class="verified-materials__item-btn _main-btn" href="#">
+              <a class="default-item__btn _main-btn" href="#">
                 Рассчитать стоимость<br>
                 винилографии
               </a>
             </div>
           </div>
-          <div class="verified-materials__item">
-            <div class="verified-materials__item-wrapper">
-              <img class="verified-materials__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/verified-materials-item-5.webp" alt="">
+          <div class="verified-materials__item default-item">
+            <div class="default-item__wrapper">
+              <img class="default-item__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/verified-materials-item-5.webp" alt="">
             </div>
-            <div class="verified-materials__item-info">
-              <h4 class="verified-materials__item-title">
+            <div class="default-item__info">
+              <h4 class="default-item__title">
                 Перламутровые пленки
               </h4>
-              <p class="verified-materials__item-text">
+              <p class="default-item__text">
                 — создают эффект переливающихся<br> цветов, добавляя автомобилю<br> эксклюзивности
               </p>
-              <a class="verified-materials__item-btn _main-btn" href="#">
+              <a class="default-item__btn _main-btn" href="#">
                 Рассчитать стоимость<br>
                 оклейки перламутровой пленкой
               </a>
             </div>
           </div>
-          <div class="verified-materials__item">
-            <div class="verified-materials__item-wrapper">
-              <img class="verified-materials__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/verified-materials-item-6.webp" alt="">
+          <div class="verified-materials__item default-item">
+            <div class="default-item__wrapper">
+              <img class="default-item__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/verified-materials-item-6.webp" alt="">
             </div>
-            <div class="verified-materials__item-info">
-              <h4 class="verified-materials__item-title">
+            <div class="default-item__info">
+              <h4 class="default-item__title">
                 Карбоновые пленки
               </h4>
-              <p class="verified-materials__item-text">
+              <p class="default-item__text">
                 — виниловое покрытие,<br> имитирующее текстуру и внешний<br> вид карбона
               </p>
-              <a class="verified-materials__item-btn _main-btn" href="#">
+              <a class="default-item__btn _main-btn" href="#">
                 Рассчитать стоимость<br>
                 оклейки карбоновой пленкой
               </a>
