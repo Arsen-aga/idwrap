@@ -1,0 +1,165 @@
+@use '../base/mixins' as mixins;
+
+.complex-services {
+  padding-top: var(--indent);
+
+  &__title {
+    display: flex;
+    gap: 25px;
+    text-align: left;
+    justify-content: center;
+
+    @include mixins.lg {
+        flex-direction: column;
+        gap: 15px;
+        br{display: none;}
+    }
+
+    img {
+      max-width: 435px;
+      width: 100%;
+      height: fit-content;
+
+      @include mixins.xl {
+          max-width: 350px;
+      }
+
+      @include mixins.sm {
+          max-width: 300px;
+      }
+    }
+  }
+
+  &__swiper {
+    margin-bottom: 50px;
+
+    @include mixins.xl {
+      margin-bottom: 40px;
+    }
+
+    @include mixins.lg {
+      margin-bottom: 30px;
+    }
+
+    @include mixins.md {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+
+    @include mixins.xl {
+      gap: 15px;
+    }
+
+    @include mixins.lg {
+      grid-auto-flow: column;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      gap: 10px;
+    }
+  }
+
+  &__card {
+    position: relative;
+    padding-bottom: calc(600/585*100%);
+    overflow: hidden;
+    border-radius: 14px;
+
+    @include mixins.lg {
+      width: 320px;
+      height: 350px;
+
+      .overlay {
+        display: block;
+        background-color: rgba($color: #000000, $alpha: 0.5);
+      }
+    }
+  }
+
+  &__card-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    @include mixins.xl {
+      padding: 25px;
+    }
+  }
+
+  &__usluga-list {
+    background-color: var(--light-color);
+    border-radius: 14px;
+    color: var(--dark-brown);
+    padding: 15px 20px;
+    max-width: 225px;
+    font-size: 16px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    gap: 0;
+
+    @include mixins.lg {
+        padding: 15px;
+    }
+
+    li::before {
+      top: 12px;
+    }
+  }
+
+  &__card-sign {
+    height: 32px;
+    max-width: 121px;
+    font-size: 12px;
+    margin-bottom: 10px;
+
+    @include mixins.lg {
+        margin-bottom: 5px;
+    }
+  }
+
+  &__card-title {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: calc(32/24*100%);
+
+    @include mixins.xl {
+      font-size: 22px;
+
+      br {
+        display: none;
+      }
+    }
+
+    @include mixins.lg {
+        font-size: 20px;
+    }
+  }
+
+  &__card-info {
+    color: var(--light-text);
+    margin-top: 10px;
+
+    @include mixins.lg {
+        margin-top: 5px;
+        br{display: none;}
+    }
+  }
+
+  &__card-content {
+    &._last-content {
+      min-height: 168px;
+    }
+  }
+
+}

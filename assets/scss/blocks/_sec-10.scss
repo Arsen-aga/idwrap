@@ -1,0 +1,172 @@
+@use '../base/mixins' as mixins;
+
+.sec-10{
+  &__title{
+    margin-bottom: 0;
+  }
+
+  &__title, &__subtitle{
+    text-align: left;
+  }
+}
+
+.sec-10__container {
+  z-index: 3;
+}
+
+.sec-10__background {
+  width: 100%;
+  max-width: 100%;
+  padding-bottom: 53.125%;
+}
+
+.sec-10__container {
+  margin-top: -18.0208%;
+}
+
+.sec-10__content {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.sec-10__item {
+  width: 100%;
+  position: relative;
+  max-width: calc(50% - 15px);
+}
+
+.sec-10__item ._image-abs {
+  padding-bottom: 102.566%;
+}
+
+.sec-10__item ._image-abs img {
+  border-radius: 14px;
+}
+
+.sec-10__item-textbox {
+  position: absolute;
+  left: 50px;
+  top: 70.667%;
+}
+
+.sec-10__item-title {
+  font-weight: 500;
+      font-size: 24px;
+        line-height: calc(32/24*100%);
+}
+
+.sec-10__item-info {
+  color: #fff;
+  margin-top: 10px;
+}
+
+
+@media (max-width: 1230px) {
+  .sec-10__content {
+    margin-top: 40px;
+  }
+
+  .sec-10__item {
+    max-width: calc(50% - 5px);
+  }
+
+  .sec-10__item-textbox {
+    left: 30px;
+  }
+}
+
+@media (max-width: 991.8px) {
+
+  .sec-10__content {
+    margin-top: 30px;
+  }
+
+  .sec-10__item-textbox {
+    top: 54%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .sec-10__background {
+    position: relative;
+  }
+
+  .sec-10__background::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100px;
+    background: rgb(58, 51, 48);
+    background: linear-gradient(0deg, rgb(58, 51, 48) 0%, rgba(58, 51, 48, 0.5032387955) 50%, rgba(0, 0, 0, 0) 100%);
+  }
+
+  .sec-10__container {
+    margin-top: 0px;
+  }
+
+  .sec-10__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sec-10__item-textbox {
+    position: static;
+    top: unset;
+  }
+
+  .sec-10__item-title {
+    font-size: 22px;
+  }
+
+  .sec-10__item-title br {
+    display: none;
+  }
+
+  .sec-10__item-info {
+    margin-top: 5px;
+  }
+
+  .sec-10__item-info br {
+    display: none;
+  }
+
+  .sec-10__item ._image-abs img {
+    border-radius: 14px 14px 0 0;
+  }
+
+  .sec-10__item-textbox {
+    padding: 10px;
+    background-color: #26211D;
+    border-radius: 0 0 14px 14px;
+    height: 100%;
+  }
+
+  .sec-10__item-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .sec-10__content {
+    flex-wrap: wrap;
+  }
+
+  .sec-10__item {
+    max-width: 100%;
+  }
+
+  .sec-10__item-textbox {
+    padding: unset;
+    background-color: unset;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 10px;
+    height: fit-content;
+  }
+}
