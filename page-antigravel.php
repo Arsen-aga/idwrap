@@ -18,12 +18,20 @@ get_header(); ?>
 
   <!-- каркас инфо -->
   <?php get_template_part('template-parts/sections/carcase-info'); ?>
-  <!-- каркас инфо -->
+  <!-- skin-option -->
   <?php get_template_part('template-parts/sections/skin-option'); ?>
+  <div class="wrapper-brown">
+    <!-- skin-happen блок с карточками -->
+    <?php get_template_part('template-parts/sections/skin-happen'); ?>
+    <!-- большой отступ -->
+    <div class="space-sec"></div>
+    <!-- skin-listimg блок с картинкой и списком -->
+    <?php get_template_part('template-parts/sections/skin-listimg'); ?>
+  </div>
 
   <?php get_template_part('template-parts/sections/pasting-of-any-complexity'); ?>
 
-  <?php get_template_part('template-parts/sections/full-wrapping');?>
+  <?php get_template_part('template-parts/sections/full-wrapping'); ?>
 
   <div class="wrapper-brown">
     <section class="section sec-2">
@@ -2185,7 +2193,7 @@ get_header(); ?>
           <img class="complex-services__card-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-13/oneday.webp"
             alt=" Изображение - услуга оклейка автомобиля за один день">
           <div class="overlay"></div>
-            <div class="complex-services__card-inner">
+          <div class="complex-services__card-inner">
             <div class="complex-services__card-content _last-content">
               <span class="complex-services__card-sign _main-btn">
                 По запросу

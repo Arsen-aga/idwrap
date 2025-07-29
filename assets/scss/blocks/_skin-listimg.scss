@@ -1,0 +1,101 @@
+@use '../base/mixins' as mixins;
+
+.skin-listimg {
+  background-color: var(--dark-brown);
+  position: relative;
+
+  &.img-full{
+    .skin-listimg__img-wrapper{
+      position: relative;
+      width: 100%;
+      height: auto;
+      padding-bottom: calc(600/1920*100%);
+      border-radius: 0;
+
+      @include mixins.md {
+          padding-bottom: 56%;
+      }
+    }
+  }
+
+  @include mixins.lg {
+      display: flex;
+      flex-direction: column-reverse;
+  }
+
+  &__inner {
+    padding: 110px 0;
+    max-width: 600px;
+    padding-right: 15px;
+    
+    @include mixins.xl {
+      padding: var(--indent-md) 0;
+      padding-right: 15px;
+      max-width: 470px;
+    }
+
+    @include mixins.lg {
+        max-width: none;
+    }
+  }
+
+  &__title {
+    text-align: left;
+    margin-bottom: 30px;
+
+    @include mixins.md {
+        margin-bottom: 20px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    gap: 10px;
+
+    @include mixins.xl {
+        gap: 8px;
+    }
+
+    @include mixins.sm {
+        gap: 5px;
+    }
+
+    li::before{
+      top: 12px;
+    }
+  }
+
+  &__list-point {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: calc(28/20*100%);
+
+    @include mixins.xl {
+        font-size: 18px;
+    }
+  }
+
+
+
+
+
+  &__img-wrapper {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    border-radius: 14px;
+    overflow: hidden;
+
+    @include mixins.xl {
+        position: relative;
+        padding-bottom: 56%;
+        width: 100%;
+    }
+  }
+
+  &__img{
+    object-position: left;
+  }
+}
