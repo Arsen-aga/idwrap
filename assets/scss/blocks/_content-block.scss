@@ -1,0 +1,75 @@
+@use '../base/mixins' as mixins;
+
+.content-block {
+  padding-top: var(--indent);
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 400px);
+    gap: 50px;
+
+    @include mixins.xl {
+      gap: 30px;
+    }
+
+    @include mixins.lg {
+      gap: 20px;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__form {
+    background-color: var(--dark-card);
+    border-radius: 14px;
+    background-image: url(../images/content-block-form.webp);
+    height: fit-content;
+    padding: 30px 30px 308px;
+
+    @include mixins.lg {
+      max-width: 400px;
+      margin: 0 auto;
+      padding-bottom: 200px;
+    }
+
+    @include mixins.sm {
+      padding-bottom: 100px;
+    }
+
+    @include mixins.xs {
+        padding: 30px;
+    }
+  }
+
+  &__form-title {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: calc(40/32*100%);
+
+    @include mixins.sm {
+      font-size: 24px;
+    }
+  }
+
+  &__form-subtitle {
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: calc(30/22*100%);
+
+    @include mixins.sm {
+      font-size: 20px;
+    }
+  }
+
+  &__form-inputs {
+    margin-top: 20px;
+
+    @include mixins.sm {
+        margin-top: 10px;
+    }
+  }
+
+  &__form-policy {
+    margin-left: 0;
+  }
+}
