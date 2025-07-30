@@ -1,9 +1,15 @@
 <section class="sec-7">
   <div class="sec-7__container container">
+    <?php if(get_field('sec-7_title')):?>
     <h2 class="sec-7__title _title">
-      Успешно реализуем самые сложные <br>
-      и нестандартные проекты
+      <?php the_field('sec-7_title'); ?>
     </h2>
+    <?php endif; ?>
+    <?php if(get_field('sec-7_subtitle')) :?>
+    <p class="sec-7__subtitle _subtitle">
+      <?php the_field('sec-7_subtitle'); ?>
+    </p>
+    <?php endif; ?>
   </div>
   <div class="sec-7__background _image-abs">
     <img class="_img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-07/background.webp" alt=" Изображение - зеленая машина баннер">
