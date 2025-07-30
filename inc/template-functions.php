@@ -35,3 +35,7 @@ function customthemes_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'customthemes_pingback_header' );
+
+
+// Меню
+require get_template_directory() . '/inc/walkerMenu.php';

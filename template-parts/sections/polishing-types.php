@@ -177,6 +177,11 @@ function variant_3(){
                 <h4 class="default-item__title">
                   <?php the_sub_field('card_title'); ?>
                 </h4>
+                <?php if(get_sub_field('card_text')) :?>
+                <p class="default-elem__text polishing-types__item-text">
+                  <?php the_sub_field('card_text');?>
+                </p>
+                <?php endif; ?>
                 <?php if(have_rows('card_list')) :?>
                 <ul class="default-item__list default-item__text list-point">
                   <?php while(have_rows('card_list')) : the_row(); ?>

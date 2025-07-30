@@ -63,7 +63,7 @@
       <div class="header-bottom">
         <div class="container">
           <nav class="header-bottom__menu">
-            <ul class="header-bottom__menu-list">
+            <!-- <ul class="header-bottom__menu-list">
               <li class="header-bottom__menu-item">
                 <a class="header-bottom__menu-link" href="#">
                   Услуги
@@ -178,7 +178,19 @@
                   Контакты
                 </a>
               </li>
+            </ul> -->
+            <ul class="header-bottom__menu-list">
+                <?php
+                wp_nav_menu(array(
+                    'menu' => 'mainMenu',
+                    'container' => false,
+                    'items_wrap' => '%3$s',
+                    'walker' => new Custom_Header_Menu_Walker(),
+                    'depth' => 3
+                ));
+                ?>
             </ul>
+
             <a class="header__map header-bottom__menu-map" href="https://yandex.ru/maps/-/CHcs6XPF" target="_blank">
               <img class="header-bottom__map-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/map-point.webp" alt="map-point">
               <p class="header__map-text">
