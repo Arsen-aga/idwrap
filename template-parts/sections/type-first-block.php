@@ -29,9 +29,9 @@
           <?php while(have_rows('type-first-block_list')) : the_row();
           $icon = get_sub_field('list_icon'); ?>
           <li class="front-block__point">
-            <?php if($icon) {
-              echo $icon['url'];
-            } else {
+            <?php if($icon) { ?>
+              <img src="<?php echo $icon['url'];?>">
+            <?php } else {
               include(get_template_directory() . '/assets/images/icons/front-block-1.svg');
             }?>
             <p class="front-block__point-text">
