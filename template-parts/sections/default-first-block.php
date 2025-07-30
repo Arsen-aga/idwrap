@@ -14,7 +14,7 @@
       </div>
       <div class="front-block__top">
         <h1 class="front-block__title _title-1">
-          Акции студии детейлинга
+          <?php wp_title('');?>
         </h1>
         <?php include(get_template_directory() . '/assets/images/icons/logo.svg'); ?>
       </div>
