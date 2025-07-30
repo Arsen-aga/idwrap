@@ -31,7 +31,7 @@ get_header(); ?>
 
   <?php get_template_part('template-parts/sections/polishing-types'); ?>
 
-  <?php get_template_part('template-parts/sections/materials-manufactures'); ?>
+  <?php get_template_part('template-parts/sections/materials-manufacturers'); ?>
 
   <?php get_template_part('template-parts/sections/sec-7'); ?>
 

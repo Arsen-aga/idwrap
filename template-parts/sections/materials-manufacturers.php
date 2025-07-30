@@ -1,77 +1,39 @@
+<?php if(have_rows('materials-manufacturers_cards')) :?>
 <section class="materials-manufacturers">
   <div class="container">
     <h2 class="materials-manufacturers__title _title">
-      Используем только проверенные<br>
-      материалы от ведущих мировых<br>
-      производителей
+      <?php the_field('materials-manufacturers_title'); ?>
     </h2>
     <div class="cursor">
       <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
     </div>
     <div class="materials-manufacturers__items">
+      <?php while(have_rows('materials-manufacturers_cards')) : the_row();
+      $img = get_sub_field('card_img'); ?>
       <div class="default-item materials-manufacturers__item">
         <div class="default-item__wrapper">
-          <img class="default-item__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/polishing-types-1.webp" alt="">
+          <img class="default-item__img _img" src="<?php echo $img['url'];?>" alt="<?php echo $img['alt'];?>">
         </div>
         <div class="default-item__info">
+          <?php if(get_sub_field('card_title')) :?>
           <h4 class="default-item__title">
-            Используем только<br> премиальные пасты
+            <?php the_sub_field('card_title'); ?>
           </h4>
+          <?php endif; ?>
+          <?php if(get_sub_field('card_text')) :?>
           <p class="default-item__text materials-manufacturers__item-text">
-            с низким уровнем пыли<br>
-            и высокой степенью<br> финишного блеска
+            <?php the_sub_field('card_text'); ?>
           </p>
+          <?php endif; ?>
+          <?php if(get_sub_field('card_textColor')) :?>
           <p class="default-item__text-primary">
-            Menzerna, Gyeon,<br>
-            Sonax, Koch
+            <?php the_sub_field('card_textColor'); ?>
           </p>
+          <?php endif; ?>
         </div>
       </div>
-      <div class="default-item materials-manufacturers__item">
-        <div class="default-item__wrapper">
-          <img class="default-item__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/polishing-types-1.webp" alt="">
-        </div>
-        <div class="overlay"></div>
-        <div class="default-item__info">
-          <h4 class="default-item__title">
-            Работаем с<br> ультратонкими<br> абразивами
-          </h4>
-          <p class="default-item__text materials-manufacturers__item-text">
-            и антиголограммными<br> составами для идеального<br> финиша
-          </p>
-        </div>
-      </div>
-      <div class="default-item materials-manufacturers__item">
-        <div class="default-item__wrapper">
-          <img class="default-item__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/polishing-types-1.webp" alt="">
-        </div>
-        <div class="overlay"></div>
-        <div class="default-item__info">
-          <h4 class="default-item__title">
-            Применяем<br> индивидуальный<br> подбор<br> полировальных<br> кругов
-          </h4>
-          <p class="default-item__text materials-manufacturers__item-text">
-            для каждого типа лака
-          </p>
-          <p class="default-item__text-primary">
-            3M, Koch Chemie, Zvizzer
-          </p>
-        </div>
-      </div>
-      <div class="default-item materials-manufacturers__item">
-        <div class="default-item__wrapper">
-          <img class="default-item__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/polishing-types-1.webp" alt="">
-        </div>
-        <div class="overlay"></div>
-        <div class="default-item__info">
-          <h4 class="default-item__title">
-            Применяем<br> полировальные<br> системы
-          </h4>
-          <p class="default-item__text materials-manufacturers__item-text">
-            с градацией по твёрдости<br> для точной коррекции под<br> каждый тип лака
-          </p>
-        </div>
-      </div>
+      <?php endwhile; ?>
     </div>
   </div>
 </section>
+<?php endif; ?>
