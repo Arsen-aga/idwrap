@@ -1,0 +1,117 @@
+@use '../base/mixins' as mixins;
+
+
+.course-include {
+  padding-top: var(--indent);
+
+  &__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 600px) minmax(0, 570px);
+    gap: 30px;
+
+    @include mixins.xl {
+      grid-template-columns: minmax(0, 500px) 1fr;
+      gap: 20px;
+    }
+
+    @include mixins.lg {
+        grid-template-columns: 1fr;
+    }
+  }
+
+  &__right-wrapper {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 14px;
+
+    @include mixins.lg {
+        display: none;
+    }
+  }
+
+
+  &__top {
+    padding-bottom: 65px;
+    margin-bottom: 65px;
+    border-bottom: 1px solid rgba($color: #FFFFFF, $alpha: 0.1);
+
+    @include mixins.xl {
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    text-align: left;
+
+    @include mixins.lg {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__top-list {
+    display: grid;
+    gap: 10px;
+    font-size: 20px;
+    line-height: calc(28/20*100%);
+
+    @include mixins.md {
+        font-size: 18px;
+        gap: 8px;
+    }
+
+    @include mixins.xs {
+        gap: 5px;
+    }
+
+    li::before {
+      top: 12px;
+    }
+  }
+
+  &__bottom-list {
+    display: grid;
+    gap: 20px;
+    margin-bottom: 40px;
+
+    @include mixins.xl {
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+  }
+
+  &__bottom-point {
+    position: relative;
+    padding-left: 47px;
+    
+    @include mixins.sm {
+        padding-left: 35px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      background-color: var(--primary);
+      left: 0;
+      top: 13px;
+      width: 32px;
+      height: 2px;
+
+      @include mixins.sm {
+          width: 20px;
+      }
+    }
+
+    span {
+      font-weight: 500;
+    }
+  }
+
+  &__bottom-btn {
+    max-width: 360px;
+  }
+
+}

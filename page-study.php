@@ -264,7 +264,67 @@ get_header(); ?>
   </div>
 
   <!-- Что включено? -->
-   
+  <section class="course-include">
+    <div class="container">
+      <div class="course-include__inner">
+        <div class="course-include__left">
+          <div class="course-include__top">
+            <h2 class="course-include__title _title">
+              Что включено?
+            </h2>
+            <ul class="course-include__top-list list-point">
+              <li class="course-include__top-point">
+                Плёнка и инструменты — входят в стоимость
+              </li>
+              <li class="course-include__top-point">
+                Чёткая программа: без воды, только нужные навыки
+              </li>
+              <li class="course-include__top-point">
+                Наставничество и обратная связь 1 на 1
+              </li>
+              <li class="course-include__top-point">
+                Прямой контакт с руководством и шанс попасть в команду
+              </li>
+            </ul>
+          </div>
+          <div class="course-include__bottom">
+            <h2 class="course-include__title _title">
+              Условия участия
+            </h2>
+            <ul class="course-include__bottom-list">
+              <li class="course-include__bottom-point">
+                <span>Стоимость курса:</span><br>
+                300 000₽
+              </li>
+              <li class="course-include__bottom-point">
+                <span>Предоплата</span> — 50% для<br>
+                бронирования места
+              </li>
+              <li class="course-include__bottom-point">
+                <span>Оставшиеся 50%</span> — после<br>
+                первого дня обучения
+              </li>
+            </ul>
+            <a class="course-include__bottom-btn _main-btn" href="#" data-fancybox="">
+              Получить консультацию<br>
+              по обучению
+            </a>
+          </div>
+        </div>
+        <div class="course-include__right">
+          <div class="course-include__right-wrapper">
+            <img class="course-include__right-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/course-include.webp" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrapper-brown">
+    <?php get_template_part('template-parts/sections/pasting-of-any-complexity'); ?>
+  </div>
+  <?php get_template_part('template-parts/sections/sec-14'); ?>
+  <?php get_template_part('template-parts/sections/map'); ?>
 </main>
 
 <?php get_footer(); ?>
