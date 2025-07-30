@@ -90,53 +90,45 @@
     </div>
 
     <!-- Технический блок (вариант 3) -->
+    <?php if(have_rows('verified-materials_list')) :?>
     <div class="verified-materials__list">
+      <?php $listImg = get_field('verified-materials_listImg');
+      if($listImg) : ?>
       <div class="verified-materials__list-left">
         <div class="verified-materials__list-wrapper">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/verified-materials-6.webp" alt="Технологии" class="_img">
+          <img src="<?php echo $listImg['url'];?>" alt="<?php echo $listImg['alt'];?>" class="_img">
         </div>
       </div>
+      <?php endif; ?>
       <div class="verified-materials__list-items">
-
+        <?php while(have_rows('verified-materials_list')) : the_row();
+        $icon = get_sub_field('point_icon'); ?>
         <div class="verified-materials__list-item">
           <div class="verified-materials__list-icon">
             <?php include(get_template_directory() . '/assets/images/icons/verified-materials-1.svg'); ?>
           </div>
+          <?php if(get_sub_field('point_title')) :?>
           <h4 class="verified-materials__list-title">
-            Самовосстанавливающееся<br>
-            покрытие
+            <?php the_sub_field('point_title'); ?>
           </h4>
+          <?php endif; ?>
+          <?php if(get_sub_field('point_text')):?>
           <p>
-            Текст
+            <?php the_sub_field('point_text'); ?>
           </p>
+          <?php endif; ?>
+          <?php if(have_rows('point_list')) :?>
           <ul>
-            <li>Пункт</li>
-            <li>Пункт</li>
-            <li>Пункт</li>
-            <li>Пункт</li>
+            <?php while(have_rows('point_list')) : the_row(); ?>
+            <li><?php the_sub_field('item'); ?></li>
+            <?php endwhile; ?>
           </ul>
+          <?php endif; ?>
         </div>
-        <div class="verified-materials__list-item">
-          <div class="verified-materials__list-icon">
-            <?php include(get_template_directory() . '/assets/images/icons/verified-materials-1.svg'); ?>
-          </div>
-          <h4 class="verified-materials__list-title">
-            Самовосстанавливающееся<br>
-            покрытие
-          </h4>
-        </div>
-        <div class="verified-materials__list-item">
-          <div class="verified-materials__list-icon">
-            <?php include(get_template_directory() . '/assets/images/icons/verified-materials-1.svg'); ?>
-          </div>
-          <h4 class="verified-materials__list-title">
-            Самовосстанавливающееся<br>
-            покрытие
-          </h4>
-        </div>
-        <!-- Остальные 2 элемента -->
+        <?php endwhile; ?>
       </div>
     </div>
+    <?php endif; ?>
 
     <?php if(get_field('verified-materials_cardsTitle')) :?>
     <h2 class="verified-materials__title _title">
