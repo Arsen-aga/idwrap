@@ -563,6 +563,7 @@
         </div>
       </div>
     </div>
+
     <div class="verified-materials__blocks">
       <div class="verified-materials__block">
         <h4 class="verified-materials__block-title">
