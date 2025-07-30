@@ -1,14 +1,4 @@
 <?php
-
-/**
- * Template Name: Акции
- * http://dontforget.pro
- * @package WordPress
- * @subpackage clean
- */
-
-
-
 get_header();
 ?>
 

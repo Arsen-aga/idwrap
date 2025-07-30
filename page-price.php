@@ -1,13 +1,5 @@
 <?php
 
-/**
- * Template Name: Цены 
- * http://dontforget.pro
- * @package WordPress
- * @subpackage clean
- */
-
-
 get_header(); ?>
 <main class="main" id="price-page">
   <section class="front-block _image-wrapper" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/front-bg-2.webp);">

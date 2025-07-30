@@ -1,13 +1,5 @@
 <?php
 
-/**
- * Template Name: Оклейка (sourse)
- * http://dontforget.pro
- * @package WordPress
- * @subpackage clean
- */
-
-
 get_header(); ?>
 <main class="main" id="okleyka-page">
   <section class="front-block _image-wrapper" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/front-bg-3.webp);">
