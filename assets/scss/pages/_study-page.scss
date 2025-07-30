@@ -1,0 +1,115 @@
+@use '../base/mixins' as mixins;
+
+
+#study-page {
+  .front-block {
+    padding: 0;
+
+    &__inner {
+      padding: 130px 0;
+
+      @include mixins.lg {
+        padding-bottom: 60px;
+      }
+    }
+
+    &__title {
+      font-size: 54px;
+      line-height: calc(64/54*100%);
+      text-align: left;
+      margin-bottom: 0;
+
+      @include mixins.xl {
+        font-size: 52px;
+      }
+
+      @include mixins.lg {
+        font-size: 42px;
+
+        br {
+          display: none;
+        }
+      }
+
+      @include mixins.md {
+        font-size: 36px;
+
+        br {
+          display: none;
+        }
+      }
+
+      @include mixins.sm {
+        font-size: 30px;
+      }
+
+      img {
+        display: inline-block;
+        max-width: 272px;
+        width: 100%;
+
+        @include mixins.xl {
+          max-width: 220px;
+        }
+
+        @include mixins.md {
+            max-width: 160px;
+        }
+
+        @include mixins.xs {
+            max-width: 125px;
+        }
+      }
+    }
+
+    &__subtitle {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      font-size: 26px;
+      line-height: calc(34/26*100%);
+      margin: 20px 0 45px;
+      padding-left: 0;
+      text-align: left;
+
+      @include mixins.xl {
+        margin-bottom: 30px;
+      }
+
+      @include mixins.lg {
+        margin: 15px 0 20px;
+        font-size: 22px;
+      }
+
+      @include mixins.md {
+        margin: 10px 0 15px;
+      }
+
+      svg {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        min-height: 30px;
+      }
+
+      &::after,
+      &::before {
+        display: none;
+      }
+
+    }
+
+    &__btns {
+      justify-content: start;
+      gap: 30px;
+
+      @include mixins.md {
+        gap: 15px;
+        flex-direction: column;
+        max-width: 360px;
+      }
+    }
+
+
+  }
+}
