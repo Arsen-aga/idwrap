@@ -52,6 +52,9 @@
 @use 'blocks/blog-artikles';
 @use 'blocks/recommended-articles';
 @use 'blocks/content-block';
+@use 'blocks/for-whom';
+@use 'blocks/course-inner';
+@use 'blocks/who-teaches';
 
 
 
@@ -75,3 +78,4 @@
 @use 'pages/price-page';
 @use 'pages/okleyka-page';
 @use 'pages/skin-single';
+@use 'pages/study-page';

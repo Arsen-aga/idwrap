@@ -1,0 +1,68 @@
+@use '../base/mixins' as mixins;
+
+
+.for-whom {
+  padding-top: var(--indent);
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    @include mixins.xl {
+      gap: 15px;
+    }
+
+    @include mixins.lg {
+      grid-auto-flow: column;
+      padding-bottom: 10px;
+      overflow-x: auto;
+      gap: 10px;
+    }
+  }
+
+  &__item {
+    border: 1px solid rgba($color: #FFFFFF, $alpha: 0.1);
+    border-radius: 14px;
+    padding: 30px;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--dark-card);
+      border: 0px;
+      scale: 1.05;
+    }
+
+    @include mixins.lg {
+      width: 300px;
+    }
+  }
+
+  &__item-icon {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    min-height: 56px;
+    background-color: var(--primary);
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  &__item-title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+
+    @include mixins.lg {
+      font-size: 22px;
+    }
+  }
+
+  &__item-text{
+    margin-top: 10px;
+  }
+}
