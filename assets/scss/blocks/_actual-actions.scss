@@ -1,0 +1,185 @@
+@use '../base/mixins' as mixins;
+
+.actual-actions {
+  padding-top: var(--indent);
+
+  &__title{
+    position: relative;
+    z-index: 1;
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 475px);
+    gap: 10px;
+    margin-bottom: 30px;
+
+    @include mixins.xl {
+      grid-template-columns: 1fr minmax(0, 360px);
+    }
+
+    @include mixins.lg {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__form {
+    position: relative;
+    background-image: url(../images/icons/actual-actions-form-bg.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 14px;
+    padding: 35px;
+
+    @include mixins.xs {
+        padding: 20px;
+    }
+  }
+
+  &__form-sup {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    border-radius: 50%;
+    width: 142px;
+    height: 142px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--page-bg);
+
+    @include mixins.xl {
+      top: -18px;
+      right: -18px;
+    }
+    
+    @include mixins.md {
+      top: -40px;
+      right: -40px;   
+    }
+  }
+
+  &__form-suptitle {
+    max-width: 205px;
+    height: 44px;
+    margin-bottom: 20px;
+
+    @include mixins.sm {
+        margin-bottom: 10px;
+    }
+  }
+
+  &__form-title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: calc(32/24*100%);
+
+    @include mixins.sm {
+        font-size: 22px;
+    }
+  }
+
+  &__form-text {
+    margin-top: 10px;
+    color: var(--light-text);
+
+    @include mixins.sm {
+        margin-top: 8px;
+        br{display: none;}
+    }
+  }
+
+  &__form-inputs {
+    position: relative;
+    margin-top: 30px;
+    gap: 5px;
+
+    @include mixins.lg {
+        max-width: none;
+    }
+
+    @include mixins.sm {
+        margin-top: 20px;
+    }
+  }
+
+  &__form-gift {
+    position: absolute;
+    right: 13px;
+    bottom: 68px;
+
+    @include mixins.sm {
+        width: 150px;
+        height: 150px;
+        bottom: 75px;
+    }
+  }
+
+  &__form-inp {
+    max-width: 310px;
+    position: relative;
+
+    @include mixins.md {
+        max-width: none;
+        width: 100%;
+    }
+  }
+
+  &__form-btn {
+    max-width: 330px;
+    position: relative;
+
+    @include mixins.md {
+        max-width: none;
+        width: 100%;
+    }
+  }
+
+  &__form-policy {
+    margin: 10px auto 0;
+
+    @include mixins.xs {
+      label{
+        font-size: 11px;
+      }
+    }
+  }
+
+  &__inner-right {
+    @include mixins.lg {
+      display: none;
+    }
+  }
+
+  &__inner-wrapper {
+    position: relative;
+    padding-bottom: calc(427/475*100%);
+    overflow: hidden;
+    border-radius: 14px;
+    height: 100%;
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    @include mixins.xl {
+      gap: 15px;
+    }
+
+    @include mixins.lg {
+      grid-auto-flow: column;
+      padding-bottom: 10px;
+      overflow-x: auto;
+      gap: 10px;
+    }
+  }
+
+  &__item {
+    @include mixins.lg {
+      width: 320px;
+    }
+  }
+}

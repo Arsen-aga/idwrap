@@ -5,6 +5,9 @@
       материалы от ведущих мировых<br>
       производителей
     </h2>
+    <div class="cursor">
+      <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+    </div>
     <div class="materials-manufacturers__items">
       <div class="default-item materials-manufacturers__item">
         <div class="default-item__wrapper">
