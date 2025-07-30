@@ -94,6 +94,15 @@ function variant_2(){
               <h4 class="default-item__title">
                 <?php the_sub_field('card_title'); ?>
               </h4>
+              <?php if(have_rows('card_list')) :?>
+                <ul class="default-item__list default-item__text list-point">
+                  <?php while(have_rows('card_list')) : the_row(); ?>
+                  <li class="default-item__list-point">
+                    <?php the_sub_field('list_point'); ?>
+                  </li>
+                  <?php endwhile; ?>
+                </ul>
+              <?php endif; ?>
               <a class="default-item__btn _main-btn" href="#">
                 Рассчитать стоимость
               </a>
@@ -135,6 +144,15 @@ function variant_3(){
               <h4 class="default-item__title">
                 <?php the_sub_field('card_title'); ?>
               </h4>
+              <?php if(have_rows('card_list')) :?>
+                <ul class="default-item__list default-item__text list-point">
+                  <?php while(have_rows('card_list')) : the_row(); ?>
+                  <li class="default-item__list-point">
+                    <?php the_sub_field('list_point'); ?>
+                  </li>
+                  <?php endwhile; ?>
+                </ul>
+              <?php endif; ?>
               <a class="default-item__btn _main-btn" href="#">
                 Рассчитать стоимость
               </a>

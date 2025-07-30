@@ -1,13 +1,5 @@
 <?php
 
-/**
- * Template Name: Статья
- * http://dontforget.pro
- * @package WordPress
- * @subpackage clean
- */
-
-
 
 get_header();
 ?>

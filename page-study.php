@@ -1,13 +1,5 @@
 <?php
 
-/**
- * Template Name: Обучение 
- * http://dontforget.pro
- * @package WordPress
- * @subpackage clean
- */
-
-
 get_header(); ?>
 <!-- Для этой страницы вот такой айди, потому что она отличается от всех -->
 <main class="main" id="study-page">

@@ -8,58 +8,44 @@
   <div class="sec-7__background _image-abs">
     <img class="_img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-07/background.webp" alt=" Изображение - зеленая машина баннер">
   </div>
+  <?php if(have_rows('sec-7_cards')): ?>
   <div class="sec-7__container container relative">
     <div class="sec-7__content">
+      <?php while(have_rows('sec-7_cards')) : the_row();?>
       <div class="sec-7__card">
         <div class="sec-7__card-textbox">
+          <?php if(get_sub_field('card_title')) : ?>
           <p class="sec-7__card-title _card-title">
-            Умеем работать <br>
-            с цветным полиуретаном,
+            <?php the_sub_field('card_title'); ?>
           </p>
+          <?php endif; ?>
+          <?php if(get_sub_field('card_text')) :?>
           <p class="sec-7__card-info _card-info">
-            укладывая его без засветов, <br>
-            что является сложной задачей <br>
-            для большинства студий
+            <?php the_sub_field('card_text'); ?>
           </p>
+          <?php endif; ?>
+          <?php if(have_rows('card_list')):?>
+          <ul>
+            <?php while(have_rows('card_list')) : the_row(); ?>
+            <li><?php the_sub_field('list_point'); ?></li>
+            <?php endwhile;?>
+          </ul>
+          <?php endif; ?>
+          <?php if(get_sub_field('card_textColor')) :?>
+          <p class="sec-7__card-info _card-info">
+            <?php the_sub_field('card_textColor'); ?>
+          </p>
+          <?php endif; ?>
         </div>
         <div class="sec-7__card-logo">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo-dark.svg" alt=" Изображение - ">
         </div>
       </div>
-      <div class="sec-7__card">
-        <div class="sec-7__card-textbox">
-          <p class="sec-7__card-title _card-title">
-            Умеем оклеивать <br>
-            сложные автомобили,
-          </p>
-          <p class="sec-7__card-info _card-info">
-            с нестандартными конструктивными <br>
-            элементами и большим количество <br>
-            деталей
-          </p>
-        </div>
-        <div class="sec-7__card-logo">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo-dark.svg" alt=" Изображение - ">
-        </div>
-      </div>
-      <div class="sec-7__card">
-        <div class="sec-7__card-textbox">
-          <p class="sec-7__card-title _card-title">
-            Выполняем оклейку даже <br>
-            нестандартных элементов,
-          </p>
-          <p class="sec-7__card-info _card-info">
-            например, дверных проемов, чтобы <br>
-            родной цвет вашего авто остался <br>
-            только в подкапотном пространстве
-          </p>
-        </div>
-        <div class="sec-7__card-logo">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo-dark.svg" alt=" Изображение - ">
-        </div>
-      </div>
+      <?php endwhile; ?>
     </div>
   </div>
+  <?php endif; ?>
+
   <div class="sec-7__gallery swiper01 swiper">
     <div class="swiper-wrapper">
       <div class="sec-7__gallery-item swiper-slide">
