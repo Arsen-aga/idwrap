@@ -29,6 +29,14 @@
     min-height: 232px;
     max-width: 232px;
     width: 100%;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+
+    &:hover{
+      scale: 1.1;
+      background-color: var(--dark-card);
+      border: 0px;
+    }
 
     @include mixins.lg {
         width: 232px;

@@ -1,0 +1,62 @@
+@use '../base/mixins' as mixins;
+
+.more-info {
+  padding-top: var(--indent);
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    @include mixins.xl {
+      gap: 15px;
+    }
+
+    @include mixins.lg {
+      grid-auto-flow: column;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+  }
+
+  &__item {
+    height: 500px;
+
+    @include mixins.xl {
+      height: 400px;
+    }
+
+    @include mixins.lg {
+      width: 320px;
+    }
+
+    .default-card {
+      &__inner {
+        justify-content: end;
+        align-items: center;
+      }
+
+      &__title {
+        font-size: 32px;
+
+        @include mixins.xl {
+            font-size: 28px;
+        }
+
+        @include mixins.lg {
+            font-size: 26px;
+        }
+
+        @include mixins.sm {
+          font-size: 24px;
+        }
+      }
+
+      &__btns {
+        max-width: 246px;
+        margin-top: 20px;
+      }
+    }
+  }
+}
