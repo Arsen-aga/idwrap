@@ -1,4 +1,17 @@
-<section class="section sec-12">
+<?php $typeImg = get_field('sec-12_typeImg');
+switch($typeImg){
+  case 'salon':
+    $backImg = get_template_directory_uri() . '/assets/salon.webp';
+    break;
+  case 'car':
+    $backImg = get_template_directory_uri() . '/assets/car.webp';
+    break;
+  case 'headlight':
+    $backImg = get_template_directory_uri() . '/assets/headlight.webp';
+    break;
+}
+?>
+<section class="section sec-12" style="background-image: url(<?php echo $backImg;?>);">
   <div class="sec-12__container container">
     <h2 class="sec-12__title _title">
       Получите промокод <br>
