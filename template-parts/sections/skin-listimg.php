@@ -2,7 +2,7 @@
 $list = get_field('skin-listimg_list');
 $img = get_field('skin-listimg_img');
 if($list || $img) : ?>
-<section class="skin-listimg img-full">
+<section class="skin-listimg <?php if(!$list){echo 'img-full';}?>">
   <?php if(have_rows('skin-listimg_list')) : ?>
   <div class="skin-listimg__content">
     <div class="container">
