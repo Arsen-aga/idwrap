@@ -12,8 +12,8 @@
 @use 'components/default-card';
 @use 'components/default-item';
 @use 'components/default-elem';
+@use 'components/action-card';
 @use 'components/main-swiper';
-@use 'components/accordion';
 
 
 
@@ -48,6 +48,9 @@
 @use 'blocks/polishing-types';
 @use 'blocks/materials-manufacturers';
 @use 'blocks/actual-actions';
+@use 'blocks/more-info';
+@use 'blocks/blog-artikles';
+@use 'blocks/recommended-articles';
 
 
 

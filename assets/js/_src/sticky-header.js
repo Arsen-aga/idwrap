@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(){
 
-  const header = document.querySelector(".header");
+  const header = document.querySelector(".header-bottom");
 
 if (header) {
   function checkСoordinatesElem(elem) {

@@ -1,0 +1,99 @@
+@use '../base/mixins' as mixins;
+
+.action-card {
+  display: flex;
+  flex-direction: column;
+  transition: all .3s ease-in-out;
+  border-radius: 14px;
+
+  &:hover{
+    background-color: var(--dark-card);
+
+    .action-card__link{
+      span{
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    padding-bottom: calc(280/380*100%);
+    overflow: hidden;
+    border-radius: 14px;
+  }
+
+  &__date {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    left: 15px;
+    bottom: 15px;
+  }
+
+  &__date-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: calc(24/16*100%);
+    color: var(--light-text);
+  }
+
+  &__info {
+    padding: 25px 15px 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @include mixins.xl {
+        padding-top: 15px;
+    }
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: calc(32/24*100%);
+    color: var(--light-color);
+
+    @include mixins.xl {
+        font-size: 22px;
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    color: var(--light-text);
+    margin-top: 10px;
+    margin-bottom: auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+
+    @include mixins.xl {
+        margin-top: 15px;
+    }
+
+    span {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: calc(24/16*100%);
+      text-decoration: underline;
+      color: var(--primary);
+      text-underline-offset: 3px;
+    }
+
+    svg{
+      margin-top: 4px;
+    }
+  }
+}

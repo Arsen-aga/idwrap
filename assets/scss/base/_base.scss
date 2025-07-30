@@ -748,33 +748,57 @@ a {
 
 
 .pagination {
-  margin: 75px auto;
+  margin: 40px auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 22px;
+  gap: 5px;
 
   @include mixins.xl {
-    margin: 40px auto;
+    margin: 30px auto;
   }
 
   @include mixins.lg {
     margin: 20px auto;
   }
 
-  @include mixins.xs {
-    gap: 15px;
-  }
-
   &__link {
     font-weight: 400;
-    font-size: 16px;
-    line-height: calc(28/16*100%);
-    color: var(--accent);
+    font-size: 14px;
+    display: flex;
+    align-items: start;
+    gap: 10px;
+    padding: 12px 20px 14px;
+    line-height: 1;
+    color: var(--light-text);
     transition: all .3s ease-in-out;
+    border: 1px solid var(--light-text);
+    border-radius: 40px;
+
+    svg {
+      transform: translateY(3px);
+
+      path {
+        transition: all .3s ease-in-out;
+        fill: var(--light-text);
+      }
+    }
+
+    &.pagination-prev {
+      svg {
+        rotate: 180deg;
+        transform: translateY(-3px);
+      }
+    }
 
     &:hover {
-      color: var(--primary);
+      color: var(--light-color);
+      background-color: var(--primary);
+      border: 1px solid var(--light-color);
+
+      svg path {
+        fill: var(--light-color);
+      }
     }
   }
 
@@ -786,19 +810,20 @@ a {
   }
 
   &__step {
-    width: 44px;
-    min-width: 44px;
-    height: 44px;
-    min-height: 44px;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    min-height: 40px;
     border-radius: 50%;
-    background-color: #FAFAFA;
+    background-color: var(--page-bg);
     font-weight: 400;
-    font-size: 15px;
-    line-height: calc(28/15*100%);
-    color: var(--default-color);
+    font-size: 14px;
+    line-height: 1;
+    color: var(--light-text);
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid var(--light-text);
     transition: all .3s ease-in-out;
 
     @include mixins.xs {
@@ -810,15 +835,17 @@ a {
 
     &:hover,
     &.active {
-      background-color: var(--accent);
+      background-color: var(--primary);
       color: var(--light-color);
+      border: 1px solid var(--primary);
     }
   }
 }
 
 .more-btn {
   margin: 0 auto;
-  max-width: 335px;
+  gap: 10px;
+  max-width: 360px;
 }
 
 

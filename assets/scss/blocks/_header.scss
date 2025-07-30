@@ -2,8 +2,8 @@
 
 .header {
   background-color: var(--dark-brown);
-  
-  &.no-bg{
+
+  &.no-bg {
     position: absolute;
     top: 0;
     z-index: 1;
@@ -16,7 +16,7 @@
     padding: 25px 0;
 
     @include mixins.md {
-        padding: 15px 0;
+      padding: 15px 0;
     }
   }
 
@@ -33,7 +33,7 @@
     gap: 120px;
 
     @include mixins.xl {
-        gap: 35px;
+      gap: 35px;
     }
   }
 
@@ -69,14 +69,15 @@
     width: 100%;
 
     @include mixins.md {
-        max-width: none;
-        width: auto;
+      max-width: none;
+      width: auto;
     }
   }
 
   &__social-block {
     width: 100%;
   }
+
   &__social-left {
     @include mixins.md {
       display: none;
@@ -92,6 +93,8 @@
   &.sticky {
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
     width: 100%;
     margin-top: 0;
@@ -106,7 +109,7 @@
     gap: 50px;
 
     @include mixins.xl {
-        gap: 15px;
+      gap: 15px;
     }
   }
 
@@ -114,8 +117,9 @@
     display: flex;
     align-items: center;
     gap: 50px;
+
     @include mixins.xl {
-        gap: 20px;
+      gap: 20px;
     }
 
     @include mixins.lg {
@@ -274,7 +278,7 @@
     font-size: 16px;
     line-height: calc(24/16*100%);
     color: var(--light-color);
-    
+
     &::placeholder {
       font-size: 16px;
       line-height: calc(24/16*100%);
