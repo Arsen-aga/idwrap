@@ -3,7 +3,7 @@ class Custom_Header_Menu_Walker extends Walker_Nav_Menu {
     // Начало элемента меню
     public function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
         $classes = empty($item->classes) ? array() : (array) $item->classes;
-        $class_names = join(' ', apply_filters('nav_menu_css_class'), array_filter($classes), $item, $args, $depth);
+        $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args, $depth));
 
         // Определяем классы для разных уровней
         if ($depth == 0) {
@@ -22,7 +22,7 @@ class Custom_Header_Menu_Walker extends Walker_Nav_Menu {
         $atts['title']  = !empty($item->attr_title) ? $item->attr_title : '';
         $atts['target'] = !empty($item->target) ? $item->target : '';
         $atts['rel']    = !empty($item->xfn) ? $item->xfn : '';
-        $atts['href']   = !empty($item->url) ? $item->url : '#';
+        $atts['href']   = !empty($item->url) ? $item->url : '';
         $atts['class']  = $a_class;
 
         $attributes = '';
@@ -35,25 +35,31 @@ class Custom_Header_Menu_Walker extends Walker_Nav_Menu {
 
         $title = apply_filters('the_title', $item->title, $item->ID);
 
-        $output .= '<a' . $attributes . '>';
-        $output .= $title;
-        $output .= '</a>';
+        $item_output = $args->before;
+        $item_output .= '<a' . $attributes . '>';
+        $item_output .= $args->link_before . $title . $args->link_after;
+        $item_output .= '</a>';
+        $item_output .= $args->after;
+
+        $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
     }
 
     // Начало подменю
     public function start_lvl(&$output, $depth = 0, $args = null) {
+        $indent = str_repeat("\t", $depth);
         if ($depth == 0) {
-            $output .= '<div class="submenu__wrapper"><ul class="submenu">';
+            $output .= "\n$indent<div class=\"submenu__wrapper\"><ul class=\"submenu\">\n";
         } else {
-            $output .= '<ul class="submenu">';
+            $output .= "\n$indent<ul class=\"submenu\">\n";
         }
     }
 
     // Конец подменю
     public function end_lvl(&$output, $depth = 0, $args = null) {
-        $output .= '</ul>';
+        $indent = str_repeat("\t", $depth);
+        $output .= "$indent</ul>\n";
         if ($depth == 0) {
-            $output .= '</div>';
+            $output .= "$indent</div>\n";
         }
     }
 }
