@@ -852,28 +852,18 @@ a {
 
 .theContent {
   p {
-    margin: 20px 0;
-    font-size: 20px;
-    line-height: calc(30/20*100%);
+    margin: 10px 0;
+    font-size: 18px;
+    line-height: calc(26/18*100%);
 
-    @include mixins.lg {
-      margin: 15px 0;
-      font-size: 18px;
+    &:first-child {
+      margin-top: 0;
     }
 
     @include mixins.sm {
-      margin: 10px 0;
       font-size: 16px;
     }
   }
-
-  h1,
-  h2,
-  h3 {
-    background: linear-gradient(90deg, #2A2C3A 0%, #5F6275 100%);
-
-  }
-
 
   h1 {
     font-weight: 500;
@@ -953,41 +943,51 @@ a {
     }
   }
 
-  h4,
-  h5,
-  h6 {
-    color: var(--default-color);
-  }
+  h4 {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: calc(32/24*100%);
+    margin: 40px 0 10px;
 
-  h4,
-  h5,
-  h6 {
-    font-weight: 600;
-    font-size: 20px;
-    line-height: calc(28/20*100%);
-    margin: 25px 0 30px;
-
-    @include mixins.lg {
-      margin: 20px 0 25px;
+    @include mixins.xl {
+      margin: 30px 0 10px;
     }
 
-    @include mixins.md {
-      margin: 15px 0 20px;
+    @include mixins.lg {
+      margin: 20px 0 10px;
+    }
+
+    @include mixins.sm {
+      margin: 10px 0;
+    }
+  }
+
+  h5 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: calc(28/20*100%);
+    margin: 20px 0 10px;
+
+        @include mixins.sm {
+      margin: 10px 0;
+    }
+  }
+
+  h6 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: calc(24/18*100%);
+    margin: 15px 0 10px;
+
+        @include mixins.sm {
+      margin: 10px 0;
     }
   }
 
   ul {
     display: grid;
-    gap: 5px;
-    margin: 25px 0 50px;
-
-    @include mixins.xl {
-      margin-bottom: 40px;
-    }
-
-    @include mixins.lg {
-      margin-bottom: 20px 0 30px;
-    }
+    gap: 7px;
+    margin: 10px 0 15px;
 
     @include mixins.md {
       margin: 15px 0;
@@ -995,15 +995,10 @@ a {
 
     li {
       font-weight: 400;
-      font-size: 20px;
-      line-height: calc(30/20*100%);
-      color: var(--default-color);
+      font-size: 18px;
+      line-height: calc(26/18*100%);
       position: relative;
-      padding-left: 40px;
-
-      @include mixins.lg {
-        font-size: 18px;
-      }
+      padding-left: 15px;
 
       @include mixins.sm {
         font-size: 16px;
@@ -1013,30 +1008,24 @@ a {
         content: '';
         left: 0;
         top: 5px;
-        width: 22px;
-        height: 22px;
-        min-width: 22px;
-        min-height: 22px;
+        width: 5px;
+        height: 5px;
+        min-width: 5px;
+        min-height: 5px;
+        margin-top: 11px;
         border-radius: 50%;
         position: absolute;
-        background-color: var(--accent);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-image: url(../images/icons/check.svg);
+        background-color: var(--primary);
       }
     }
   }
 
   img {
     width: 100%;
-    border-radius: 20px;
-    margin: 40px 0 60px;
+    border-radius: 14px;
+    margin: 20px 0 40px;
 
     @include mixins.xl {
-      margin: 30px 0 40px;
-    }
-
-    @include mixins.lg {
       margin: 20px 0 30px;
     }
 
