@@ -106,6 +106,15 @@
             Самовосстанавливающееся<br>
             покрытие
           </h4>
+          <p>
+            Текст
+          </p>
+          <ul>
+            <li>Пункт</li>
+            <li>Пункт</li>
+            <li>Пункт</li>
+            <li>Пункт</li>
+          </ul>
         </div>
         <div class="verified-materials__list-item">
           <div class="verified-materials__list-icon">
@@ -217,6 +226,5 @@
       </div>
 
     </div>
-
   </div>
 </section>
