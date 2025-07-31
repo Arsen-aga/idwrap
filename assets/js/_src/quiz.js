@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function showStep(step) {
     const progressNum = document.querySelector(".progress-num1"); // Получаем элемент для обновления текста
-    steps.forEach((s) => s.classList.remove("active"));
-    document.querySelector(".step-" + step).classList.add("active");
+    steps.forEach((s) => s?.classList.remove("active"));
+    document.querySelector(".step-" + step) ? document.querySelector(".step-" + step).classList.add("active") : null;
     progress.style.width = progressValues[step - 1];
     if (step === 5)
       document.querySelector(".progress-bar1").style.display = "none";

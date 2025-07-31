@@ -2,6 +2,21 @@
 
 .sec-7 {
   padding-top: var(--indent);
+
+  &__card-list{
+    margin-top: 10px;
+    display: grid;
+    gap: 5px;
+    color: var(--light-text);
+
+    li::before{
+      top: 12px;
+    }
+  }
+
+  &__card-text{
+    color: var(--primary)
+  }
 }
 
 .sec-7__container {
@@ -39,11 +54,14 @@
 }
 
 .sec-7__card-title {
-  color: var(--primary);
   font-weight: 500;
   font-size: 24px;
   line-height: calc(32/24*100%);
   margin-bottom: 10px;
+  
+  &._orange-text{
+    color: var(--primary);
+  }
 }
 
 .sec-7__card-info {
@@ -122,9 +140,9 @@
     min-height: unset;
   }
 
-  .sec-7__card:last-child {
-    max-width: 100%;
-  }
+  // .sec-7__card:last-child {
+  //   max-width: 100%;
+  // }
 
   .sec-7__gallery-item {
     min-width: 350px;

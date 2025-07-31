@@ -92,8 +92,8 @@
         font-size: 20px;
     }
 
-    &::before,
-    &::after {
+    // &::after 
+    &::before{
       content: "";
       display: block;
       width: 100%;
@@ -108,10 +108,10 @@
       left: 0;
     }
 
-    &::after {
-      bottom: 12px;
-      right: -18px;
-    }
+    // &::after {
+    //   bottom: 12px;
+    //   right: -45px;
+    // }
   }
 
   &__image {

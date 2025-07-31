@@ -150,7 +150,7 @@ function variant_3(){
                 <?php the_sub_field('card_title'); ?>
               </h4>
               <?php if(get_sub_field('card_text')) :?>
-              <p class="default-elem__text polishing-types__item-text">
+              <p class="default-item__text polishing-types__item-text">
                 <?php the_sub_field('card_text');?>
               </p>
               <?php endif; ?>
@@ -178,7 +178,7 @@ function variant_3(){
                   <?php the_sub_field('card_title'); ?>
                 </h4>
                 <?php if(get_sub_field('card_text')) :?>
-                <p class="default-elem__text polishing-types__item-text">
+                <p class="default-item__text polishing-types__item-text">
                   <?php the_sub_field('card_text');?>
                 </p>
                 <?php endif; ?>
