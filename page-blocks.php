@@ -6,6 +6,7 @@
 
 
     <?php get_template_part('sourse/sections/skin-happen'); ?>
+    <?php get_template_part('sourse/sections/verified-materials'); ?>
 
     
 
