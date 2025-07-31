@@ -50,6 +50,10 @@
     }
   }
 
+  &__item-text{
+    color: var(--light-text);
+  }
+
   &__item-btn {
     margin-top: 25px;
     max-width: 330px;

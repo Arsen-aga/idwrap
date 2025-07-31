@@ -90,99 +90,104 @@
     </div>
 
     <!-- Технический блок (вариант 3) -->
-    <?php if(have_rows('verified-materials_list')) :?>
-    <div class="verified-materials__list">
-      <?php $listImg = get_field('verified-materials_listImg');
-      if($listImg) : ?>
-      <div class="verified-materials__list-left">
-        <div class="verified-materials__list-wrapper">
-          <img src="<?php echo $listImg['url'];?>" alt="<?php echo $listImg['alt'];?>" class="_img">
-        </div>
-      </div>
-      <?php endif; ?>
-      <div class="verified-materials__list-items">
-        <?php while(have_rows('verified-materials_list')) : the_row();
-        $icon = get_sub_field('point_icon'); ?>
-        <div class="verified-materials__list-item">
-          <div class="verified-materials__list-icon">
-            <?php include(get_template_directory() . '/assets/images/icons/verified-materials-1.svg'); ?>
+    <?php if (have_rows('verified-materials_list')) : ?>
+      <div class="verified-materials__list">
+        <?php $listImg = get_field('verified-materials_listImg');
+        if ($listImg) : ?>
+          <div class="verified-materials__list-left">
+            <div class="verified-materials__list-wrapper">
+              <img src="<?php echo $listImg['url']; ?>" alt="<?php echo $listImg['alt']; ?>" class="_img">
+            </div>
           </div>
-          <?php if(get_sub_field('point_title')) :?>
-          <h4 class="verified-materials__list-title">
-            <?php the_sub_field('point_title'); ?>
-          </h4>
-          <?php endif; ?>
-          <?php if(get_sub_field('point_text')):?>
-          <p>
-            <?php the_sub_field('point_text'); ?>
-          </p>
-          <?php endif; ?>
-          <?php if(have_rows('point_list')) :?>
-          <ul>
-            <?php while(have_rows('point_list')) : the_row(); ?>
-            <li><?php the_sub_field('item'); ?></li>
-            <?php endwhile; ?>
-          </ul>
-          <?php endif; ?>
+        <?php endif; ?>
+        <div class="verified-materials__list-items">
+          <?php while (have_rows('verified-materials_list')) : the_row();
+            $icon = get_sub_field('point_icon'); ?>
+            <div class="verified-materials__list-item">
+              <div class="verified-materials__list-icon">
+                <?php include(get_template_directory() . '/assets/images/icons/verified-materials-1.svg'); ?>
+              </div>
+              <div class="verified-materials__list-right">
+                <?php if (get_sub_field('point_title')) : ?>
+                  <h4 class="verified-materials__list-title">
+                    <?php the_sub_field('point_title'); ?>
+                  </h4>
+                <?php endif; ?>
+                <?php if (get_sub_field('point_text')): ?>
+                  <p class="verified-materials__list-text">
+                    <?php the_sub_field('point_text'); ?>
+                  </p>
+                <?php endif; ?>
+                <?php if (have_rows('point_list')) : ?>
+                  <ul class="verified-materials__list-list list-point grid-2">
+                    <?php while (have_rows('point_list')) : the_row(); ?>
+                      <li class="verified-materials__list-point"><?php the_sub_field('item'); ?></li>
+                    <?php endwhile; ?>
+                  </ul>
+                <?php endif; ?>
+              </div>
+            </div>
+          <?php endwhile; ?>
         </div>
-        <?php endwhile; ?>
       </div>
-    </div>
     <?php endif; ?>
 
-    <?php if(get_field('verified-materials_cardsTitle')) :?>
-    <h2 class="verified-materials__title _title">
-      <?php the_field('verified-materials_cardsTitle'); ?>
-    </h2>
+    <?php if (get_field('verified-materials_cardsTitle')) : ?>
+      <h2 class="verified-materials__title _title">
+        <?php the_field('verified-materials_cardsTitle'); ?>
+      </h2>
     <?php endif; ?>
 
-    <?php if(have_rows('verified-materials_cards')) :
+    <?php if (have_rows('verified-materials_cards')) :
       $count = 1; ?>
-    <div class="cursor">
-      <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
-    </div>
-
-    <?php $type_block = get_field('verified-materials_variants');
-    switch($type_block){
-      case 'grid-default':
-        $class = 'grid-default';
-        break;
-      case 'grid-4':
-        $class = 'grid-4';
-        break;
-      case 'grid-6':
-        $class = 'grid-6';
-        break;
-    } ?>
-    <div class="verified-materials__items <?php echo $class;?>">
-      <!-- Вариант 1 - 6 карточек -->
-      <?php while(have_rows('verified-materials_cards')) : the_row();
-      $img = get_sub_field('card_img');
-      $img_url = $img ? $img['url'] : get_template_directory_uri().'/assets/images/verified-materials-item-4.webp';
-      $img_alt = $img ? esc_attr($img['alt']) : '';?>
-      <div class="verified-materials__item default-item <?php if($class == 'grid-6' && $count > 3){echo 'default-item__horizontal';}?>">
-        <div class="default-item__wrapper">
-          <img src="<?php echo $img_url;?>" alt="<?php echo $img_alt;?>" class="default-item__img _img">
-        </div>
-        <div class="default-item__info">
-          <h4 class="default-item__title"><?php the_sub_field('card_title'); ?></h4>
-          <?php if(get_sub_field('card_text')) :?>
-          <p class="default-item__text">
-            <?php the_sub_field('card_text'); ?>
-          </p>
-          <?php endif; ?>
-          <?php if(have_rows('card_list')) :?>
-          <ul>
-            <?php while(have_rows('card_list')) : the_row(); ?>
-              <li><?php the_sub_field('list_point'); ?></li>
-            <?php endwhile; ?>
-          </ul>
-          <?php endif; ?>
-          <a href="#" class="default-item__btn _main-btn">Рассчитать стоимость</a>
-        </div>
+      <div class="cursor">
+        <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
       </div>
-      <?php $count++; endwhile; ?>
-    </div>
+
+      <?php $type_block = get_field('verified-materials_variants');
+      switch ($type_block) {
+        case 'grid-default':
+          $class = 'grid-default';
+          break;
+        case 'grid-4':
+          $class = 'grid-4';
+          break;
+        case 'grid-6':
+          $class = 'grid-6';
+          break;
+      } ?>
+      <div class="verified-materials__items <?php echo $class; ?>">
+        <!-- Вариант 1 - 6 карточек -->
+        <?php while (have_rows('verified-materials_cards')) : the_row();
+          $img = get_sub_field('card_img');
+          $img_url = $img ? $img['url'] : get_template_directory_uri() . '/assets/images/verified-materials-item-4.webp';
+          $img_alt = $img ? esc_attr($img['alt']) : ''; ?>
+          <div class="verified-materials__item default-item <?php if ($class == 'grid-6' && $count > 3) {
+                                                              echo 'default-item__horizontal';
+                                                            } ?>">
+            <div class="default-item__wrapper">
+              <img src="<?php echo $img_url; ?>" alt="<?php echo $img_alt; ?>" class="default-item__img _img">
+            </div>
+            <div class="default-item__info">
+              <h4 class="default-item__title"><?php the_sub_field('card_title'); ?></h4>
+              <?php if (get_sub_field('card_text')) : ?>
+                <p class="default-item__text">
+                  <?php the_sub_field('card_text'); ?>
+                </p>
+              <?php endif; ?>
+              <?php if (have_rows('card_list')) : ?>
+                <ul>
+                  <?php while (have_rows('card_list')) : the_row(); ?>
+                    <li><?php the_sub_field('list_point'); ?></li>
+                  <?php endwhile; ?>
+                </ul>
+              <?php endif; ?>
+              <a href="#" class="default-item__btn _main-btn">Рассчитать стоимость</a>
+            </div>
+          </div>
+        <?php $count++;
+        endwhile; ?>
+      </div>
     <?php endif; ?>
 
     <!-- CTA блоки (общие для всех вариантов) -->
