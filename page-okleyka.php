@@ -71,7 +71,7 @@ get_header(); ?>
                 foreach ($child_pages as $child_page) {
                     // Получаем URL миниатюры страницы
                     // $thumbnail_url = get_the_post_thumbnail_url($child_page->ID, 'full');
-                    // $thumbnail_url = get_field('type-first-block_img', $child_page->ID);
+                    $thumbnail_url = get_field('type-first-block_img', $child_page->ID);
                     // Если нет миниатюры, используем изображение по умолчанию
                     $image_url = $thumbnail_url ? $thumbnail_url['url'] : get_template_directory_uri() . '/assets/images/default-card-1.webp';
 
