@@ -3,19 +3,7 @@
     <div class="sec-0__layout">
       <div class="sec-0__content">
         <img class="sec-0__content-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-0-bg.webp" alt="">
-        <div class="breadcrumbs">
-          <ul class="breadcrumbs__list">
-            <li class="breadcrumbs__point">
-              <a class="breadcrumbs__link" href="#">Главная</a>
-            </li>
-            <li class="breadcrumbs__point">
-              <a class="breadcrumbs__link" href="#">Услуги</a>
-            </li>
-            <li class="breadcrumbs__point">
-              <a class="breadcrumbs__link active" href="#">Оклейка автомобилей антигравийной пленкой</a>
-            </li>
-          </ul>
-        </div>
+        <?php dimox_breadcrumbs(); ?>
         <h1 class="sec-0__title _main-title">
           <?php echo wp_title(''); ?>
         </h1>

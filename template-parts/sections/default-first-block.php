@@ -2,16 +2,7 @@
   <div class="overlay"></div>
   <div class="container">
     <div class="front-block__inner relative">
-      <div class="breadcrumbs">
-        <ul class="breadcrumbs__list">
-          <li class="breadcrumbs__point">
-            <a class="breadcrumbs__link" href="#">Главная</a>
-          </li>
-          <li class="breadcrumbs__point">
-            <a class="breadcrumbs__link active" href="#">Акции</a>
-          </li>
-        </ul>
-      </div>
+      <?php dimox_breadcrumbs(); ?>
       <div class="front-block__top">
         <h1 class="front-block__title _title-1">
           <?php wp_title('');?>

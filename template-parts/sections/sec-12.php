@@ -9,6 +9,8 @@ switch($typeImg){
   case 'headlight':
     $backImg = get_template_directory_uri() . '/assets/headlight.webp';
     break;
+  default:
+    $backImg = get_template_directory_uri() . '/assets/salon.webp';
 }
 ?>
 <section class="section sec-12" style="background-image: url(<?php echo $backImg;?>);">

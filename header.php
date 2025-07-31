@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon.svg" type="image/x-icon">
   <meta content="<?php echo get_template_directory_uri(); ?>/assets/images/social.png" property="og:image">
-  <title><?php the_title(); ?></title>
+  <title><?php wp_title(''); ?></title>
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css">
 
   <?php wp_head(); ?>
@@ -111,7 +111,7 @@
       <div class="popup-menu__close">
         x
       </div>
-      <nav class="popup-menu__menu">
+      <!-- <nav class="popup-menu__menu">
         <ul class="popup-menu__menu-list">
           <li class="popup-menu__menu-item">
             <a class="popup-menu__menu-link" href="#">
@@ -228,5 +228,15 @@
             </a>
           </li>
         </ul>
-      </nav>
+      </nav> -->
+      <?php
+      wp_nav_menu( array(
+          'menu' => 'mainMenu', // укажите нужное расположение меню
+          'container'      => 'nav',
+          'container_class'=> 'popup-menu__menu',
+          'menu_class'     => 'popup-menu__menu-list',
+          'walker'         => new Popup_Menu_Walker(),
+          'depth'         => 3, // максимальная глубина меню
+      ) );
+      ?>
     </div>

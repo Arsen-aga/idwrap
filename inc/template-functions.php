@@ -40,7 +40,11 @@ add_action( 'wp_head', 'customthemes_pingback_header' );
 // Меню
 require get_template_directory() . '/inc/walkerMenu.php';
 
+// Поиск
+require get_template_directory() . '/inc/search-script.php';
 
+// Хлебные крошки
+require get_template_directory() . '/inc/breadcrumbs.php';
 
 // Функция вывода блоков
 

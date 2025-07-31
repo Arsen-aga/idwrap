@@ -5,7 +5,7 @@ get_header();
 <!-- Сингловая пленок -->
 <main class="main" id="price-page">
 
-  <?php get_template_part('template-parts/section/default-first-block'); ?>
+  <?php get_template_part('template-parts/sections/default-first-block'); ?>
 
   <section class="actual-actions">
     <div class="container">

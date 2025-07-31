@@ -30,127 +30,51 @@
       </p>
       <div class="full-cycle__swiper main-swiper swiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide full-cycle__slide main-swiper__slide">
-            <div class="full-cycle__item main-swiper__item default-card">
-              <img class="default-card__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/default-card-1.webp" alt="">
-              <div class="overlay"></div>
-              <div class="default-card__inner">
-                <h4 class="default-card__title">
-                  Антигравийная<br>
-                  оклейка
-                </h4>
-                <div class="default-card__btns">
-                  <a class="default-card__link _main-btn" href="#">
-                    Подробнее
-                  </a>
-                  <a class="default-card__info" href="#">
-                    <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide full-cycle__slide">
-            <div class="full-cycle__item default-card">
-              <img class="default-card__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/default-card-2.webp" alt="">
-              <div class="overlay"></div>
-              <div class="default-card__inner">
-                <h4 class="default-card__title">
-                  Оклейка в цветной<br>
-                  полиуретан
-                </h4>
-                <div class="default-card__btns">
-                  <a class="default-card__link _main-btn" href="#">
-                    Подробнее
-                  </a>
-                  <a class="default-card__info" href="#">
-                    <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide full-cycle__slide">
-            <div class="full-cycle__item default-card">
-              <img class="default-card__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/default-card-3.webp" alt="">
-              <div class="overlay"></div>
-              <div class="default-card__inner">
-                <h4 class="default-card__title">
-                  Полная оклейка<br>
-                  автомобиля
-                </h4>
-                <div class="default-card__btns">
-                  <a class="default-card__link _main-btn" href="#">
-                    Подробнее
-                  </a>
-                  <a class="default-card__info" href="#">
-                    <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide full-cycle__slide">
-            <div class="full-cycle__item default-card">
-              <img class="default-card__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/default-card-4.webp" alt="">
-              <div class="overlay"></div>
-              <div class="default-card__inner">
-                <h4 class="default-card__title">
-                  Оклейка<br>
-                  зон риска
-                </h4>
-                <div class="default-card__btns">
-                  <a class="default-card__link _main-btn" href="#">
-                    Подробнее
-                  </a>
-                  <a class="default-card__info" href="#">
-                    <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide full-cycle__slide">
-            <div class="full-cycle__item default-card">
-              <img class="default-card__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/default-card-5.webp" alt="">
-              <div class="overlay"></div>
-              <div class="default-card__inner">
-                <h4 class="default-card__title">
-                  Оклейка<br>
-                  отдельных<br>
-                  элементов
-                </h4>
-                <div class="default-card__btns">
-                  <a class="default-card__link _main-btn" href="#">
-                    Подробнее
-                  </a>
-                  <a class="default-card__info" href="#">
-                    <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide full-cycle__slide">
-            <div class="full-cycle__item default-card">
-              <img class="default-card__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/default-card-6.webp" alt="">
-              <div class="overlay"></div>
-              <div class="default-card__inner">
-                <h4 class="default-card__title">
-                  Бронирование<br>
-                  фар
-                </h4>
-                <div class="default-card__btns">
-                  <a class="default-card__link _main-btn" href="#">
-                    Подробнее
-                  </a>
-                  <a class="default-card__info" href="#">
-                    <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <?php
+            // Получаем ID текущей страницы
+            $current_page_id = 9;
+
+            // Получаем дочерние страницы текущей страницы
+            $child_pages = get_pages(array(
+                'child_of' => $current_page_id,
+                'sort_column' => 'menu_order',
+                'sort_order' => 'ASC'
+            ));
+
+            // Проверяем, есть ли дочерние страницы
+            if ($child_pages) {
+                foreach ($child_pages as $child_page) {
+                    // Получаем URL миниатюры страницы
+                    // $thumbnail_url = get_the_post_thumbnail_url($child_page->ID, 'full');
+                    $thumbnail_url = get_field('type-first-block_img', $child_page->ID);
+                    // Если нет миниатюры, используем изображение по умолчанию
+                    $image_url = $thumbnail_url ? $thumbnail_url['url'] : get_template_directory_uri() . '/assets/images/default-card-1.webp';
+
+                    // Получаем URL страницы
+                    $page_url = get_permalink($child_page->ID);
+                    ?>
+                    <div class="swiper-slide full-cycle__slide">
+                        <div class="full-cycle__item main-swiper__item default-card">
+                            <img class="default-card__img _img" src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($child_page->post_title); ?>">
+                            <div class="overlay"></div>
+                            <div class="default-card__inner">
+                                <h4 class="default-card__title">
+                                    <?php echo esc_html($child_page->post_title); ?>
+                                </h4>
+                                <div class="default-card__btns">
+                                    <a class="default-card__link _main-btn" href="<?php echo esc_url($page_url); ?>">
+                                        Подробнее
+                                    </a>
+                                    <a class="default-card__info" href="<?php echo esc_url($page_url); ?>">
+                                        <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+            } ?>
         </div>
         <div class="swiper-scrollbar"></div>
       </div>
@@ -242,124 +166,51 @@
       </div>
       <div class="verified-materials__swiper main-swiper swiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide verified-materials__slide main-swiper__slide">
-            <div class="verified-materials__item main-swiper__item default-card">
-              <img class="default-card__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/default-card-7.webp" alt="">
-              <div class="overlay"></div>
-              <div class="default-card__inner">
-                <h4 class="default-card__title">
-                  Глянцевая пленка
-                </h4>
-                <div class="default-card__btns">
-                  <a class="default-card__link _main-btn" href="#">
-                    Подробнее
-                  </a>
-                  <a class="default-card__info" href="#">
-                    <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide verified-materials__slide">
-            <div class="verified-materials__item default-card">
-              <img class="default-card__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/default-card-8.webp" alt="">
-              <div class="overlay"></div>
-              <div class="default-card__inner">
-                <h4 class="default-card__title">
-                  Матовая пленка
-                </h4>
-                <div class="default-card__btns">
-                  <a class="default-card__link _main-btn" href="#">
-                    Подробнее
-                  </a>
-                  <a class="default-card__info" href="#">
-                    <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide verified-materials__slide">
-            <div class="verified-materials__item default-card">
-              <img class="default-card__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/default-card-9.webp" alt="">
-              <div class="overlay"></div>
-              <div class="default-card__inner">
-                <h4 class="default-card__title">
-                  Автовинил хром<br>
-                  или золото
-                </h4>
-                <div class="default-card__btns">
-                  <a class="default-card__link _main-btn" href="#">
-                    Подробнее
-                  </a>
-                  <a class="default-card__info" href="#">
-                    <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide verified-materials__slide">
-            <div class="verified-materials__item default-card">
-              <img class="default-card__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/default-card-10.webp" alt="">
-              <div class="overlay"></div>
-              <div class="default-card__inner">
-                <h4 class="default-card__title">
-                  Пленка хамелеон<br>
-                  и перламутр
-                </h4>
-                <div class="default-card__btns">
-                  <a class="default-card__link _main-btn" href="#">
-                    Подробнее
-                  </a>
-                  <a class="default-card__info" href="#">
-                    <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide verified-materials__slide">
-            <div class="verified-materials__item default-card">
-              <img class="default-card__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/default-card-11.webp" alt="">
-              <div class="overlay"></div>
-              <div class="default-card__inner">
-                <h4 class="default-card__title">
-                  Камуфляжная<br>
-                  пленка
-                </h4>
-                <div class="default-card__btns">
-                  <a class="default-card__link _main-btn" href="#">
-                    Подробнее
-                  </a>
-                  <a class="default-card__info" href="#">
-                    <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide verified-materials__slide">
-            <div class="verified-materials__item default-card">
-              <img class="default-card__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/default-card-12.webp" alt="">
-              <div class="overlay"></div>
-              <div class="default-card__inner">
-                <h4 class="default-card__title">
-                  Карбоновая<br>
-                  пленка
-                </h4>
-                <div class="default-card__btns">
-                  <a class="default-card__link _main-btn" href="#">
-                    Подробнее
-                  </a>
-                  <a class="default-card__info" href="#">
-                    <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <?php
+            // Получаем ID текущей страницы
+            $current_page_id = 9;
+
+            // Получаем дочерние страницы текущей страницы
+            $child_pages = get_pages(array(
+                'child_of' => $current_page_id,
+                'sort_column' => 'menu_order',
+                'sort_order' => 'DESC'
+            ));
+
+            // Проверяем, есть ли дочерние страницы
+            if ($child_pages) {
+                foreach ($child_pages as $child_page) {
+                    // Получаем URL миниатюры страницы
+                    // $thumbnail_url = get_the_post_thumbnail_url($child_page->ID, 'full');
+                    $thumbnail_url = get_field('type-first-block_img', $child_page->ID);
+                    // Если нет миниатюры, используем изображение по умолчанию
+                    $image_url = $thumbnail_url ? $thumbnail_url['url'] : get_template_directory_uri() . '/assets/images/default-card-1.webp';
+
+                    // Получаем URL страницы
+                    $page_url = get_permalink($child_page->ID);
+                    ?>
+                    <div class="swiper-slide full-cycle__slide">
+                        <div class="full-cycle__item main-swiper__item default-card">
+                            <img class="default-card__img _img" src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($child_page->post_title); ?>">
+                            <div class="overlay"></div>
+                            <div class="default-card__inner">
+                                <h4 class="default-card__title">
+                                    <?php echo esc_html($child_page->post_title); ?>
+                                </h4>
+                                <div class="default-card__btns">
+                                    <a class="default-card__link _main-btn" href="<?php echo esc_url($page_url); ?>">
+                                        Подробнее
+                                    </a>
+                                    <a class="default-card__info" href="<?php echo esc_url($page_url); ?>">
+                                        <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+            } ?>
         </div>
         <div class="swiper-scrollbar"></div>
       </div>
@@ -381,10 +232,10 @@
                 Брендирование
               </h4>
               <div class="default-card__btns">
-                <a class="default-card__link _main-btn" href="#">
+                <a class="default-card__link _main-btn" href="<?php echo get_home_url();?>/okleyka/brendirovanie-avtomobilja-plenkoj/">
                   Подробнее
                 </a>
-                <a class="default-card__info" href="#">
+                <a class="default-card__info" href="<?php echo get_home_url();?>/okleyka/brendirovanie-avtomobilja-plenkoj/">
                   <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
                 </a>
               </div>
@@ -399,10 +250,10 @@
                 интерьера
               </h4>
               <div class="default-card__btns">
-                <a class="default-card__link _main-btn" href="#">
+                <a class="default-card__link _main-btn" href="<?php echo get_home_url(); ?>/okleyka/oklejka-interera/">
                   Подробнее
                 </a>
-                <a class="default-card__info" href="#">
+                <a class="default-card__info" href="<?php echo get_home_url(); ?>/okleyka/oklejka-interera/">
                   <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
                 </a>
               </div>
@@ -416,10 +267,10 @@
                 Винилография
               </h4>
               <div class="default-card__btns">
-                <a class="default-card__link _main-btn" href="#">
+                <a class="default-card__link _main-btn" href="<?php echo get_home_url(); ?>/okleyka/vinilografija/">
                   Подробнее
                 </a>
-                <a class="default-card__info" href="#">
+                <a class="default-card__info" href="<?php echo get_home_url(); ?>/okleyka/vinilografija/">
                   <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
                 </a>
               </div>
