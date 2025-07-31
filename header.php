@@ -27,7 +27,7 @@
                   Студия детейлинга
                 </p>
               </a>
-              <a class="header__map" href="https://yandex.ru/maps/-/CHcs6XPF" target="_blank">
+              <a class="header__map" href="https://yandex.ru/maps/-/CHXo721O" target="_blank">
                 <img class="header__map-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/map-point.webp" alt="map-point">
                 <p class="header__map-text">
                   ул. Архитектора Щусева, 5, к1
@@ -180,15 +180,15 @@
               </li>
             </ul> -->
             <ul class="header-bottom__menu-list">
-                <?php
-                wp_nav_menu(array(
-                    'menu' => 'mainMenu',
-                    'container' => false,
-                    'items_wrap' => '%3$s',
-                    'walker' => new Custom_Header_Menu_Walker(),
-                    'depth' => 3
-                ));
-                ?>
+              <?php
+              wp_nav_menu(array(
+                'menu' => 'mainMenu',
+                'container' => false,
+                'items_wrap' => '%3$s',
+                'walker' => new Custom_Header_Menu_Walker(),
+                'depth' => 3
+              ));
+              ?>
             </ul>
 
             <a class="header__map header-bottom__menu-map" href="https://yandex.ru/maps/-/CHcs6XPF" target="_blank">
