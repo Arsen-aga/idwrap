@@ -1,12 +1,10 @@
 <?php get_header(); ?>
 
-<main class="main">
+<main class="main" id="price-page">
 
-  <div class="wrapper-brown">
+  <?php get_template_part('template-parts/sections/default-first-block'); ?>
 
-    <?php get_template_part('template-parts/sections/sec-14'); ?>
-
-  </div>
+  <?php get_template_part('template-parts/sections/sec-14'); ?>
 
   <?php get_template_part('template-parts/sections/map'); ?>
 
