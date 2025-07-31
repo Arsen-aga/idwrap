@@ -19,9 +19,9 @@ get_header(); ?>
 
   <?php get_template_part('template-parts/sections/quiz');?>
 
-  <div class="wrapper-brown">
+  <?php get_template_part('template-parts/sections/skin-happen'); ?>
 
-      <?php get_template_part('template-parts/sections/skin-happen'); ?>
+  <div class="wrapper-brown">
 
       <div class="space-sec"></div>
 

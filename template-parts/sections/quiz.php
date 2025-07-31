@@ -6,13 +6,16 @@
       </div>
     </div>
     <div class="sec-4__container container relative">
+      <?php if(get_field('quiz_title')) :?>
       <h2 class="sec-4__title _title">
-        Рассчитаем стоимость <br>
-        оклейки вашего авто за 4 шага
+        <?php the_field('quiz_title'); ?>
       </h2>
+      <?php endif; ?>
+      <?php if(get_field('quiz_subtitle')):?>
       <p class="sec-4__subtitle _subtitle">
-        + подарим промокод на бесплатную оклейку фар или порога в подарок
+        <?php the_field('quiz_subtitle'); ?>
       </p>
+      <?php endif; ?>
       <form action="#" class="form sec-4__form form form-submit">
         <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
         <input type="hidden" name="from" value="Получить расчёт стоимости + подарок">
@@ -20,16 +23,18 @@
           <div class="progress progress1"></div>
           <span class="progress-num progress-num1">Осталось 5 вопросов из 5</span>
         </div>
-
+        <?php if(have_rows('question1_variants')) :?>
         <div class="quiz-step quiz-step1 step-1">
-          <h3 class="quiz-step__title">01. Какую часть автомобиля вы планируете оклеить?</h3>
+          <h3 class="quiz-step__title">01. <?php the_field('quiz_question1'); ?></h3>
           <div class="quiz-options">
+            <?php while(have_rows('question1_variants')) : the_row();
+            $img = get_sub_field('variant_img');  ?>
             <label class="quiz-option quiz-option1" data-next="2">
-              <input type="radio" name="step1" required value="Полная оклейка">
+              <input type="radio" name="step1" required value="<?php the_sub_field('variant'); ?>">
               <span class="quiz-option__image">
                 <span class="_image-abs">
-                  <img class="_img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-04form/step1/polnaya_okleyka.webp"
-                    alt=" Изображение - полная оклейка">
+                  <img class="_img" src="<?php echo $img['url'];?>"
+                    alt="<?php echo $img['alt'];?>">
                 </span>
               </span>
               <span class="quiz-option__circle">
@@ -42,52 +47,10 @@
                 </svg>
               </span>
               <span style="display: block;" class="quiz-option__text">
-                Полная оклейка
+                <?php the_sub_field('variant'); ?>
               </span>
             </label>
-            <label class="quiz-option quiz-option1" data-next="2">
-              <input type="radio" name="step1" required value="Частичная оклейка">
-              <span class="quiz-option__image">
-                <span class="_image-abs">
-                  <img class="_img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-04form/step1/chastichnaya_okleyka.webp"
-                    alt=" Изображение - частичная оклейка">
-                </span>
-              </span>
-              <span class="quiz-option__circle">
-                <svg width="13" height="11" viewBox="0 0 13 11" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <g clip-path="url(#clip0_130_577)">
-                    <path d="M2.24121 5.49099L4.90521 8.15299L10.7662 2.29199"
-                      stroke="currentColor" stroke-width="3" stroke-linecap="round" />
-                  </g>
-                </svg>
-              </span>
-              <span style="display: block;" class="quiz-option__text">
-                Частичная оклейка
-              </span>
-            </label>
-            <label class="quiz-option quiz-option1" data-next="2">
-              <input type="radio" name="step1" required value="Оклейка отдельных элементов">
-              <span class="quiz-option__image">
-                <span class="_image-abs">
-                  <img class="_img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-04form/step1/okleyka_otdelnih_elementov.webp"
-                    alt=" Изображение - оклейка отдельных элементов">
-                </span>
-              </span>
-              <span class="quiz-option__circle">
-                <svg width="13" height="11" viewBox="0 0 13 11" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <g clip-path="url(#clip0_130_577)">
-                    <path d="M2.24121 5.49099L4.90521 8.15299L10.7662 2.29199"
-                      stroke="currentColor" stroke-width="3" stroke-linecap="round" />
-                  </g>
-                </svg>
-              </span>
-              <span style="display: block;" class="quiz-option__text">
-                Оклейка отдельных <br>
-                элементов
-              </span>
-            </label>
+            <?php endwhile; ?>
             <label class="quiz-option quiz-option1" data-next="2">
               <input type="radio" name="step1" required value="Затрудняюсь ответить">
               <span class="quiz-option__image">
@@ -112,6 +75,7 @@
           </div>
           <button class="next-step _main-btn _orange-btn">На следующий шаг</button>
         </div>
+        <?php endif; ?>
 
         <div class="quiz-step quiz-step1 step-2">
           <h3 class="quiz-step__title">02. Что вы хотели бы сделать?</h3>
