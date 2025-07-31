@@ -63,122 +63,6 @@
       <div class="header-bottom">
         <div class="container">
           <nav class="header-bottom__menu">
-            <!-- <ul class="header-bottom__menu-list">
-              <li class="header-bottom__menu-item">
-                <a class="header-bottom__menu-link" href="#">
-                  Услуги
-                </a>
-                <div class="submenu__wrapper">
-                  <ul class="submenu">
-                    <li class="submenu__item">
-                      <a class="submenu__link" href="#">
-                        Аллергология
-                      </a>
-                      <ul class="submenu">
-                        <li class="submenu__item third-level">
-                          <a class="submenu__link" href="#">
-                            Чекап пациентов<br>
-                            18-30+ (мужчины)
-                          </a>
-                        </li>
-                        <li class="submenu__item third-level">
-                          <a class="submenu__link" href="#">
-                            Чекап пациентов после<br>
-                            40 лет (мужчины)
-                          </a>
-                        </li>
-                        <li class="submenu__item third-level">
-                          <a class="submenu__link" href="#">
-                            Чекап пациентов<br>
-                            после 60 лет (мужчины)
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="submenu__item">
-                      <a class="submenu__link" href="#">
-                        Гастроэнтерология
-                      </a>
-                      <ul class="submenu">
-                        <li class="submenu__item third-level">
-                          <a class="submenu__link" href="#">
-                            Чекап пациентов<br>
-                            18-30+ (мужчины)
-                          </a>
-                        </li>
-                        <li class="submenu__item third-level">
-                          <a class="submenu__link" href="#">
-                            Чекап пациентов после<br>
-                            40 лет (мужчины)
-                          </a>
-                        </li>
-                        <li class="submenu__item third-level">
-                          <a class="submenu__link" href="#">
-                            Чекап пациентов<br>
-                            после 60 лет (мужчины)
-                          </a>
-                        </li>
-                        <li class="submenu__item third-level">
-                          <a class="submenu__link" href="#">
-                            Гематология
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="submenu__item">
-                      <a class="submenu__link" href="#">
-                        Гематология
-                      </a>
-                    </li>
-                    <li class="submenu__item">
-                      <a class="submenu__link" href="#">
-                        Гинекология
-                      </a>
-                    </li>
-                    <li class="submenu__item">
-                      <a class="submenu__link" href="#">
-                        Функциональная диагностика
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="header-bottom__menu-item">
-                <a class="header-bottom__menu-link" href="#">
-                  Антихром
-                </a>
-              </li>
-              <li class="header-bottom__menu-item">
-                <a class="header-bottom__menu-link" href="#">
-                  Акции
-                </a>
-              </li>
-              <li class="header-bottom__menu-item">
-                <a class="header-bottom__menu-link" href="#">
-                  Наши работы
-                </a>
-              </li>
-              <li class="header-bottom__menu-item">
-                <a class="header-bottom__menu-link" href="#">
-                  Отзывы
-                </a>
-              </li>
-              <li class="header-bottom__menu-item">
-                <a class="header-bottom__menu-link" href="#">
-                  Обучение
-                </a>
-              </li>
-              <li class="header-bottom__menu-item">
-                <a class="header-bottom__menu-link" href="#">
-                  О нас
-                </a>
-              </li>
-              <li class="header-bottom__menu-item">
-                <a class="header-bottom__menu-link" href="#">
-                  Контакты
-                </a>
-              </li>
-            </ul> -->
             <ul class="header-bottom__menu-list">
               <?php
               wp_nav_menu(array(
@@ -197,10 +81,19 @@
                 ул. Архитектора Щусева, 5, к1
               </p>
             </a>
-            <form action="#" method="post" class="header-bottom__search">
-              <?php include(get_template_directory() . '/assets/images/icons/search.svg'); ?>
-              <input class="header-bottom__search-inp" type="text" name="search" placeholder="Поиск">
+
+            <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="header__search open-search">
+                <div class="header__search-icon">
+                    <?php include(get_template_directory() . '/assets/images/icons/search.svg'); ?>
+                </div>
+                <input class="header__search-inp open-search-inp"
+                      type="text"
+                      name="s"
+                      placeholder="Поиск.."
+                      value="<?php echo isset($_GET['s']) ? esc_attr($_GET['s']) : ''; ?>">
+                <div class="ajax-search-results" style="display: none;"></div> <!-- Контейнер для результатов -->
             </form>
+
             <div class="burger">
               <div class="bar"></div>
               <div class="bar"></div>
