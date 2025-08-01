@@ -6,23 +6,12 @@ get_header();
 
 <!-- Сингловая пленок -->
 <main class="main" id="price-page">
+
   <section class="front-block _image-wrapper" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/front-bg-2.webp);">
     <div class="overlay"></div>
     <div class="container">
       <div class="front-block__inner relative">
-        <div class="breadcrumbs">
-          <ul class="breadcrumbs__list">
-            <li class="breadcrumbs__point">
-              <a class="breadcrumbs__link" href="#">Главная</a>
-            </li>
-            <li class="breadcrumbs__point">
-              <a class="breadcrumbs__link" href="#">Блог</a>
-            </li>
-            <li class="breadcrumbs__point">
-              <a class="breadcrumbs__link active" href="#">Атермальная плёнка: как в IDWrap мы делаем салон прохладнее, а поездки комфортнее</a>
-            </li>
-          </ul>
-        </div>
+        <?php dimox_breadcrumbs(); ?>
         <div class="front-block__top">
           <h1 class="front-block__title _title-1">
             Атермальная плёнка: как в IDWrap<br>
@@ -41,6 +30,7 @@ get_header();
       </div>
     </div>
   </section>
+
   <section class="content-block">
     <div class="container">
       <div class="content-block__inner">
