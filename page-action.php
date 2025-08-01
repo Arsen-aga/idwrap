@@ -13,14 +13,14 @@ get_header();
         Актуальные акции
       </h2>
       <div class="actual-actions__inner">
-        <form class="actual-actions__form form-submit" action="#">
+        <form class="actual-actions__form form-submit" action="#" method="POST" enctype="multipart/form-data">
           <div class="actual-actions__form-sup">
             <img class="actual-actions__form-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/actual-actions-logo.webp" alt="">
           </div>
           <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
           <input type="hidden" name="from" value="«Детейлинг как подарок» — приведи друга и получи уход бесплатно">
           <p class="actual-actions__form-suptitle _main-btn">
-            Акция до 29 мая
+            Акция до 31 августа
           </p>
           <h4 class="actual-actions__form-title">
             «Детейлинг как подарок» — приведи<br>
@@ -63,53 +63,53 @@ get_header();
         <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
       </div>
       <div class="actual-actions__items">
-        <div class="default-item actual-actions__item">
+        <div class="default-item actual-actions__item change-popup-item">
           <div class="default-item__wrapper">
             <img class="default-item__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/polishing-types-1.webp" alt="">
           </div>
           <div class="default-item__info">
-            <h4 class="default-item__title">
+            <h4 class="default-item__title change-popup-title">
               «Комплекс за полцены»<br>
               на первую услугу
             </h4>
             <p class="default-item__text">
               Первым 20 клиентам месяца — 50% <br>на комплексную полировку или <br>химчистку салона.
             </p>
-            <a class="default-item__btn _main-btn" href="#">
+            <a class="default-item__btn _main-btn change-popup" href="#modal-main" data-fancybox>
               Воспользоваться акцией
             </a>
           </div>
         </div>
-        <div class="default-item actual-actions__item">
+        <div class="default-item actual-actions__item change-popup-item">
           <div class="default-item__wrapper">
             <img class="default-item__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/polishing-types-1.webp" alt="">
           </div>
           <div class="default-item__info">
-            <h4 class="default-item__title">
+            <h4 class="default-item__title change-popup-title">
               «Защита на год<br>
               в подарок»
             </h4>
             <p class="default-item__text">
               При полной оклейке авто плёнкой —<br> нанесение защитной керамики на<br> стёкла и диски бесплатно.
             </p>
-            <a class="default-item__btn _main-btn" href="#">
+            <a class="default-item__btn _main-btn change-popup" href="#modal-main" data-fancybox>
               Воспользоваться акцией
             </a>
           </div>
         </div>
-        <div class="default-item actual-actions__item">
+        <div class="default-item actual-actions__item change-popup-item">
           <div class="default-item__wrapper">
             <img class="default-item__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/polishing-types-1.webp" alt="">
           </div>
           <div class="default-item__info">
-            <h4 class="default-item__title">
+            <h4 class="default-item__title change-popup-title">
               «Вторая услуга<br>
               за 1 рубль»
             </h4>
             <p class="default-item__text">
               Заказываете, например, химчистку<br> салона — наносим антидождь на<br> лобовое за 1 рубль.
             </p>
-            <a class="default-item__btn _main-btn" href="#">
+            <a class="default-item__btn _main-btn change-popup" href="#modal-main" data-fancybox>
               Воспользоваться акцией
             </a>
           </div>

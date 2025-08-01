@@ -20,7 +20,7 @@ get_header(); ?>
           <span>За 7 дней — от новичка до мастера под руководством владелицы студии</span>
         </p>
         <div class="front-block__btns">
-          <a class="front-block__btn _main-btn" href="#callback-modal" data-fancybox>
+          <a class="front-block__btn _main-btn change-popup" href="#callback-modal" data-fancybox>
             Получить консультацию<br>
             по обучению
           </a>
@@ -288,7 +288,7 @@ get_header(); ?>
                 первого дня обучения
               </li>
             </ul>
-            <a class="course-include__bottom-btn _main-btn" href="#" data-fancybox="">
+            <a class="course-include__bottom-btn _main-btn change-popup" href="#callback-modal" data-fancybox="">
               Получить консультацию<br>
               по обучению
             </a>

@@ -8,7 +8,7 @@
       <?php the_field('pasting-options_subtitle');?>
     </p>
     <?php endif; ?>
-    <form action="#" class="form sec-6__form form form-submit">
+    <form class="form sec-6__form form form-submit" action="#" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
       <input type="hidden" name="from" value="Получить расчет стоимости оклейки выбранных элементов">
       <div class="cursor sec-6__catalog-cursor">

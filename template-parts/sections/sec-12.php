@@ -1,3 +1,4 @@
+
 <?php $typeImg = get_field('sec-12_typeImg');
 switch ($typeImg) {
   case 'salon':

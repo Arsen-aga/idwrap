@@ -14,7 +14,7 @@
           <p class="sec-map__contacts-name">чтобы получить подробную схему<br> проезда в
             <span>WhatsApp</span>
           </p>
-          <form onsubmit="ym(98054545,'reachGoal','ssf')" action="#" class="form sec-map__form form form-submit">
+          <form class="form sec-map__form form form-submit" action="#" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
             <input type="hidden" name="from"
               value="Получить схему проезда и все контакты себе в WhatsApp">

@@ -463,7 +463,7 @@
 
 
 <div class="_modal modal__quiz" style="display: none" id="quiz">
-  <form action="#" class="form sec-4__form form form-submit">
+  <form class="form sec-4__form form form-submit" action="#" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
     <input type="hidden" name="from" value="Получить расчёт стоимости + подарок">
     <div class="progress-bar progress-bar2">
@@ -948,7 +948,7 @@
   <div class="modal__container">
     <h3 class="politics-modal__title">Введите свою цену</h3>
     <div class="sec-6__form-inputs">
-      <input class="sec-6__form-number modal__form-inp" type="text" placeholder="1000" minlength="3">
+      <input class="sec-6__form-number modal__form-inp" type="number" placeholder="1000" minlength="3">
       <button class="modal__form-button _main-btn" type="button">Заменить</button>
     </div>
   </div>
@@ -960,6 +960,39 @@
     <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
     <h2 class="modal__form-title">
       Заполните форму
+    </h2>
+    <p class="modal__form-subtitle">
+      Введите телефон в форме ниже
+    </p>
+    <div class="modal__form-inputs">
+      <input class="modal__form-inp sec-12__form-number" type="tel" name="phone" placeholder="Введите номер телефона" required>
+      <button class="modal__form-btn _main-btn form-btn" type="submit">
+        Получите консультацию
+      </button>
+    </div>
+    <div class="sec-6__form-policy modal__form-policy">
+      <input class="sec-12__form-checkbox" checked required type="checkbox" name="checkbox"
+        id="checkbox-elementquizmod123">
+      <label class="sec-6__form-accept sec-12__form-accept" for="checkbox-elementquizmod123">
+        <span>
+          <svg width="11" height="8" viewBox="0 0 11 8" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M9.74334 2.50072L5.50034 6.74572C5.10934 7.13672 4.47634 7.13672 4.08634 6.74572L1.25734 3.91372C0.867344 3.52372 0.867344 2.89672 1.25734 2.50072C1.64834 2.10672 2.28134 2.10672 2.67234 2.50072L4.79334 4.62372L8.32834 1.08772C8.71934 0.694719 9.35234 0.694719 9.74334 1.08772C10.1333 1.48372 10.1333 2.10672 9.74334 2.50072Z"
+              fill="#F37021" />
+          </svg>
+        </span> Я принимаю условия <a class="sec-12__form-link" data-fancybox
+          href="#policy">политики конфиденциальности</a>
+      </label>
+    </div>
+  </form>
+</div>
+<div class="modal" style="display: none;" id="change-number">
+  <form class="form-submit relative modal__form" action="#" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="from" value="Записаться на консультацию">
+    <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
+    <h2 class="modal__form-title">
+      Оставьте свой исправленный номер
     </h2>
     <p class="modal__form-subtitle">
       Введите телефон в форме ниже
@@ -1007,7 +1040,7 @@
       элементов автомобиля
     </h2>
     <div class="sec-12__content">
-      <form action="#" class="form sec-12__form form form-submit">
+      <form action="#" method="POST" enctype="multipart/form-data" class="form sec-12__form form form-submit">
         <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
         <input type="hidden" name="from"
           value="получите промокод на бесплатную оклейку элементов автомобиля">
