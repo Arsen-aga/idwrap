@@ -65,7 +65,7 @@ get_header();
             </ul>
           </div>
         </div>
-        <form class="content-block__form form-submit _image-wrapper" action="#">
+        <form class="content-block__form form-submit _image-wrapper" action="#" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
           <input type="hidden" name="from" value="«Детейлинг как подарок» — приведи друга и получи уход бесплатно">
           <h4 class="content-block__form-title">

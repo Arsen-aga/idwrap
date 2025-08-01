@@ -13,7 +13,7 @@ get_header();
         Актуальные акции
       </h2>
       <div class="actual-actions__inner">
-        <form class="actual-actions__form form-submit" action="#">
+        <form class="actual-actions__form form-submit" action="#" method="POST" enctype="multipart/form-data">
           <div class="actual-actions__form-sup">
             <img class="actual-actions__form-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/actual-actions-logo.webp" alt="">
           </div>

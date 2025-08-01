@@ -56,6 +56,7 @@
 @use 'blocks/course-inner';
 @use 'blocks/who-teaches';
 @use 'blocks/course-include';
+@use 'blocks/sec-21';
 
 
 @use 'blocks/footer';
@@ -65,3 +66,4 @@
 @use 'pages/okleyka-page';
 @use 'pages/skin-single';
 @use 'pages/study-page';
+@use 'pages/thankyou';

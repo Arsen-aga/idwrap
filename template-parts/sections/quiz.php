@@ -6,75 +6,75 @@
       </div>
     </div>
     <div class="sec-4__container container relative">
-      <?php if(get_field('quiz_title')) :?>
-      <h2 class="sec-4__title _title">
-        <?php the_field('quiz_title'); ?>
-      </h2>
+      <?php if (get_field('quiz_title')) : ?>
+        <h2 class="sec-4__title _title">
+          <?php the_field('quiz_title'); ?>
+        </h2>
       <?php endif; ?>
-      <?php if(get_field('quiz_subtitle')):?>
-      <p class="sec-4__subtitle _subtitle">
-        <?php the_field('quiz_subtitle'); ?>
-      </p>
+      <?php if (get_field('quiz_subtitle')): ?>
+        <p class="sec-4__subtitle _subtitle">
+          <?php the_field('quiz_subtitle'); ?>
+        </p>
       <?php endif; ?>
-      <form action="#" class="form sec-4__form form form-submit">
+      <form class="form sec-4__form form form-submit" action="#" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
         <input type="hidden" name="from" value="Получить расчёт стоимости + подарок">
         <div class="progress-bar progress-bar1">
           <div class="progress progress1"></div>
           <span class="progress-num progress-num1">Осталось 5 вопросов из 5</span>
         </div>
-        <?php if(have_rows('question1_variants')) :?>
-        <div class="quiz-step quiz-step1 step-1">
-          <h3 class="quiz-step__title">01. <?php the_field('quiz_question1'); ?></h3>
-          <div class="quiz-options <?php echo 'quiz-options-'.count(get_field('question1_variants')) + 1;?>">
-            <?php while(have_rows('question1_variants')) : the_row();
-            $img = get_sub_field('variant_img');  ?>
-            <label class="quiz-option quiz-option1" data-next="2">
-              <input type="radio" name="step1" required value="<?php the_sub_field('variant'); ?>">
-              <span class="quiz-option__image">
-                <span class="_image-abs">
-                  <img class="_img" src="<?php echo $img['url'];?>"
-                    alt="<?php echo $img['alt'];?>">
+        <?php if (have_rows('question1_variants')) : ?>
+          <div class="quiz-step quiz-step1 step-1">
+            <h3 class="quiz-step__title">01. <?php the_field('quiz_question1'); ?></h3>
+            <div class="quiz-options <?php echo 'quiz-options-' . count(get_field('question1_variants')) + 1; ?>">
+              <?php while (have_rows('question1_variants')) : the_row();
+                $img = get_sub_field('variant_img');  ?>
+                <label class="quiz-option quiz-option1" data-next="2">
+                  <input type="radio" name="step1" required value="<?php the_sub_field('variant'); ?>">
+                  <span class="quiz-option__image">
+                    <span class="_image-abs">
+                      <img class="_img" src="<?php echo $img['url']; ?>"
+                        alt="<?php echo $img['alt']; ?>">
+                    </span>
+                  </span>
+                  <span class="quiz-option__circle">
+                    <svg width="13" height="11" viewBox="0 0 13 11" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_130_577)">
+                        <path d="M2.24121 5.49099L4.90521 8.15299L10.7662 2.29199"
+                          stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+                      </g>
+                    </svg>
+                  </span>
+                  <span style="display: block;" class="quiz-option__text">
+                    <?php the_sub_field('variant'); ?>
+                  </span>
+                </label>
+              <?php endwhile; ?>
+              <label class="quiz-option quiz-option1" data-next="2">
+                <input type="radio" name="step1" required value="Затрудняюсь ответить">
+                <span class="quiz-option__image">
+                  <span class="_image-abs">
+                    <img class="_img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-04form/step1/ne_znayu.webp"
+                      alt=" Изображение - затрудняюсь ответить">
+                  </span>
                 </span>
-              </span>
-              <span class="quiz-option__circle">
-                <svg width="13" height="11" viewBox="0 0 13 11" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <g clip-path="url(#clip0_130_577)">
-                    <path d="M2.24121 5.49099L4.90521 8.15299L10.7662 2.29199"
-                      stroke="currentColor" stroke-width="3" stroke-linecap="round" />
-                  </g>
-                </svg>
-              </span>
-              <span style="display: block;" class="quiz-option__text">
-                <?php the_sub_field('variant'); ?>
-              </span>
-            </label>
-            <?php endwhile; ?>
-            <label class="quiz-option quiz-option1" data-next="2">
-              <input type="radio" name="step1" required value="Затрудняюсь ответить">
-              <span class="quiz-option__image">
-                <span class="_image-abs">
-                  <img class="_img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-04form/step1/ne_znayu.webp"
-                    alt=" Изображение - затрудняюсь ответить">
+                <span class="quiz-option__circle">
+                  <svg width="13" height="11" viewBox="0 0 13 11" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_130_577)">
+                      <path d="M2.24121 5.49099L4.90521 8.15299L10.7662 2.29199"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+                    </g>
+                  </svg>
                 </span>
-              </span>
-              <span class="quiz-option__circle">
-                <svg width="13" height="11" viewBox="0 0 13 11" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <g clip-path="url(#clip0_130_577)">
-                    <path d="M2.24121 5.49099L4.90521 8.15299L10.7662 2.29199"
-                      stroke="currentColor" stroke-width="3" stroke-linecap="round" />
-                  </g>
-                </svg>
-              </span>
-              <span style="display: block;" class="quiz-option__text">
-                Затрудняюсь ответить
-              </span>
-            </label>
+                <span style="display: block;" class="quiz-option__text">
+                  Затрудняюсь ответить
+                </span>
+              </label>
+            </div>
+            <button class="next-step _main-btn _orange-btn">На следующий шаг</button>
           </div>
-          <button class="next-step _main-btn _orange-btn">На следующий шаг</button>
-        </div>
         <?php endif; ?>
 
         <div class="quiz-step quiz-step1 step-2">
