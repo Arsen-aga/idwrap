@@ -11,7 +11,7 @@
       в теплом охраняемом паркинге под видеонаблюдением
     </p>
 
-    <?php if(have_rows('sec-10_cards') && get_field('sec-10_cardsHidden' != 1)) :?>
+    <?php if(have_rows('sec-10_cards') && get_field('sec-10_cardsHidden') != 1) :?>
     <div class="sec-10__content">
       <?php while(have_rows('sec-10_cards')) : the_row();
       $card_img = get_sub_field('card_img');
@@ -37,7 +37,7 @@
       </div>
       <?php endwhile;?>
     </div>
-    <?php elseif(get_field('sec-10_cardsHidden' != 1)):?>
+    <?php elseif(get_field('sec-10_cardsHidden') != 1):?>
     <div class="sec-10__content">
       <div class="sec-10__item">
         <div class="_image-abs">
