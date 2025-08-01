@@ -152,9 +152,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Проверяем наличие основных элементов
   if (!carsContainer || !carSlides.length || !blocks.length || !nextButton) {
-    console.error(
-      "Не найдены необходимые элементы для инициализации слайдеров."
-    );
+    // console.error(
+    //   "Не найдены необходимые элементы для инициализации слайдеров."
+    // );
     return;
   }
 

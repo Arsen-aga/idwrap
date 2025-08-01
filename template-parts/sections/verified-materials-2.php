@@ -162,14 +162,14 @@
           $img = get_sub_field('card_img');
           $img_url = $img ? $img['url'] : get_template_directory_uri() . '/assets/images/verified-materials-item-4.webp';
           $img_alt = $img ? esc_attr($img['alt']) : ''; ?>
-          <div class="verified-materials__item default-item <?php if ($class == 'grid-6' && $count > 3) {
-                                                              echo 'default-item__horizontal';
-                                                            } ?>">
+          <div class="verified-materials__item default-item change-popup-item <?php if ($class == 'grid-6' && $count > 3) {
+                                                                                echo 'default-item__horizontal';
+                                                                              } ?>">
             <div class="default-item__wrapper">
               <img src="<?php echo $img_url; ?>" alt="<?php echo $img_alt; ?>" class="default-item__img _img">
             </div>
             <div class="default-item__info">
-              <h4 class="default-item__title"><?php the_sub_field('card_title'); ?></h4>
+              <h4 class="default-item__title change-popup-title"><?php the_sub_field('card_title'); ?></h4>
               <?php if (get_sub_field('card_text')) : ?>
                 <p class="default-item__text">
                   <?php the_sub_field('card_text'); ?>
@@ -182,7 +182,7 @@
                   <?php endwhile; ?>
                 </ul>
               <?php endif; ?>
-              <a href="#" class="default-item__btn _main-btn">Рассчитать стоимость</a>
+              <a href="#callback-modal" class="default-item__btn _main-btn change-popup" data-fancybox>Рассчитать стоимость</a>
             </div>
           </div>
         <?php $count++;
@@ -202,7 +202,7 @@
           Подберем пленку, учитывая все особенности<br>
           оригинала — цвет, текстуру и производителя
         </p>
-        <a href="#" class="verified-materials__block-btn _main-btn">
+        <a href="#callback-modal" class="verified-materials__block-btn _main-btn change-popup" data-fancybox="">
           Рассчитать стоимость<br>
           восстановления пленки
         </a>
@@ -216,7 +216,7 @@
           Проведем детейлинг-мойку, полировку пленки<br>
           и нанесение покрытия для блеска
         </p>
-        <a href="#" class="verified-materials__block-btn _main-btn">
+        <a href="#callback-modal" class="verified-materials__block-btn _main-btn change-popup" data-fancybox="">
           Рассчитать стоимость<br>
           улучшения состояния пленки
         </a>

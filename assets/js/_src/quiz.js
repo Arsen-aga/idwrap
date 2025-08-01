@@ -8,14 +8,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const progressNum = document.querySelector(".progress-num1"); // Получаем элемент для обновления текста
     steps.forEach((s) => s?.classList.remove("active"));
     document.querySelector(".step-" + step) ? document.querySelector(".step-" + step).classList.add("active") : null;
-    progress.style.width = progressValues[step - 1];
+    progress ? progress.style.width = progressValues[step - 1] : null;
     if (step === 5)
       document.querySelector(".progress-bar1").style.display = "none";
 
     // Обновляем текст в .progress-num
     const remainingQuestions = 5 - step + 1; // Изменено на 5 - step + 1
     const questionText = remainingQuestions === 5 ? "вопросов" : "вопроса"; // Определяем правильное склонение
-    progressNum.textContent = `Осталось ${remainingQuestions} ${questionText} из 5`;
+    progressNum ? progressNum.textContent = `Осталось ${remainingQuestions} ${questionText} из 5` : null;
   }
 
   document.querySelectorAll(".quiz-option1").forEach((option) => {
@@ -52,13 +52,13 @@ document.addEventListener("DOMContentLoaded", function () {
 		const progressNum = document.querySelector(".progress-num2"); // Получаем элемент для обновления текста
 		steps.forEach(s => s.classList.remove("active"));
 		document.querySelector(".steps-" + step).classList.add("active");
-		progress.style.width = progressValues[step - 1];
+		progress ? progress.style.width = progressValues[step - 1] : null;
 		if (step === 5) document.querySelector(".progress-bar2").style.display = "none";
 
 		// Обновляем текст в .progress-num
 		const remainingQuestions = 5 - step + 1; // Изменено на 5 - step + 1
 		const questionText = remainingQuestions === 5 ? "вопросов" : "вопроса"; // Определяем правильное склонение
-		progressNum.textContent = `Осталось ${remainingQuestions} ${questionText} из 5`;
+		progressNum ? progressNum.textContent = `Осталось ${remainingQuestions} ${questionText} из 5` : null;
 	}
 
 

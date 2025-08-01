@@ -32,11 +32,11 @@ get_header(); ?>
           </h1>
         </div>
         <div class="front-block__btns">
-          <a class="front-block__btn _main-btn" href="#callback-modal" data-fancybox>
+          <a class="front-block__btn _main-btn" href="#quiz" data-fancybox>
             Рассчитать стоимость<br>
             оклейки авто за 4 шага
           </a>
-          <a class="front-block__link" href="https://wa.me/+79999999" target="_blank">
+          <a class="front-block__link" href="https://api.whatsapp.com/send/?phone=79267451861&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!+%D0%A5%D0%BE%D1%87%D1%83+%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C+%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E+%D0%BF%D0%BE+%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%D0%BB%D0%B8%D0%BD%D0%B3%D1%83&type=phone_number&app_absent=0" target="_blank">
             <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
             <span>Или получите консультацию</span>
           </a>
@@ -55,51 +55,51 @@ get_header(); ?>
       </p>
       <div class="full-cycle__swiper main-swiper swiper">
         <div class="swiper-wrapper">
-            <?php
-            // Получаем ID текущей страницы
-            $current_page_id = get_the_ID();
+          <?php
+          // Получаем ID текущей страницы
+          $current_page_id = get_the_ID();
 
-            // Получаем дочерние страницы текущей страницы
-            $child_pages = get_pages(array(
-                'child_of' => $current_page_id,
-                'sort_column' => 'menu_order',
-                'sort_order' => 'ASC'
-            ));
+          // Получаем дочерние страницы текущей страницы
+          $child_pages = get_pages(array(
+            'child_of' => $current_page_id,
+            'sort_column' => 'menu_order',
+            'sort_order' => 'ASC'
+          ));
 
-            // Проверяем, есть ли дочерние страницы
-            if ($child_pages) {
-                foreach ($child_pages as $child_page) {
-                    // Получаем URL миниатюры страницы
-                    // $thumbnail_url = get_the_post_thumbnail_url($child_page->ID, 'full');
-                    $thumbnail_url = get_field('type-first-block_img', $child_page->ID);
-                    // Если нет миниатюры, используем изображение по умолчанию
-                    $image_url = $thumbnail_url ? $thumbnail_url['url'] : get_template_directory_uri() . '/assets/images/default-card-1.webp';
+          // Проверяем, есть ли дочерние страницы
+          if ($child_pages) {
+            foreach ($child_pages as $child_page) {
+              // Получаем URL миниатюры страницы
+              // $thumbnail_url = get_the_post_thumbnail_url($child_page->ID, 'full');
+              $thumbnail_url = get_field('type-first-block_img', $child_page->ID);
+              // Если нет миниатюры, используем изображение по умолчанию
+              $image_url = $thumbnail_url ? $thumbnail_url['url'] : get_template_directory_uri() . '/assets/images/default-card-1.webp';
 
-                    // Получаем URL страницы
-                    $page_url = get_permalink($child_page->ID);
-                    ?>
-                    <div class="swiper-slide full-cycle__slide">
-                        <div class="full-cycle__item main-swiper__item default-card">
-                            <img class="default-card__img _img" src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($child_page->post_title); ?>">
-                            <div class="overlay"></div>
-                            <div class="default-card__inner">
-                                <h4 class="default-card__title">
-                                    <?php echo esc_html($child_page->post_title); ?>
-                                </h4>
-                                <div class="default-card__btns">
-                                    <a class="default-card__link _main-btn" href="<?php echo esc_url($page_url); ?>">
-                                        Подробнее
-                                    </a>
-                                    <a class="default-card__info" href="<?php echo esc_url($page_url); ?>">
-                                        <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+              // Получаем URL страницы
+              $page_url = get_permalink($child_page->ID);
+          ?>
+              <div class="swiper-slide full-cycle__slide">
+                <div class="full-cycle__item main-swiper__item default-card">
+                  <img class="default-card__img _img" src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($child_page->post_title); ?>">
+                  <div class="overlay"></div>
+                  <div class="default-card__inner">
+                    <h4 class="default-card__title">
+                      <?php echo esc_html($child_page->post_title); ?>
+                    </h4>
+                    <div class="default-card__btns">
+                      <a class="default-card__link _main-btn" href="<?php echo esc_url($page_url); ?>">
+                        Подробнее
+                      </a>
+                      <a class="default-card__info" href="<?php echo esc_url($page_url); ?>">
+                        <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
+                      </a>
                     </div>
-                    <?php
-                }
-            } ?>
+                  </div>
+                </div>
+              </div>
+          <?php
+            }
+          } ?>
         </div>
         <div class="swiper-scrollbar"></div>
       </div>

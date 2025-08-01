@@ -2,11 +2,13 @@
 
 .header {
   background-color: var(--dark-brown);
+  position: relative;
+  z-index: 1000;
 
   &.no-bg {
     position: absolute;
     top: 0;
-    z-index: 1;
+    z-index: 1000;
     width: 100%;
     max-width: 1920px;
     background-color: transparent;
@@ -233,7 +235,7 @@
         width: 290px;
         right: 0;
         top: 0;
-        z-index: 1;
+        z-index: 99;
         padding: 15px 40px;
 
         &__item.third-level {
@@ -257,7 +259,7 @@
 
   &__search {
     position: relative;
-    z-index: 2;
+    z-index: 99;
   }
 
 

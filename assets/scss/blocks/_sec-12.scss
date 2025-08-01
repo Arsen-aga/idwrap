@@ -6,7 +6,7 @@
   width: 100%;
   height: auto;
 
-  &__title{
+  &__title {
     text-align: left;
   }
 }
@@ -108,7 +108,12 @@
   fill: #999999;
 }
 
+.sec-12__form-social._telegram svg path {
+  fill: #999999;
+}
+
 .sec-12__form-social:hover._callbtn {
+  background-color: transparent;
   border-color: #F37021;
   color: #F37021;
 }
@@ -117,7 +122,18 @@
   fill: #F37021;
 }
 
+.sec-12__form-social:hover._telegram {
+  background-color: transparent;
+  border-color: var(--telegram-color);
+  color: var(--telegram-color);
+}
+
+.sec-12__form-social:hover._telegram svg path {
+  fill: var(--telegram-color);
+}
+
 .sec-12__form-social:hover._whatsapp {
+  background-color: transparent;
   border-color: #25D366;
   color: #25D366;
 }
@@ -142,6 +158,11 @@
 .sec-12__form-method:checked+.sec-12__form-social._callbtn {
   background-color: #F37021;
   border-color: #F37021;
+}
+
+.sec-12__form-method:checked+.sec-12__form-social._telegram {
+  background-color: var(--telegram-color);
+  border-color: var(--telegram-color);
 }
 
 .sec-12__form-method:checked+.sec-12__form-social._whatsapp {
@@ -197,7 +218,7 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 166.6666666667%;
-  color: #939393;
+  color: var(--dark-card);
 }
 
 .sec-12__form-accept span {

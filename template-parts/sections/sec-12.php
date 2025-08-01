@@ -1,5 +1,5 @@
 <?php $typeImg = get_field('sec-12_typeImg');
-switch($typeImg){
+switch ($typeImg) {
   case 'salon':
     $backImg = get_template_directory_uri() . '/assets/salon.webp';
     break;
@@ -13,7 +13,7 @@ switch($typeImg){
     $backImg = get_template_directory_uri() . '/assets/salon.webp';
 }
 ?>
-<section class="section sec-12" style="background-image: url(<?php echo $backImg;?>);">
+<section class="section sec-12" style="background-image: url(<?php echo $backImg; ?>);">
   <div class="sec-12__container container">
     <h2 class="sec-12__title _title">
       Получите промокод <br>
@@ -30,15 +30,14 @@ switch($typeImg){
         </p>
         <div class="sec-12__form-typebox">
           <input class="sec-12__form-type" checked required name="type" id="type1" type="radio"
-            value="При частичной оклейке — защита под ручками или внутреннего водительского порога">
+            value="Скидка 20% на комплексную мойку">
           <label class="sec-12__form-button _transparent-btn" for="type1">
-            <span class="sec-12__button-text">При частичной оклейке <span class="sec-12__button-specialize">— защита под ручками <br>
-                или внутреннего водительского порога</span></span>
+            <span class="sec-12__button-text">Скидка 20% на комплексную мойку</span>
           </label>
           <input class="sec-12__form-type" name="type" id="type2" type="radio"
-            value="При полной оклейке — защита передней оптики">
+            value="Скидка 10% на химчистку салона">
           <label class="sec-12__form-button _transparent-btn" for="type2">
-            <span class="sec-12__button-text">При полной оклейке — <span class="sec-12__button-specialize">защита передней оптики</span></span>
+            <span class="sec-12__button-text">Скидка 10% на химчистку салона</span>
           </label>
         </div>
         <p class="sec-12__form-li _li-2">
@@ -76,6 +75,16 @@ switch($typeImg){
               </g>
             </svg>
             WhatsApp
+          </label>
+          <input class="sec-12__form-method" name="method" id="method3" type="radio"
+            value="Telegram">
+          <label class="sec-12__form-social _transparent-btn _telegram" for="method3">
+            <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_295_978)">
+                <path d="M18 0.584729C17.9081 0.980695 17.8085 1.37322 17.7204 1.76919C17.1383 4.40667 16.5562 7.04415 15.974 9.68163C15.7098 10.873 15.4455 12.0643 15.1889 13.2591C15.0472 13.9133 14.1702 14.2266 13.5804 13.8238C11.4396 12.3535 9.30255 10.8799 7.1617 9.40618C7.13489 9.38896 7.10809 9.36486 7.06979 9.33387C7.20766 9.22024 7.33787 9.1135 7.47192 9.00677C9.99575 6.96151 12.5234 4.9197 15.0472 2.87101C15.1545 2.78493 15.254 2.68163 15.3268 2.57145C15.4187 2.43028 15.3345 2.3201 15.1545 2.35453C14.9936 2.38552 14.8289 2.44405 14.6911 2.52324C13.4732 3.21188 12.2591 3.91085 11.0413 4.60293C8.95021 5.79771 6.85915 6.98906 4.77191 8.18729C4.64936 8.25615 4.54979 8.26648 4.41574 8.22516C3.2017 7.8533 1.98766 7.48832 0.773617 7.1199C0.428936 7.0166 0.145532 6.84444 0 6.52767V6.30731C0.149362 6.04907 0.402128 5.9079 0.693191 5.80804C5.85192 3.98316 11.0145 2.16171 16.177 0.343706C16.514 0.226637 16.8549 0.109569 17.2034 0.0303758C17.6209 -0.0625903 17.8391 0.0441485 18 0.360922V0.581286V0.584729Z" fill="#939393" />
+              </g>
+            </svg>
+            Telegram
           </label>
         </div>
         <p class="sec-12__form-li _li-3">
