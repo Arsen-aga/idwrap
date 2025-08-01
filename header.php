@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php $seo_fields = get_seo_fields(); ?>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+		<?php echo esc_html($seo_fields['title']); ?>
+	</title>
+  <meta name="description" content="<?php echo esc_html($seo_fields['description']); ?>" />
+	<meta property="og:title" content="<?php echo esc_html($seo_fields['title']); ?>" />
+	<meta property="og:description" content="<?php echo esc_html($seo_fields['description']); ?>" />
+
   <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon.svg" type="image/x-icon">
   <meta content="<?php echo get_template_directory_uri(); ?>/assets/images/social.png" property="og:image">
-  <title><?php wp_title(''); ?></title>
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css">
 
   <?php wp_head(); ?>

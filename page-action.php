@@ -12,23 +12,27 @@ get_header();
       <h2 class="actual-actions__title _title ">
         Актуальные акции
       </h2>
+      <?php if(get_field('action_title')): ?>
       <div class="actual-actions__inner">
         <form class="actual-actions__form form-submit" action="#" method="POST" enctype="multipart/form-data">
           <div class="actual-actions__form-sup">
             <img class="actual-actions__form-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/actual-actions-logo.webp" alt="">
           </div>
           <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
-          <input type="hidden" name="from" value="«Детейлинг как подарок» — приведи друга и получи уход бесплатно">
+          <input type="hidden" name="from" value="<?php the_field('action_title');?>">
+          <?php if(get_field('action_date')) :?>
           <p class="actual-actions__form-suptitle _main-btn">
-            Акция до 31 августа
+            <?php the_field('action_date'); ?>
           </p>
+          <?php endif; ?>
           <h4 class="actual-actions__form-title">
-            «Детейлинг как подарок» — приведи<br>
-            друга и получи уход бесплатно
+            <?php the_field('action_title');?>
           </h4>
+          <?php if(get_field('action_text')) :?>
           <p class="actual-actions__form-text">
-            Приводите друга — он получает скидку 15% на<br> любую услугу, а вы — бесплатную мойку с воском<br> или химчистку ковров.
+            <?php the_field('action_text');?>
           </p>
+          <?php endif; ?>
           <div class="sec-6__form-inputs actual-actions__form-inputs">
             <img class="actual-actions__form-gift" src="<?php echo get_template_directory_uri(); ?>/assets/images/actual-actions-gift.webp" alt="">
             <input class="sec-6__form-number  actual-actions__form-inp" name="phone" type="tel" required
@@ -53,68 +57,49 @@ get_header();
             </div>
           </div>
         </form>
-        <div class="actual-actions__inner-right">
-          <div class="actual-actions__inner-wrapper">
-            <img class="actual-actions__inner-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/actual-actions-1.webp" alt="">
+        <?php if(get_field('action_img')) :
+          $action_img = get_field('action_img'); ?>
+          <div class="actual-actions__inner-right">
+            <div class="actual-actions__inner-wrapper">
+              <img class="actual-actions__inner-img _img" src="<?php echo $action_img['url'];?>" alt="<?php echo $action_img['alt'];?>">
+            </div>
           </div>
-        </div>
+        <?php endif; ?>
       </div>
+      <?php endif; ?>
+
+      <?php if(have_rows('actions_cards')) :?>
       <div class="cursor">
         <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
       </div>
       <div class="actual-actions__items">
+        <?php while(have_rows('actions_cards')) : the_row();
+        $img_card = get_sub_field('card_img');
+        $title_card = get_sub_field('card_title');
+        $card_text = get_sub_field('card_text'); ?>
         <div class="default-item actual-actions__item change-popup-item">
+          <?php if($img_card):?>
           <div class="default-item__wrapper">
-            <img class="default-item__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/polishing-types-1.webp" alt="">
+            <img class="default-item__img _img" src="<?php echo $img_card['url']; ?>" alt="<?php echo $img_card['alt'];?>">
           </div>
+          <?php endif; ?>
           <div class="default-item__info">
             <h4 class="default-item__title change-popup-title">
-              «Комплекс за полцены»<br>
-              на первую услугу
+              <?php echo $title_card; ?>
             </h4>
+            <?php if($card_text):?>
             <p class="default-item__text">
-              Первым 20 клиентам месяца — 50% <br>на комплексную полировку или <br>химчистку салона.
+              <?php echo $card_text; ?>
             </p>
+            <?php endif; ?>
             <a class="default-item__btn _main-btn change-popup" href="#modal-main" data-fancybox>
               Воспользоваться акцией
             </a>
           </div>
         </div>
-        <div class="default-item actual-actions__item change-popup-item">
-          <div class="default-item__wrapper">
-            <img class="default-item__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/polishing-types-1.webp" alt="">
-          </div>
-          <div class="default-item__info">
-            <h4 class="default-item__title change-popup-title">
-              «Защита на год<br>
-              в подарок»
-            </h4>
-            <p class="default-item__text">
-              При полной оклейке авто плёнкой —<br> нанесение защитной керамики на<br> стёкла и диски бесплатно.
-            </p>
-            <a class="default-item__btn _main-btn change-popup" href="#modal-main" data-fancybox>
-              Воспользоваться акцией
-            </a>
-          </div>
-        </div>
-        <div class="default-item actual-actions__item change-popup-item">
-          <div class="default-item__wrapper">
-            <img class="default-item__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/polishing-types-1.webp" alt="">
-          </div>
-          <div class="default-item__info">
-            <h4 class="default-item__title change-popup-title">
-              «Вторая услуга<br>
-              за 1 рубль»
-            </h4>
-            <p class="default-item__text">
-              Заказываете, например, химчистку<br> салона — наносим антидождь на<br> лобовое за 1 рубль.
-            </p>
-            <a class="default-item__btn _main-btn change-popup" href="#modal-main" data-fancybox>
-              Воспользоваться акцией
-            </a>
-          </div>
-        </div>
+        <?php endwhile; ?>
       </div>
+      <?php endif; ?>
     </div>
   </section>
 

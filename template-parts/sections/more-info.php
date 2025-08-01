@@ -13,10 +13,10 @@
           </h4>
 
           <div class="default-card__btns">
-            <a class="default-card__link _main-btn" href="#">
+            <a class="default-card__link _main-btn" href="<?php echo get_home_url(); ?>/okleyka/">
               Узнать подробнее
             </a>
-            <a class="default-card__info" href="#">
+            <a class="default-card__info" href="<?php echo get_home_url(); ?>/okleyka/">
               <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
             </a>
           </div>
@@ -31,10 +31,10 @@
           </h4>
 
           <div class="default-card__btns">
-            <a class="default-card__link _main-btn" href="#">
+            <a class="default-card__link _main-btn" href="<?php echo get_home_url(); ?>/reviews/">
               Узнать подробнее
             </a>
-            <a class="default-card__info" href="#">
+            <a class="default-card__info" href="<?php echo get_home_url(); ?>/reviews/">
               <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
             </a>
           </div>
@@ -49,10 +49,10 @@
           </h4>
 
           <div class="default-card__btns">
-            <a class="default-card__link _main-btn" href="#">
+            <a class="default-card__link _main-btn" href="<?php echo get_home_url(); ?>/works/">
               Узнать подробнее
             </a>
-            <a class="default-card__info" href="#">
+            <a class="default-card__info" href="<?php echo get_home_url(); ?>/works/">
               <?php include(get_template_directory() . '/assets/images/icons/info.svg'); ?>
             </a>
           </div>

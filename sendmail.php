@@ -24,7 +24,8 @@ if ($_POST['newToken'] == $_SESSION['lastToken']) {
 	//От кого письмо
 	$mail->setFrom('test@dmgug.ru', 'idwrap'); // Указать нужный E-mail
   //Кому отправить
-  $mail->addAddress('tatarin080820020808@yandex.ru'); // Указать нужный E-mail
+  // $mail->addAddress('tatarin080820020808@yandex.ru');
+  $mail->addAddress('prasolovandreas@yandex.ru');
   //Тема письма
   $mail->Subject = 'Заявка с сайта idwrap';
 	$phone = trim($_POST['phone']);

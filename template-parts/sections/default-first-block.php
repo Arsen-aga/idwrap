@@ -1,3 +1,10 @@
+<?php $seo_fields = get_seo_fields();
+if(is_category()){
+  $category = get_queried_object();
+  $term = 'category_' . $category->term_id;
+} else {
+  $term = get_the_ID();
+}?>
 <section class="front-block _image-wrapper" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/front-bg-2.webp);">
   <div class="overlay"></div>
   <div class="container">
@@ -5,9 +12,9 @@
       <?php dimox_breadcrumbs(); ?>
       <div class="front-block__top">
         <h1 class="front-block__title _title-1">
-          <?php wp_title(''); ?>
+          <?php echo esc_html($seo_fields['h1']); ?>
         </h1>
-        <?php if(get_field('preview_logo') == 1) :?>
+        <?php if(get_field('preview_logo', $term) == 1) :?>
         <?php include(get_template_directory() . '/assets/images/icons/logo.svg'); ?>
         <?php endif; ?>
       </div>

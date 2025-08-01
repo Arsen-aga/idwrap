@@ -1,3 +1,4 @@
+<?php $seo_fields = get_seo_fields(); ?>
 <section class="sec-0 relative">
   <div class="sec-0__container container">
     <div class="sec-0__layout">
@@ -5,7 +6,7 @@
         <img class="sec-0__content-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-0-bg.webp" alt="">
         <?php dimox_breadcrumbs(); ?>
         <h1 class="sec-0__title _main-title">
-          <?php echo wp_title(''); ?>
+          <?php echo esc_html($seo_fields['h1']); ?>
         </h1>
         <?php if(get_field('type-first-block_subtitle')):?>
         <p class="sec-0__guarant">

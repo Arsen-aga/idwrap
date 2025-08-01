@@ -8,32 +8,32 @@
           </h4>
           <ul class="footer__col-list list-point">
             <li class="footer__col-point">
-              <a class="footer__col-link" href="#">
+              <a class="footer__col-link" href="<?php echo get_home_url(); ?>/okleyka/antigravijnaja-plenka/">
                 Антигравийная оклейка
               </a>
             </li>
             <li class="footer__col-point">
-              <a class="footer__col-link" href="#">
+              <a class="footer__col-link" href="<?php echo get_home_url(); ?>/okleyka/cvetnoi-poliuretan/">
                 Цветной полиуретан
               </a>
             </li>
             <li class="footer__col-point">
-              <a class="footer__col-link" href="#">
+              <a class="footer__col-link" href="<?php echo get_home_url(); ?>/okleyka/polnaja-okleika-avtomobilja/">
                 Полная оклейка автомобиля
               </a>
             </li>
             <li class="footer__col-point">
-              <a class="footer__col-link" href="#">
+              <a class="footer__col-link" href="<?php echo get_home_url(); ?>/okleyka/oklejka-zon-riska/">
                 Оклейка зон риска
               </a>
             </li>
             <li class="footer__col-point">
-              <a class="footer__col-link" href="#">
+              <a class="footer__col-link" href="<?php echo get_home_url(); ?>/okleyka/antihrom-avtomobilja/">
                 Антихром
               </a>
             </li>
           </ul>
-          <a class="footer__col-more" href="#">
+          <a class="footer__col-more" href="<?php echo get_home_url(); ?>/okleyka/">
             Посмотреть все виды оклейки
           </a>
         </div>
@@ -43,33 +43,33 @@
           </h4>
           <ul class="footer__col-list list-point">
             <li class="footer__col-point">
-              <a class="footer__col-link" href="#">
+              <a class="footer__col-link" href="<?php echo get_home_url(); ?>/detailing/polirovka-kuzova/">
                 Полировка кузова
               </a>
             </li>
             <li class="footer__col-point">
-              <a class="footer__col-link" href="#">
+              <a class="footer__col-link" href="<?php echo get_home_url(); ?>/detailing/avtokeramika/">
                 Автокерамика
               </a>
             </li>
             <li class="footer__col-point">
-              <a class="footer__col-link" href="#">
+              <a class="footer__col-link" href="<?php echo get_home_url(); ?>/detailing/himchistka-avtomobilja/">
                 Химчистка салона
               </a>
             </li>
             <li class="footer__col-point">
-              <a class="footer__col-link" href="#">
+              <a class="footer__col-link" href="<?php echo get_home_url(); ?>/detailing/mojka-kuzova/">
                 Мойка кузова
               </a>
             </li>
             <li class="footer__col-point">
-              <a class="footer__col-link" href="#">
+              <a class="footer__col-link" href="<?php echo get_home_url(); ?>/detailing/mojka-podveski/">
                 Мойка подвески
               </a>
             </li>
           </ul>
-          <a class="footer__col-more" href="#">
-            Посмотреть все виды оклейки
+          <a class="footer__col-more" href="<?php echo get_home_url(); ?>/detailing/">
+            Посмотреть все виды детейлинга
           </a>
         </div>
         <div class="footer__col">
@@ -78,27 +78,27 @@
           </h4>
           <ul class="footer__col-list">
             <li class="footer__col-point">
-              <a class="footer__col-link" href="#">
+              <a class="footer__col-link" href="<?php echo get_home_url(); ?>/action/">
                 Акции
               </a>
             </li>
             <li class="footer__col-point">
-              <a class="footer__col-link" href="#">
+              <a class="footer__col-link" href="<?php echo get_home_url(); ?>/price/">
                 Цены
               </a>
             </li>
             <li class="footer__col-point">
-              <a class="footer__col-link" href="#">
+              <a class="footer__col-link" href="<?php echo get_home_url(); ?>/works/">
                 Наши работы
               </a>
             </li>
             <li class="footer__col-point">
-              <a class="footer__col-link" href="#">
+              <a class="footer__col-link" href="<?php echo get_home_url(); ?>/reviews/">
                 Отзывы
               </a>
             </li>
             <li class="footer__col-point">
-              <a class="footer__col-link" href="#">
+              <a class="footer__col-link" href="<?php echo get_home_url(); ?>/study/">
                 Обучение
               </a>
             </li>
@@ -110,7 +110,7 @@
           </h4>
           <ul class="footer__col-list">
             <li class="footer__col-point">
-              <a class="footer__col-link" href="#">
+              <a class="footer__col-link" href="<?php echo get_home_url(); ?>/">
                 Контакты
               </a>
             </li>

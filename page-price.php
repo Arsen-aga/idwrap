@@ -1,6 +1,7 @@
 <?php
 
-get_header(); ?>
+get_header();
+$seo_fields = get_seo_fields();?>
 <main class="main" id="price-page">
   <section class="front-block _image-wrapper" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/front-bg-2.webp);">
     <div class="overlay"></div>
@@ -9,7 +10,7 @@ get_header(); ?>
         <?php dimox_breadcrumbs(); ?>
         <div class="front-block__top">
           <h1 class="front-block__title _title-1">
-            Цены студии детейлинга
+            <?php echo esc_html($seo_fields['h1']); ?>
           </h1>
           <?php include(get_template_directory() . '/assets/images/icons/logo.svg'); ?>
         </div>
@@ -26,268 +27,72 @@ get_header(); ?>
     </div>
   </section>
 
-  <section class="services-price">
+<section class="services-price">
     <div class="container">
-      <div class="services-price__inner">
-        <div class="services-price__left">
-          <form action="#" method="post" class="search services-price__search">
-            <?php include(get_template_directory() . '/assets/images/icons/search.svg'); ?>
-            <input class="search__inp" type="text" name="search" placeholder="Поиск по услугам">
-          </form>
-          <div class="services-price__items">
-            <div class="services-price__item change-price-item change-popup-item">
-              <h4 class="services-price__item-title change-popup-title">
-                Антигравийная оклейка
-              </h4>
-              <div class="services-price__item-price">
-                <p class="services-price__item-num change-price-num">
-                  1000 ₽
-                </p>
-                <a class="services-price__item-link change-price-btn" href="#change-price" data-fancybox="">
-                  Или напишите свою цену
-                </a>
-              </div>
-              <a class="services-price__item-btn _main-btn change-popup" href="#callback-modal" data-fancybox="">
-                Записаться
-              </a>
+        <div class="services-price__inner">
+            <div class="services-price__left">
+
+                <div class="search services-price__search">
+                    <?php include(get_template_directory() . '/assets/images/icons/search.svg'); ?>
+                    <input class="search__inp" type="text" name="services_search" placeholder="Поиск по услугам" autocomplete="off">
+                    <span class="search__clear" style="display:none;">&times;</span>
+                </div>
+
+                <div class="services-price__items">
+                    <?php
+                    $args = array(
+                        'post_type'      => 'page',
+                        'posts_per_page' => 15,
+                        'post_parent__in' => array(86, 9),
+                        'orderby'        => 'title',
+                        'order'          => 'ASC'
+                    );
+
+                    $services_query = new WP_Query($args);
+
+                    if ($services_query->have_posts()) :
+                        while ($services_query->have_posts()) : $services_query->the_post();
+                            $price = get_field('priceService', get_the_ID());
+                            ?>
+                            <div class="services-price__item change-price-item change-popup-item">
+                                <h4 class="services-price__item-title change-popup-title">
+                                    <?php the_title(); ?>
+                                </h4>
+                                <div class="services-price__item-price">
+                                    <?php if ($price) : ?>
+                                        <p class="services-price__item-num change-price-num">
+                                            <?php echo number_format($price, 0, '', ' '); ?> ₽
+                                        </p>
+                                    <?php endif; ?>
+                                    <a class="services-price__item-link change-price-btn" href="#change-price" data-fancybox data-service="<?php the_title(); ?>">
+                                        Или напишите свою цену
+                                    </a>
+                                </div>
+                                <a class="services-price__item-btn _main-btn change-popup" href="#callback-modal" data-fancybox data-service="<?php the_title(); ?>">
+                                    Записаться
+                                </a>
+                            </div>
+                        <?php endwhile; ?>
+                    <?php else : ?>
+                        <p>Услуги не найдены</p>
+                    <?php endif; ?>
+                </div>
+
+                <?php if ($services_query->max_num_pages > 1) : ?>
+                    <button class="services-price__btn-more _transparent-btn" id="load-more-services" data-page="2">
+                        Показать больше услуг
+                    </button>
+                <?php endif; ?>
             </div>
-            <div class="services-price__item change-price-item change-popup-item">
-              <h4 class="services-price__item-title change-popup-title">
-                Бронирование фар пленкой
-              </h4>
-              <div class="services-price__item-price">
-                <p class="services-price__item-num change-price-num">
-                  1000 ₽
-                </p>
-                <a class="services-price__item-link change-price-btn" href="#change-price" data-fancybox="">
-                  Или напишите свою цену
-                </a>
-              </div>
-              <a class="services-price__item-btn _main-btn change-popup" href="#callback-modal" data-fancybox="">
-                Записаться
-              </a>
+
+            <div class="services-price__right">
+                <div class="services-price__right-wrapper">
+                    <img class="services-price__right-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/services-price-1.webp" alt="Услуги">
+                </div>
             </div>
-            <div class="services-price__item change-price-item change-popup-item">
-              <h4 class="services-price__item-title change-popup-title">
-                Частичная оклейка
-              </h4>
-              <div class="services-price__item-price">
-                <p class="services-price__item-num change-price-num">
-                  1000 ₽
-                </p>
-                <a class="services-price__item-link change-price-btn" href="#change-price" data-fancybox="">
-                  Или напишите свою цену
-                </a>
-              </div>
-              <a class="services-price__item-btn _main-btn change-popup" href="#callback-modal" data-fancybox="">
-                Записаться
-              </a>
-            </div>
-            <div class="services-price__item change-price-item change-popup-item">
-              <h4 class="services-price__item-title change-popup-title">
-                Полная оклейка
-              </h4>
-              <div class="services-price__item-price">
-                <p class="services-price__item-num change-price-num">
-                  1000 ₽
-                </p>
-                <a class="services-price__item-link change-price-btn" href="#change-price" data-fancybox="">
-                  Или напишите свою цену
-                </a>
-              </div>
-              <a class="services-price__item-btn _main-btn change-popup" href="#callback-modal" data-fancybox="">
-                Записаться
-              </a>
-            </div>
-            <div class="services-price__item change-price-item change-popup-item">
-              <h4 class="services-price__item-title change-popup-title">
-                Оклейка зон риска
-              </h4>
-              <div class="services-price__item-price">
-                <p class="services-price__item-num change-price-num">
-                  1000 ₽
-                </p>
-                <a class="services-price__item-link change-price-btn" href="#change-price" data-fancybox="">
-                  Или напишите свою цену
-                </a>
-              </div>
-              <a class="services-price__item-btn _main-btn change-popup" href="#callback-modal" data-fancybox="">
-                Записаться
-              </a>
-            </div>
-            <div class="services-price__item change-price-item change-popup-item">
-              <h4 class="services-price__item-title change-popup-title">
-                Оклейка отдельных элементов
-              </h4>
-              <div class="services-price__item-price">
-                <p class="services-price__item-num change-price-num">
-                  1000 ₽
-                </p>
-                <a class="services-price__item-link change-price-btn" href="#change-price" data-fancybox="">
-                  Или напишите свою цену
-                </a>
-              </div>
-              <a class="services-price__item-btn _main-btn change-popup" href="#callback-modal" data-fancybox="">
-                Записаться
-              </a>
-            </div>
-            <div class="services-price__item change-price-item change-popup-item">
-              <h4 class="services-price__item-title change-popup-title">
-                Винилография
-              </h4>
-              <div class="services-price__item-price">
-                <p class="services-price__item-num change-price-num">
-                  1000 ₽
-                </p>
-                <a class="services-price__item-link change-price-btn" href="#change-price" data-fancybox="">
-                  Или напишите свою цену
-                </a>
-              </div>
-              <a class="services-price__item-btn _main-btn change-popup" href="#callback-modal" data-fancybox="">
-                Записаться
-              </a>
-            </div>
-            <div class="services-price__item change-price-item change-popup-item">
-              <h4 class="services-price__item-title change-popup-title">
-                Оклейка автомобиля
-              </h4>
-              <div class="services-price__item-price">
-                <p class="services-price__item-num change-price-num">
-                  1000 ₽
-                </p>
-                <a class="services-price__item-link change-price-btn" href="#change-price" data-fancybox="">
-                  Или напишите свою цену
-                </a>
-              </div>
-              <a class="services-price__item-btn _main-btn change-popup" href="#callback-modal" data-fancybox="">
-                Записаться
-              </a>
-            </div>
-            <div class="services-price__item change-price-item change-popup-item">
-              <h4 class="services-price__item-title change-popup-title">
-                Глянцевая пленка
-              </h4>
-              <div class="services-price__item-price">
-                <p class="services-price__item-num change-price-num">
-                  1000 ₽
-                </p>
-                <a class="services-price__item-link change-price-btn" href="#change-price" data-fancybox="">
-                  Или напишите свою цену
-                </a>
-              </div>
-              <a class="services-price__item-btn _main-btn change-popup" href="#callback-modal" data-fancybox="">
-                Записаться
-              </a>
-            </div>
-            <div class="services-price__item change-price-item change-popup-item">
-              <h4 class="services-price__item-title change-popup-title">
-                Хром/Золото
-              </h4>
-              <div class="services-price__item-price">
-                <p class="services-price__item-num change-price-num">
-                  1000 ₽
-                </p>
-                <a class="services-price__item-link change-price-btn" href="#change-price" data-fancybox="">
-                  Или напишите свою цену
-                </a>
-              </div>
-              <a class="services-price__item-btn _main-btn change-popup" href="#callback-modal" data-fancybox="">
-                Записаться
-              </a>
-            </div>
-            <div class="services-price__item change-price-item change-popup-item">
-              <h4 class="services-price__item-title change-popup-title">
-                Матовая пленка
-              </h4>
-              <div class="services-price__item-price">
-                <p class="services-price__item-num change-price-num">
-                  1000 ₽
-                </p>
-                <a class="services-price__item-link change-price-btn" href="#change-price" data-fancybox="">
-                  Или напишите свою цену
-                </a>
-              </div>
-              <a class="services-price__item-btn _main-btn change-popup" href="#callback-modal" data-fancybox="">
-                Записаться
-              </a>
-            </div>
-            <div class="services-price__item change-price-item change-popup-item">
-              <h4 class="services-price__item-title change-popup-title">
-                Хамелеон/Перламутр
-              </h4>
-              <div class="services-price__item-price">
-                <p class="services-price__item-num change-price-num">
-                  1000 ₽
-                </p>
-                <a class="services-price__item-link change-price-btn" href="#change-price" data-fancybox="">
-                  Или напишите свою цену
-                </a>
-              </div>
-              <a class="services-price__item-btn _main-btn change-popup" href="#callback-modal" data-fancybox="">
-                Записаться
-              </a>
-            </div>
-            <div class="services-price__item change-price-item change-popup-item">
-              <h4 class="services-price__item-title change-popup-title">
-                Камуфляжная пленка
-              </h4>
-              <div class="services-price__item-price">
-                <p class="services-price__item-num change-price-num">
-                  1000 ₽
-                </p>
-                <a class="services-price__item-link change-price-btn" href="#change-price" data-fancybox="">
-                  Или напишите свою цену
-                </a>
-              </div>
-              <a class="services-price__item-btn _main-btn change-popup" href="#callback-modal" data-fancybox="">
-                Записаться
-              </a>
-            </div>
-            <div class="services-price__item change-price-item change-popup-item">
-              <h4 class="services-price__item-title change-popup-title">
-                Карбоновая пленка
-              </h4>
-              <div class="services-price__item-price">
-                <p class="services-price__item-num change-price-num">
-                  1000 ₽
-                </p>
-                <a class="services-price__item-link change-price-btn" href="#change-price" data-fancybox="">
-                  Или напишите свою цену
-                </a>
-              </div>
-              <a class="services-price__item-btn _main-btn change-popup" href="#callback-modal" data-fancybox="">
-                Записаться
-              </a>
-            </div>
-            <div class="services-price__item change-price-item change-popup-item">
-              <h4 class="services-price__item-title change-popup-title">
-                Брендирование
-              </h4>
-              <div class="services-price__item-price">
-                <p class="services-price__item-num change-price-num">
-                  1000 ₽
-                </p>
-                <a class="services-price__item-link change-price-btn" href="#change-price" data-fancybox="">
-                  Или напишите свою цену
-                </a>
-              </div>
-              <a class="services-price__item-btn _main-btn change-popup" href="#callback-modal" data-fancybox="">
-                Записаться
-              </a>
-            </div>
-          </div>
-          <a class="services-price__btn-more _transparent-btn" href="#">
-            Показать больше услуг
-          </a>
         </div>
-        <div class="services-price__right">
-          <div class="services-price__right-wrapper">
-            <img class="services-price__right-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/services-price-1.webp" alt="">
-          </div>
-        </div>
-      </div>
     </div>
-  </section>
+</section>
 
   <div class="space-sec"></div>
 

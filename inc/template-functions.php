@@ -46,6 +46,12 @@ require get_template_directory() . '/inc/search-script.php';
 // Хлебные крошки
 require get_template_directory() . '/inc/breadcrumbs.php';
 
+// Хлебные крошки
+require get_template_directory() . '/inc/custom-functions.php';
+
+// Определение шаблона
+require get_template_directory() . '/inc/single-template.php';
+
 // Функция вывода блоков
 
 function renderBlocks(){

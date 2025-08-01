@@ -26,10 +26,13 @@ document.addEventListener("DOMContentLoaded", function () {
       // formData.append('image', formImage.files[0]);
       if (error === 0) {
         form.classList.add("_sending");
-        let response = await fetch("sendmail.php", {
-          method: "POST",
-          body: formData,
-        });
+        let response = await fetch(
+          "https://wrapid.dmgug.ru/wp-content/themes/idwrap/sendmail.php",
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
 
         if (response.ok) {
           form.classList.add("_sending");
