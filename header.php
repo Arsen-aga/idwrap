@@ -40,10 +40,10 @@
                   <a class="social-block__btn _main-btn" href="#callback-modal" data-fancybox="">
                     Записаться
                   </a>
-                  <a class="social-block__link social-block__whatsapp" href="#">
+                  <a class="social-block__link social-block__whatsapp" href="https://api.whatsapp.com/send/?phone=79267451861&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!+%D0%A5%D0%BE%D1%87%D1%83+%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C+%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E+%D0%BF%D0%BE+%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%D0%BB%D0%B8%D0%BD%D0%B3%D1%83&type=phone_number&app_absent=0" target="_blank">
                     <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
                   </a>
-                  <a class="social-block__link social-block__telegram" href="#">
+                  <a class="social-block__link social-block__telegram" href="https://t.me/ID_wrap" target="_blank">
                     <?php include(get_template_directory() . '/assets/images/icons/telegram.svg'); ?>
                   </a>
                 </div>
@@ -51,7 +51,7 @@
                   <a class="social-block__phone-number" href="tel:+74952980377">
                     +7 495 298 03 77
                   </a>
-                  <a class="social-block__phone-link" href="#callback-modal" data-fancybox>
+                  <a class="social-block__phone-link" href="#callback-modal-2" data-fancybox>
                     <span>Перезвоним за 1 минуту</span>
                   </a>
                 </div>

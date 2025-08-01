@@ -139,10 +139,14 @@
 .quiz-step .quiz-options {
   margin-top: 30px;
   display: flex;
-  flex-wrap: wrap;
   align-items: start;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 30px 5px;
+
+  &.quiz-options-5{
+    flex-wrap: nowrap;
+  }
 }
 
 .quiz-step .quiz-option {
@@ -376,6 +380,14 @@
 
   .quiz-step__title br {
     display: none;
+  }
+
+  .quiz-step .quiz-options {
+    flex-wrap: wrap;
+
+    &.quiz-options-5{
+      flex-wrap: wrap;
+    }
   }
 
   .quiz-step.step-1 .quiz-option,

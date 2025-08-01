@@ -1,51 +1,78 @@
 // Изменение заголовка и инпут from в попапе, по нажатию на кнопку в item
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener("DOMContentLoaded", function () {
+  const btns = document.querySelectorAll(".change-popup");
+  btns?.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const id = btn.href.split("#")[1];
+      const modal = document.getElementById(id);
+      const modalFrom = modal.querySelector('[name="from"]');
+      const modalBtn = modal.querySelector(".form-btn");
+      const modalTitle = modal.querySelector("h2");
 
-const btns = document.querySelectorAll('.change-popup');
-btns?.forEach(btn => {
-  btn.addEventListener('click', function(){
+      const textBtn = btn.textContent.trim();
+      const changePopupItem = btn.closest(".change-popup-item");
+      const changePopupPrice = changePopupItem
+        ? changePopupItem.querySelector(".change-price-num")
+        : null;
+      const changePopupTitle = changePopupItem ? changePopupItem
+            .querySelector(".change-popup-title")
+            .textContent.trim()
+        : null;
 
-    const id = btn.href.split('#')[1];
-    const modal = document.getElementById(id);
-    const modalFrom = modal.querySelector('[name="from"]')
-    const modalBtn = modal.querySelector(".form-btn");
-    const modalTitle = modal.querySelector("h2");
-    const textBtn = btn.textContent;
+      const startTextBtn =
+        "Заполните форму ниже, чтобы записаться на услугу - ";
+      const resultText = `${startTextBtn} ${changePopupTitle} на сумму ${
+        changePopupPrice && changePopupPrice.textContent.trim()
+      }`;
 
-    const changePopupItem = btn.closest('.change-popup-item')
-    const changePopupTitle = changePopupItem
-      ? changePopupItem.querySelector(".change-popup-title, .change-popup-name") : null;
-    
-
-    const startTextBtn = "Заполните форму ниже, чтобы ";
-    const programsCheckupTextBtn = "Заполните форму ниже, чтобы записаться на ";
-    const doctorsTextBtn = "Заполните форму ниже, чтобы записаться к врачу ";
-
-    if(changePopupItem){
-      modalFrom.value = programsCheckupTextBtn + changePopupTitle.textContent.trim().toLowerCase();
-      modalTitle ? modalTitle.textContent = programsCheckupTextBtn + changePopupTitle.textContent.trim().toLowerCase() : null;
-      console.log(changePopupTitle);
-      if(changePopupTitle && changePopupTitle.classList.contains("change-popup-name")){
-        modalFrom.value = doctorsTextBtn + changePopupTitle.textContent.trim().toLowerCase();
-      modalTitle ? (modalTitle.textContent = doctorsTextBtn + changePopupTitle.textContent.trim().toLowerCase()) : null;
+      if (changePopupPrice) {
+        modalFrom.value = resultText;
+        modalTitle.textContent = resultText;
+      } else if (changePopupTitle) {
+        modalFrom.value = textBtn + " " + changePopupTitle;
+        modalTitle.textContent = textBtn + " " + changePopupTitle;
+      } else{
+        modalFrom.value = textBtn.trim();
+        modalTitle.textContent = textBtn.trim();
       }
-    } else if (btn.classList.contains("change-popup-from-link")) {
-      modalFrom.value = window.location.href;
-      modalTitle
-        ? (modalTitle.textContent = startTextBtn + textBtn.trim().toLowerCase())
-        : null;
-    } else {
-      modalFrom.value = startTextBtn + textBtn.trim().toLowerCase();
-      modalTitle
-        ? (modalTitle.textContent = startTextBtn + textBtn.trim().toLowerCase())
-        : null;
+
+      modalBtn ? (modalBtn.textContent = textBtn.trim()) : null;
+    });
+  });
+
+  // код для изменения цены
+  function handleChangePriceClick(btn) {
+    btn.addEventListener("click", function (e) {
+      const item = btn.closest(".change-price-item");
+      const price = item.querySelector(".change-price-num");
+
+      const id = btn.href.split("#")[1];
+      const modal = document.getElementById(id);
+      const inp = modal.querySelector("input");
+      const modalBtn = modal.querySelector("button");
+
+      // Удаляем предыдущие обработчики, чтобы избежать дублирования
+      const newModalBtn = modalBtn.cloneNode(true);
+      modalBtn.parentNode.replaceChild(newModalBtn, modalBtn);
+
+      // Добавляем новый обработчик для кнопки в модальном окне
+      newModalBtn.addEventListener("click", () =>
+        handleModalButtonClick(inp, price)
+      );
+    });
+  }
+  // Функция для обработки клика по кнопке в модальном окне
+  function handleModalButtonClick(input, priceElement) {
+    if (input.value.trim().length < 1) {
+      priceElement.textContent = priceElement.textContent; // Оставляем цену без изменений
+    } else if (priceElement) {
+      priceElement.textContent = `${input.value} ₽`; // Обновляем цену
     }
-    modalBtn ? modalBtn.textContent = textBtn.trim() : null;
-
-
-    
-  })
-})
-
-
-})
+    Fancybox.close(); // Закрываем модальное окно
+  }
+  const changePriceBtn = document.querySelectorAll(".change-price-btn");
+  // Проверяем наличие кнопок и добавляем обработчики
+  if (changePriceBtn.length) {
+    changePriceBtn.forEach((btn) => handleChangePriceClick(btn));
+  }
+});

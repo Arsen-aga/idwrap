@@ -22,7 +22,7 @@
             <?php include(get_template_directory() . '/assets/images/icons/geo.svg'); ?>
             <p>ул. Архитектора Щусева, 5, к1</p>
           </address>
-          <a class="quality-pasting__item-btn _main-btn" href="">
+          <a class="quality-pasting__item-btn _main-btn change-popup" href="#callback-modal" data-fancybox>
             Записаться на экскурсию<br>
             по детелинг-студии
           </a>
@@ -39,7 +39,7 @@
             от процесса разборки до оклейки<br>
             и сборки автомобиля
           </p>
-          <a class="quality-pasting__item-btn _main-btn" href="">
+          <a class="quality-pasting__item-btn _main-btn change-popup" href="#callback-modal" data-fancybox>
             Получить видеоотчеты<br>
             выполненных оклеек
           </a>
@@ -62,7 +62,7 @@
             Специалист выйдет с вами<br>
             на видеосвязь прямо из студии <br>детейлинга и покажет любой <br>интересующий процесс
           </p>
-          <a class="quality-pasting__item-btn _main-btn" href="">
+          <a class="quality-pasting__item-btn _main-btn change-popup" href="#callback-modal" data-fancybox>
             Согласовать время<br>
             видеосозвона
           </a>

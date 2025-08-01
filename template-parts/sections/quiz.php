@@ -26,7 +26,7 @@
         <?php if(have_rows('question1_variants')) :?>
         <div class="quiz-step quiz-step1 step-1">
           <h3 class="quiz-step__title">01. <?php the_field('quiz_question1'); ?></h3>
-          <div class="quiz-options">
+          <div class="quiz-options <?php echo 'quiz-options-'.count(get_field('question1_variants')) + 1;?>">
             <?php while(have_rows('question1_variants')) : the_row();
             $img = get_sub_field('variant_img');  ?>
             <label class="quiz-option quiz-option1" data-next="2">

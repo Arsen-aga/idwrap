@@ -2339,7 +2339,7 @@
         </div>
       </div>
       <div class="sec-1__buttons">
-        <a data-fancybox href="#quiza" class="sec-1__cars-modal _main-btn _orange-btn">
+        <a data-fancybox href="#quiz" class="sec-1__cars-modal _main-btn">
           Рассчитать стоимость <br>
           оклейки авто за 4 шага
         </a>
