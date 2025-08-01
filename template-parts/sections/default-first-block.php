@@ -7,7 +7,9 @@
         <h1 class="front-block__title _title-1">
           <?php wp_title('');?>
         </h1>
+        <?php if(get_field('preview_logo') == 1) :?>
         <?php include(get_template_directory() . '/assets/images/icons/logo.svg'); ?>
+        <?php endif; ?>
       </div>
       <div class="front-block__btns">
         <a class="front-block__btn _main-btn" href="#callback-modal" data-fancybox>

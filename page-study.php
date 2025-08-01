@@ -9,16 +9,7 @@ get_header(); ?>
     <div class="overlay"></div>
     <div class="container">
       <div class="front-block__inner relative">
-        <div class="breadcrumbs">
-          <ul class="breadcrumbs__list">
-            <li class="breadcrumbs__point">
-              <a class="breadcrumbs__link" href="#">Главная</a>
-            </li>
-            <li class="breadcrumbs__point">
-              <a class="breadcrumbs__link active" href="#">Обучение</a>
-            </li>
-          </ul>
-        </div>
+        <?php dimox_breadcrumbs(); ?>
         <h1 class="front-block__title">
           Индивидуальное обучение по
           антигравийной защите плёнкой в
