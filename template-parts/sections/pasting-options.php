@@ -1,19 +1,52 @@
 <section class="section sec-6">
   <div class="sec-6__container container">
     <h2 class="sec-6__title _title">
-      Возможна полная оклейка авто <br>
-      или оклейка отдельных элементов
+      <?php the_field('pasting-options_title'); ?>
     </h2>
+    <?php if(get_field('pasting-options_subtitle')):?>
     <p class="sec-6__subtitle _subtitle">
-      Вы можете выбрать необходимые элементы <br>
-      и ниже получить расчет стоимости
+      <?php the_field('pasting-options_subtitle');?>
     </p>
+    <?php endif; ?>
     <form action="#" class="form sec-6__form form form-submit">
       <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
       <input type="hidden" name="from" value="Получить расчет стоимости оклейки выбранных элементов">
       <div class="cursor sec-6__catalog-cursor">
         <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
       </div>
+      <?php if(have_rows('pasting-options_variant')) : ?>
+      <div class="sec-6__catalog">
+        <?php while(have_rows('pasting-options_variant')) : the_row();
+        $img = get_sub_field('variants_img');
+        $title = get_sub_field('variants_title');
+        $text = get_sub_field('variants_text'); ?>
+        <div class="sec-6__element">
+          <?php if($img) :?>
+          <div class="sec-6__element-image">
+            <div class="_image-abs">
+              <img class="_img" src="<?php echo $img['url'];?>"
+                alt="<?php echo $img['alt'];?>">
+            </div>
+          </div>
+          <?php endif; ?>
+          <input id="element<?php echo $num; ?>" type="checkbox" class="sec-6__element-checkbox" name="element[]" value="<?php echo $title; ?>">
+          <div class="sec-6__element-textbox">
+            <p class="sec-6__element-title">
+              <?php echo $title; ?>
+            </p>
+            <?php if($text):?>
+            <p class="sec-6__element-info">
+              <?php echo $text; ?>
+            </p>
+            <?php endif; ?>
+            <label for="element01" class="sec-6__element-button _main-btn">выбрать
+              элемент</label>
+          </div>
+        </div>
+        <?php endwhile;?>
+      </div>
+      <?php else : ?>
+
       <div class="sec-6__catalog">
         <div class="sec-6__element">
           <div class="sec-6__element-image">
@@ -233,6 +266,7 @@
           </div>
         </div>
       </div>
+      <?php endif; ?>
       <div class="sec-6__form-layout">
         <div class="sec-6__form-image">
           <div class="_image-abs">
