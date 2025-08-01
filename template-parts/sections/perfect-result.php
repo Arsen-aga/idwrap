@@ -1,14 +1,66 @@
 <section class="section sec-8 _sec-light">
   <div class="sec-8__container container">
     <h2 class="sec-8__title _title">
-      Гарантируем безупречный результат
+      <?php the_field('perfect-result_title'); ?>
     </h2>
+    <?php if(get_field('perfect-result_subtitle')): ?>
     <p class="sec-8__subtitle _subtitle">
-      без зазоров, изгибов и засветов даже на самых сложных автомобилях
+      <?php the_field('perfect-result_subtitle'); ?>
     </p>
+    <?php endif; ?>
     <div class="cursor">
       <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
     </div>
+    <?php if(have_rows('perfect-result_cards')) :?>
+    <div class="sec-8__content">
+      <?php while(have_rows('perfect-result_cards')) : the_row();
+      $card_img = get_sub_field('card_img');
+      $card_title = get_sub_field('card_title');
+      $card_text = get_sub_field('card_text'); ?>
+      <div class="sec-8__item">
+
+        <div class="_image-abs">
+          <?php if($card_img):?>
+            <img class="_img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-08/result.webp" alt=" Изображение - ">
+          <?php endif; ?>
+        </div>
+
+        <div class="sec-8__item-textbox">
+          <p class="sec-8__item-title">
+            <?php echo $card_title; ?>
+          </p>
+          <?php if($card_text):?>
+          <p class="sec-8__item-info _card-info">
+            <?php echo $card_text; ?>
+          </p>
+          <?php endif; ?>
+          <?php if(have_rows('card_mainList')) :?>
+          <ul class="sec-8__item-checklist">
+            <?php while(have_rows('card_mainList')) : the_row(); ?>
+            <li>
+              <p class="sec-8__item-text _card-info">
+                <?php the_sub_field('list_text'); ?>
+              </p>
+            </li>
+            <?php endwhile;?>
+          </ul>
+          <?php endif;?>
+          <?php if(have_rows('card_list')) :?>
+          <ul class="sec-8__item-list">
+            <?php while(have_rows('card_list')) : the_row(); ?>
+            <li>
+              <p class="sec-8__item-more">
+                <?php the_sub_field('list_text'); ?>
+              </p>
+            </li>
+            <?php endwhile; ?>
+          </ul>
+          <?php endif; ?>
+        </div>
+      </div>
+      <?php endwhile; ?>
+    </div>
+    <?php else :?>
     <div class="sec-8__content">
       <div class="sec-8__item">
         <div class="_image-abs">
@@ -143,5 +195,6 @@
         </div>
       </div>
     </div>
+    <?php endif; ?>
   </div>
 </section>
