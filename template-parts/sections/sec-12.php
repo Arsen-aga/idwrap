@@ -12,13 +12,15 @@ switch ($typeImg) {
   default:
     $backImg = get_template_directory_uri() . '/assets/salon.webp';
 }
+
+$varBtn1 = get_field('sec-12_var-1') ? get_field('sec-12_var-1') : 'Скидка 20% на комплексную мойку';
+$varBtn2 = get_field('sec-12_var-2') ? get_field('sec-12_var-2') : 'Скидка 10% на химчистку салона';
+$title = get_field('sec-12_title') ? get_field('sec-12_title') : 'Получите промокод на услуги IDWrap со скидкой';
 ?>
 <section class="section sec-12" style="background-image: url(<?php echo $backImg; ?>);">
   <div class="sec-12__container container">
     <h2 class="sec-12__title _title">
-      Получите промокод <br>
-      на бесплатную оклейку <br>
-      элементов автомобиля
+      <?php echo $title; ?>
     </h2>
     <div class="sec-12__content">
       <form action="#" class="form sec-12__form form form-submit">
@@ -30,14 +32,14 @@ switch ($typeImg) {
         </p>
         <div class="sec-12__form-typebox">
           <input class="sec-12__form-type" checked required name="type" id="type1" type="radio"
-            value="Скидка 20% на комплексную мойку">
+            value="<?php echo $varBtn1; ?>">
           <label class="sec-12__form-button _transparent-btn" for="type1">
-            <span class="sec-12__button-text">Скидка 20% на комплексную мойку</span>
+            <span class="sec-12__button-text"><?php echo $varBtn1; ?></span>
           </label>
           <input class="sec-12__form-type" name="type" id="type2" type="radio"
-            value="Скидка 10% на химчистку салона">
+            value="<?php echo $varBtn2; ?>">
           <label class="sec-12__form-button _transparent-btn" for="type2">
-            <span class="sec-12__button-text">Скидка 10% на химчистку салона</span>
+            <span class="sec-12__button-text"><?php echo $varBtn2; ?></span>
           </label>
         </div>
         <p class="sec-12__form-li _li-2">
