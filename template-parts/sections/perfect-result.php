@@ -21,7 +21,7 @@
 
         <div class="_image-abs">
           <?php if($card_img):?>
-            <img class="_img" src="<?php echo get_template_directory_uri(); ?>/assets/images/sec-08/result.webp" alt=" Изображение - ">
+            <img class="_img" src="<?php echo $card_img['url'];?>" alt="<?php echo $card_img['alt'];?>">
           <?php endif; ?>
         </div>
 
