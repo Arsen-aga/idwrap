@@ -14,12 +14,14 @@
       <div class="cursor sec-6__catalog-cursor">
         <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
       </div>
-      <?php if(have_rows('pasting-options_variant')) : ?>
+      <?php if(have_rows('pasting-options_variant')) :
+        $counter = 1;?>
       <div class="sec-6__catalog">
         <?php while(have_rows('pasting-options_variant')) : the_row();
         $img = get_sub_field('variants_img');
         $title = get_sub_field('variants_title');
-        $text = get_sub_field('variants_text'); ?>
+        $text = get_sub_field('variants_text');
+        $formatted_num = str_pad($counter, 2, '0', STR_PAD_LEFT);?>
         <div class="sec-6__element">
           <?php if($img) :?>
           <div class="sec-6__element-image">
@@ -29,7 +31,7 @@
             </div>
           </div>
           <?php endif; ?>
-          <input id="element<?php echo $num; ?>" type="checkbox" class="sec-6__element-checkbox" name="element[]" value="<?php echo $title; ?>">
+          <input id="element<?php echo $formatted_num; ?>" type="checkbox" class="sec-6__element-checkbox" name="element[]" value="<?php echo $title; ?>">
           <div class="sec-6__element-textbox">
             <p class="sec-6__element-title">
               <?php echo $title; ?>
@@ -39,11 +41,11 @@
               <?php echo $text; ?>
             </p>
             <?php endif; ?>
-            <label for="element01" class="sec-6__element-button _main-btn">выбрать
+            <label for="element<?php echo $formatted_num; ?>" class="sec-6__element-button _main-btn">выбрать
               элемент</label>
           </div>
         </div>
-        <?php endwhile;?>
+        <?php $counter++; endwhile;?>
       </div>
       <?php else : ?>
 
