@@ -42,9 +42,9 @@ get_header(); ?>
     <div class="container">
       <div class="services-price__inner">
         <div class="services-price__left">
-          <form action="#" method="post" class="header-bottom__search services-price__search">
+          <form action="#" method="post" class="search services-price__search">
             <?php include(get_template_directory() . '/assets/images/icons/search.svg'); ?>
-            <input class="header-bottom__search-inp" type="text" name="search" placeholder="Поиск по услугам">
+            <input class="search__inp" type="text" name="search" placeholder="Поиск по услугам">
           </form>
           <div class="services-price__items">
             <div class="services-price__item">

@@ -82,16 +82,15 @@
               </p>
             </a>
 
-            <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="header__search open-search">
-                <div class="header__search-icon">
-                    <?php include(get_template_directory() . '/assets/images/icons/search.svg'); ?>
-                </div>
-                <input class="header__search-inp open-search-inp"
-                      type="text"
-                      name="s"
-                      placeholder="Поиск.."
-                      value="<?php echo isset($_GET['s']) ? esc_attr($_GET['s']) : ''; ?>">
-                <div class="ajax-search-results" style="display: none;"></div> <!-- Контейнер для результатов -->
+            <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="header-bottom__search search">
+              <?php include(get_template_directory() . '/assets/images/icons/search.svg'); ?>
+              <input class="header-bottom__search-inp search__inp"
+                type="text"
+                name="s"
+                placeholder="Поиск.."
+                value="<?php echo isset($_GET['s']) ? esc_attr($_GET['s']) : ''; ?>">
+              <!-- Контейнер для результатов -->
+              <div class="ajax-search-results" style="display: none;"></div>
             </form>
 
             <div class="burger">
@@ -230,13 +229,13 @@
         </ul>
       </nav> -->
       <?php
-      wp_nav_menu( array(
-          'menu' => 'mainMenu', // укажите нужное расположение меню
-          'container'      => 'nav',
-          'container_class'=> 'popup-menu__menu',
-          'menu_class'     => 'popup-menu__menu-list',
-          'walker'         => new Popup_Menu_Walker(),
-          'depth'         => 3, // максимальная глубина меню
-      ) );
+      wp_nav_menu(array(
+        'menu' => 'mainMenu', // укажите нужное расположение меню
+        'container'      => 'nav',
+        'container_class' => 'popup-menu__menu',
+        'menu_class'     => 'popup-menu__menu-list',
+        'walker'         => new Popup_Menu_Walker(),
+        'depth'         => 3, // максимальная глубина меню
+      ));
       ?>
     </div>

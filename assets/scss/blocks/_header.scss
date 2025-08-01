@@ -256,37 +256,10 @@
   }
 
   &__search {
-    background-color: #544E4B;
-    border-radius: 50px;
-    padding: 11px 23px;
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    max-width: 251px;
-    width: 100%;
-
-    svg {
-      height: fit-content;
-    }
+    position: relative;
+    z-index: 2;
   }
 
-
-  &__search-inp {
-    background-color: transparent;
-    border: none;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: calc(24/16*100%);
-    color: var(--light-color);
-
-    &::placeholder {
-      font-size: 16px;
-      line-height: calc(24/16*100%);
-      color: var(--light-color);
-      opacity: 0.3;
-    }
-
-  }
 
   &__menu-map {
     display: none;

@@ -1,5 +1,5 @@
 jQuery(document).ready(function ($) {
-  var searchInput = $(".header__search-inp");
+  var searchInput = $(".header-bottom__search-inp");
   var searchResults = $(".ajax-search-results");
   var searchTimer;
 
@@ -46,13 +46,13 @@ jQuery(document).ready(function ($) {
 
   // Закрытие результатов при клике вне формы
   $(document).on("click", function (e) {
-    if (!$(e.target).closest(".header__search").length) {
+    if (!$(e.target).closest(".header-bottom__search").length) {
       searchResults.hide();
     }
   });
 
   // Сохранение поиска при отправке формы
-  $(".header__search").on("submit", function () {
+  $(".header-bottom__search").on("submit", function () {
     if (searchInput.val().trim().length > 0) {
       return true;
     }
