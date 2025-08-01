@@ -156,7 +156,7 @@
       <a class="footer__bottom-link" href="#soglas" data-fancybox="">
         Обработка персональных данных
       </a>
-      <a class="footer__bottom-tfa" href="#">
+      <a class="footer__bottom-tfa" href="https://t-f-a.agency/" target="_blank">
         <?php include(get_template_directory() . '/assets/images/icons/tfa.svg'); ?>
         <span>Разработка сайта</span>
       </a>
