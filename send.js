@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
           // formPreview.innerHTML = '';
           form.reset();
 
-          window.location.href = "spasibo.php";
+          window.location.href = "thankyou.php";
           //Редирект на страницу спасибо
           // setTimeout(function () {
           // 	window.location.href = 'spasibo.html';
