@@ -2,26 +2,14 @@
 /**
  * ОБРАБОТЧИК ФОРМЫ WORDPRESS
  * Отправка заявок на email, в Telegram и AmoCRM
- * с корректным логированием и JSON-ответами
+ * с логированием и поддержкой массивов в POST
  */
 
 // ================== ПОДКЛЮЧЕНИЕ WORDPRESS ================== //
 
-// Отключаем загрузку темы для экономии ресурсов
 define('WP_USE_THEMES', false);
+require_once('../../../wp-load.php'); // путь подставь под себя
 
-// Путь к wp-load.php (может отличаться в зависимости от структуры сайта)
-// $wp_load_path = dirname(__FILE__, 3) . '/wp-load.php'; // Поднимаемся на 3 уровня вверх
-// if (!file_exists($wp_load_path)) {
-//     die(json_encode([
-//         'success' => false,
-//         'message' => 'Не удалось найти WordPress'
-//     ]));
-// }
-
-// require_once($wp_load_path);
-require_once('../../../wp-load.php');
-// Проверяем загружено ли ядро WordPress
 if (!function_exists('wp_mail')) {
     die(json_encode([
         'success' => false,
@@ -29,53 +17,44 @@ if (!function_exists('wp_mail')) {
     ]));
 }
 
-// ================== КОНФИГУРАЦИЯ ================== //
-
 session_start();
 
-// Настройки логов
-define('LOG_DIR', __DIR__ . '/logs/');
-define('LOG_FILE', LOG_DIR . 'form_' . date('Y-m-d') . '.log'); // Логи по дням
+// ================== КОНФИГУРАЦИЯ ================== //
 
-// Настройки Telegram
+define('LOG_DIR', __DIR__ . '/logs/');
+define('LOG_FILE', LOG_DIR . 'form_' . date('Y-m-d') . '.log');
+
 define('TELEGRAM_TOKEN', '7621920905:AAF7GpHCTkRsgTIbdVcUQleAmuH3XMuPRFQ');
 define('TELEGRAM_CHAT_ID', '-4860360602');
 
-// Настройки SMTP
 $smtp_config = [
     'enabled'    => true,
     'host'       => 'ssl://mail.hostland.ru',
     'port'       => 465,
     'username'   => 'test@dmgug.ru',
     'password'   => 'iEFmUlX3io',
-    'from'       => 'test@dmgug.ru', // Должен совпадать с username!
+    'from'       => 'test@dmgug.ru',
     'from_name'  => 'idwrap'
 ];
 
-// Настройки формы
 $form_config = [
-    // Обязательные поля
     'required_fields' => ['phone'],
 
-    // Email уведомления
     'email' => [
         'enabled'    => true,
         'recipients' => ['prasolovandreas@yandex.ru'],
         'subject'    => 'Новая заявка с сайта ' . date('d.m.Y H:i'),
     ],
 
-    // Telegram уведомления
     'telegram' => [
         'enabled' => true
     ],
 
-    // AmoCRM интеграция
     'amocrm' => [
         'enabled' => false,
         'lib_path' => __DIR__ . '/libs/SendAmo.php'
     ],
 
-    // Сообщения
     'messages' => [
         'success'      => 'Спасибо! Ваша заявка принята.',
         'error'        => 'Ошибка при отправке формы',
@@ -87,13 +66,29 @@ $form_config = [
 // ================== ФУНКЦИИ ================== //
 
 /**
- * Инициализация системы логов
+ * Рекурсивная очистка данных из $_POST
+ */
+function sanitize_post_fields($input) {
+    $output = [];
+
+    foreach ($input as $key => $value) {
+        if (is_array($value)) {
+            $output[$key] = sanitize_post_fields($value);
+        } else {
+            $output[$key] = trim($value);
+        }
+    }
+
+    return $output;
+}
+
+/**
+ * Инициализация логов
  */
 function initLogs() {
-    // Создаем директорию если не существует
     if (!file_exists(LOG_DIR)) {
         if (!mkdir(LOG_DIR, 0755, true)) {
-            error_log('Не удалось создать директорию для логов: ' . LOG_DIR);
+            error_log('Не удалось создать директорию логов: ' . LOG_DIR);
             return false;
         }
     }
@@ -101,9 +96,7 @@ function initLogs() {
 }
 
 /**
- * Запись в лог-файл
- * @param string $message - текст сообщения
- * @param array $data - дополнительные данные
+ * Запись логов
  */
 function writeLog($message, $data = []) {
     $log_entry = sprintf(
@@ -120,10 +113,7 @@ function writeLog($message, $data = []) {
 
     $log_entry .= "--------------------\n";
 
-    // Пишем в лог-файл
     file_put_contents(LOG_FILE, $log_entry, FILE_APPEND);
-
-    // Дублируем в error_log для дебага
     error_log(str_replace("\n", " | ", strip_tags($log_entry)));
 }
 
@@ -143,27 +133,23 @@ function configureMailer($phpmailer) {
         $phpmailer->Password   = $smtp_config['password'];
         $phpmailer->From       = $smtp_config['from'];
         $phpmailer->FromName   = $smtp_config['from_name'];
-        $phpmailer->Sender     = $smtp_config['from']; // Важно для SPF
+        $phpmailer->Sender     = $smtp_config['from'];
 
         $phpmailer->SMTPOptions = [
             'ssl' => [
                 'verify_peer'       => false,
-                'verify_peer_name'   => false,
-                'allow_self_signed'  => true
+                'verify_peer_name'  => false,
+                'allow_self_signed' => true
             ]
         ];
     }
 }
-
-// Регистрируем обработчик PHPMailer
 add_action('phpmailer_init', 'configureMailer');
 
 // ================== ОБРАБОТКА ФОРМЫ ================== //
 
-// Устанавливаем заголовок для JSON-ответа
 header('Content-Type: application/json; charset=utf-8');
 
-// Инициализируем логи
 if (!initLogs()) {
     echo json_encode([
         'success' => false,
@@ -174,16 +160,16 @@ if (!initLogs()) {
 }
 
 try {
-    // Получаем данные формы
+    // Получаем и очищаем данные формы
     $form_data = [
-        'fields' => array_map('trim', $_POST),
+        'fields' => sanitize_post_fields($_POST),
         'files'  => $_FILES,
         'token'  => $_POST['newToken'] ?? ''
     ];
 
     writeLog('Получены данные формы', $form_data);
 
-    // Проверка CSRF-токена
+    // CSRF-защита
     if (empty($form_data['token'])) {
         throw new Exception('Отсутствует токен формы');
     }
@@ -196,17 +182,15 @@ try {
     // Проверка обязательных полей
     foreach ($form_config['required_fields'] as $field) {
         if (empty($form_data['fields'][$field])) {
-            throw new Exception(
-                sprintf($form_config['messages']['field_error'], $field)
-            );
+            throw new Exception(sprintf($form_config['messages']['field_error'], $field));
         }
     }
 
-    // Подготовка сообщений
+    // Генерация контента
     $email_content = generateEmailContent($form_data['fields']);
     $telegram_msg = generateTelegramMessage($form_data['fields']);
 
-    // Отправка email
+    // Email
     if ($form_config['email']['enabled']) {
         $email_sent = wp_mail(
             $form_config['email']['recipients'],
@@ -224,7 +208,7 @@ try {
         writeLog('Email успешно отправлен');
     }
 
-    // Отправка в Telegram
+    // Telegram
     if ($form_config['telegram']['enabled']) {
         $telegram_url = sprintf(
             'https://api.telegram.org/bot%s/sendMessage?chat_id=%s&parse_mode=HTML&text=%s',
@@ -243,7 +227,7 @@ try {
         ]);
     }
 
-    // Интеграция с AmoCRM
+    // AmoCRM
     if ($form_config['amocrm']['enabled'] && file_exists($form_config['amocrm']['lib_path'])) {
         require_once $form_config['amocrm']['lib_path'];
 
@@ -261,7 +245,7 @@ try {
         writeLog('Данные отправлены в AmoCRM');
     }
 
-    // Успешный ответ
+    // Ответ клиенту
     echo json_encode([
         'success' => true,
         'message' => $form_config['messages']['success']
@@ -270,7 +254,6 @@ try {
     writeLog('Форма успешно обработана');
 
 } catch (Exception $e) {
-    // Ошибка обработки
     http_response_code(400);
     echo json_encode([
         'success' => false,
@@ -286,30 +269,21 @@ try {
 
 // ================== ГЕНЕРАТОРЫ СООБЩЕНИЙ ================== //
 
-/**
- * Генерация HTML-содержимого для email
- */
 function generateEmailContent($data) {
     $html = '<!DOCTYPE html>
     <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Новая заявка</title>
-        <style>
-            body { font-family: Arial, sans-serif; line-height: 1.6; }
-            table { border-collapse: collapse; width: 100%; max-width: 600px; }
-            th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
-            th { background-color: #f5f5f5; }
-        </style>
-    </head>
-    <body>
-        <h2>Новая заявка с сайта</h2>
-        <table>';
+    <head><meta charset="UTF-8"><title>Новая заявка</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; }
+        table { border-collapse: collapse; width: 100%; max-width: 600px; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #f5f5f5; }
+    </style>
+    </head><body>
+    <h2>Новая заявка с сайта</h2><table>';
 
     foreach ($data as $field => $value) {
-        if (is_array($value)) {
-            $value = implode(', ', $value);
-        }
+        if (is_array($value)) $value = implode(', ', $value);
 
         $html .= sprintf(
             '<tr><th>%s</th><td>%s</td></tr>',
@@ -318,23 +292,15 @@ function generateEmailContent($data) {
         );
     }
 
-    $html .= '</table>
-    </body>
-    </html>';
-
+    $html .= '</table></body></html>';
     return $html;
 }
 
-/**
- * Генерация сообщения для Telegram
- */
 function generateTelegramMessage($data) {
     $text = "📌 <b>Новая заявка с сайта</b>\n\n";
 
     foreach ($data as $field => $value) {
-        if (is_array($value)) {
-            $value = implode(', ', $value);
-        }
+        if (is_array($value)) $value = implode(', ', $value);
 
         $text .= sprintf(
             "<b>%s:</b> %s\n",
@@ -344,6 +310,5 @@ function generateTelegramMessage($data) {
     }
 
     $text .= "\n<i>" . date('d.m.Y H:i') . "</i>";
-
     return $text;
 }
