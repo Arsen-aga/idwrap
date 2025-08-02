@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if (response.ok) {
-<<<<<<< HEAD
           try {
             const result = await response.json();
             if (result.success) {
@@ -45,20 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Error parsing JSON:", e);
             window.location.href = "thankyou"; // Фолбек
           }
-=======
-          form.classList.add("_sending");
-          result = await response.json();
-          //alert(result.message);
-          // formPreview.innerHTML = '';
-          form.reset();
-
-          window.location.href = "thankyou.php";
-          //Редирект на страницу спасибо
-          // setTimeout(function () {
-          // 	window.location.href = 'spasibo.html';
-          // }, 1 * 1000);
-          form.classList.remove("_sending");
->>>>>>> ars
         } else {
           alert("Server error: " + response.status);
           form.classList.remove("_sending");

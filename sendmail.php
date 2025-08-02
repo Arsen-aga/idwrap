@@ -209,23 +209,57 @@ try {
     }
 
     // Telegram
+    // if ($form_config['telegram']['enabled']) {
+    //     $telegram_url = sprintf(
+    //         'https://api.telegram.org/bot%s/sendMessage?chat_id=%s&parse_mode=HTML&text=%s',
+    //         TELEGRAM_TOKEN,
+    //         TELEGRAM_CHAT_ID,
+    //         urlencode($telegram_msg)
+    //     );
+
+    //     $telegram_response = file_get_contents($telegram_url);
+    //     if (!$telegram_response) {
+    //         throw new Exception('Ошибка отправки в Telegram');
+    //     }
+
+    //     writeLog('Сообщение отправлено в Telegram', [
+    //         'response' => json_decode($telegram_response, true)
+    //     ]);
+    // }
+
     if ($form_config['telegram']['enabled']) {
-        $telegram_url = sprintf(
-            'https://api.telegram.org/bot%s/sendMessage?chat_id=%s&parse_mode=HTML&text=%s',
-            TELEGRAM_TOKEN,
-            TELEGRAM_CHAT_ID,
-            urlencode($telegram_msg)
-        );
+    $telegram_url = sprintf(
+        'https://api.telegram.org/bot%s/sendMessage?chat_id=%s&parse_mode=HTML&text=%s',
+        TELEGRAM_TOKEN,
+        TELEGRAM_CHAT_ID,
+        urlencode($telegram_msg)
+    );
 
-        $telegram_response = file_get_contents($telegram_url);
-        if (!$telegram_response) {
-            throw new Exception('Ошибка отправки в Telegram');
-        }
-
-        writeLog('Сообщение отправлено в Telegram', [
-            'response' => json_decode($telegram_response, true)
-        ]);
+    $telegram_response = file_get_contents($telegram_url);
+    if (!$telegram_response) {
+        throw new Exception('Ошибка отправки в Telegram');
     }
+
+    writeLog('Сообщение отправлено в Telegram', [
+        'response' => json_decode($telegram_response, true)
+    ]);
+
+    // ✅ Успешный ответ клиенту
+    echo json_encode([
+        'success' => true,
+        'message' => $form_config['messages']['success']
+    ]);
+
+    // Закрытие соединения с клиентом
+    if (function_exists('fastcgi_finish_request')) {
+        session_write_close();
+        fastcgi_finish_request(); // ⚡️ отдаёт ответ клиенту и продолжает скрипт
+    } else {
+        ignore_user_abort(true);
+        ob_end_flush();
+        flush();
+    }
+}
 
     // AmoCRM
     if ($form_config['amocrm']['enabled'] && file_exists($form_config['amocrm']['lib_path'])) {
@@ -270,30 +304,19 @@ try {
 // ================== ГЕНЕРАТОРЫ СООБЩЕНИЙ ================== //
 
 function generateEmailContent($data) {
-    $html = '<!DOCTYPE html>
-    <html>
-    <head><meta charset="UTF-8"><title>Новая заявка</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; }
-        table { border-collapse: collapse; width: 100%; max-width: 600px; }
-        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
-        th { background-color: #f5f5f5; }
-    </style>
-    </head><body>
-    <h2>Новая заявка с сайта</h2><table>';
+    $lines = ["Новая заявка с сайта", ""];
 
     foreach ($data as $field => $value) {
-        if (is_array($value)) $value = implode(', ', $value);
+        if (is_array($value)) {
+            $value = implode(', ', array_map('trim', $value));
+        } else {
+            $value = trim($value);
+        }
 
-        $html .= sprintf(
-            '<tr><th>%s</th><td>%s</td></tr>',
-            htmlspecialchars($field),
-            htmlspecialchars($value)
-        );
+        $lines[] = "<b>$field:</b> $value<br>";
     }
 
-    $html .= '</table></body></html>';
-    return $html;
+    return implode("\n", $lines);
 }
 
 function generateTelegramMessage($data) {
