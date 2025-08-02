@@ -1,0 +1,38 @@
+[2025-08-02 15:54:40] Получены данные формы
+IP: ::1
+URL: /idwrap/wp-content/themes/idwrap/sendmail.php
+Данные:
+Array
+(
+    [fields] => Array
+        (
+            [newToken] => 67892
+            [from] => Получить расчёт стоимости + подарок
+            [step1] => Частичная оклейка
+            [step2] => Защитить автомобиль
+            [step3] => В течение месяца
+            [step4] => Оклейка фар
+            [method] => Телефон
+            [phone] => +7 (424) 235-34-53
+            [checkbox] => on
+        )
+
+    [files] => Array
+        (
+        )
+
+    [token] => 67892
+)
+
+--------------------
+[2025-08-02 15:54:40] Ошибка обработки формы
+IP: ::1
+URL: /idwrap/wp-content/themes/idwrap/sendmail.php
+Данные:
+Array
+(
+    [error] => Ошибка отправки email: Неверный адрес:  (From): wordpress@localhost
+    [trace] => #0 {main}
+)
+
+--------------------
