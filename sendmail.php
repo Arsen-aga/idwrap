@@ -18,7 +18,7 @@ define('LOG_FILE', LOG_DIR . 'form_handler_log.txt');
 define('TELEGRAM_TOKEN', '7621920905:AAF7GpHCTkRsgTIbdVcUQleAmuH3XMuPRFQ');
 
 // ID чата куда отправлять уведомления (можно узнать у @userinfobot)
-define('TELEGRAM_CHAT_ID', 'ВАШ_CHAT_ID');
+define('TELEGRAM_CHAT_ID', '-4860360602');
 
 // Путь к библиотеке для работы с AmoCRM (если не используется - оставить пустым)
 define('AMOCRM_LIB_PATH', __DIR__ . '/libs/SendAmo.php');
@@ -34,8 +34,8 @@ $formConfig = [
 
     // Настройки email уведомлений
     'email' => [
-        'enabled' => true, // Включить отправку email (true/false)
-        'method' => 'smtp', // 'mail' - стандартная функция mail(), 'smtp' - через SMTP сервер
+        'enabled' => false, // Включить отправку email (true/false)
+        'method' => 'mail', // 'mail' - стандартная функция mail(), 'smtp' - через SMTP сервер
         'from' => 'test@dmgug.ru', // Email отправителя
         'from_name' => 'idwrap', // Имя отправителя
         // Список получателей (можно указать несколько)
@@ -133,7 +133,7 @@ try {
     $formData = [
         'fields' => array_map('trim', $_POST), // Все текстовые поля
         'files' => $_FILES, // Все загружаемые файлы
-        'token' => $_POST['token'] ?? '' // Токен формы для защиты
+        'token' => $_POST['newToken'] ?? '' // Токен формы для защиты
     ];
 
     writeLog("Form submission started", $formData);
@@ -286,7 +286,14 @@ try {
         'error' => $e->getMessage(),
         'trace' => $e->getTraceAsString()
     ]);
-    die($formConfig['error_message']);
+
+    header('Content-Type: application/json');
+    echo json_encode([
+        'success' => false,
+        'message' => $formConfig['error_message'],
+        'error' => $e->getMessage() // Опционально, для дебага
+    ]);
+    exit;
 }
 
 // ================== ШАБЛОНЫ СООБЩЕНИЙ ================== //

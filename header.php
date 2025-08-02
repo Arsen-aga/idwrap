@@ -1,3 +1,14 @@
+<?php session_start();
+
+$utm_keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+
+foreach ($utm_keys as $key) {
+    if (empty($_SESSION[$key]) || $_SESSION[$key] == 'Не удалось определить') {
+        $_SESSION[$key] = !empty($_GET[$key]) ? sanitize_text_field($_GET[$key]) : 'Не удалось определить';
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <?php $seo_fields = get_seo_fields(); ?>

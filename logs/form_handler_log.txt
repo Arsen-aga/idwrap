@@ -1,0 +1,36 @@
+[2025-08-02 10:29:20][::1][/idwrap/wp-content/themes/idwrap/sendmail.php][Ref:http://localhost/idwrap/okleyka/antigravijnaja-plenka/] Form submission started
+Data: {
+    "fields": {
+        "newToken": "72697",
+        "from": "Получить расчёт стоимости + подарок",
+        "step1": "Полная оклейка",
+        "step2": "Защитить или убрать хромированные элементы авто (антихром)",
+        "step3": "В течение месяца",
+        "step4": "Мойка кузова",
+        "method": "WhatsApp",
+        "phone": "+7 (254) 353-52-34",
+        "checkbox": "on"
+    },
+    "files": [],
+    "token": "72697"
+}
+[2025-08-02 10:29:21][::1][/idwrap/wp-content/themes/idwrap/sendmail.php][Ref:http://localhost/idwrap/okleyka/antigravijnaja-plenka/] Message sent to Telegram
+[2025-08-02 10:29:21][::1][/idwrap/wp-content/themes/idwrap/sendmail.php][Ref:http://localhost/idwrap/okleyka/antigravijnaja-plenka/] Form processed successfully
+[2025-08-02 10:31:38][::1][/idwrap/wp-content/themes/idwrap/sendmail.php][Ref:http://localhost/idwrap/?utm_source=12&utm_medium=fgh&utm_campaign=6654&utm_content=fgh566&utm_term=!476568-890] Form submission started
+Data: {
+    "fields": {
+        "newToken": "30894",
+        "from": "Получить расчёт стоимости + подарок",
+        "step1": "Частичная оклейка",
+        "step2": "Поменять цвет",
+        "step3": "Затрудняюсь ответить",
+        "step4": "Оклейка фар",
+        "method": "WhatsApp",
+        "phone": "+7 (675) 647-86-76",
+        "checkbox": "on"
+    },
+    "files": [],
+    "token": "30894"
+}
+[2025-08-02 10:31:39][::1][/idwrap/wp-content/themes/idwrap/sendmail.php][Ref:http://localhost/idwrap/?utm_source=12&utm_medium=fgh&utm_campaign=6654&utm_content=fgh566&utm_term=!476568-890] Message sent to Telegram
+[2025-08-02 10:31:39][::1][/idwrap/wp-content/themes/idwrap/sendmail.php][Ref:http://localhost/idwrap/?utm_source=12&utm_medium=fgh&utm_campaign=6654&utm_content=fgh566&utm_term=!476568-890] Form processed successfully

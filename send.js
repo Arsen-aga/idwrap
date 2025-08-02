@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (error === 0) {
         form.classList.add("_sending");
         let response = await fetch(
-          "https://wrapid.dmgug.ru/wp-content/themes/idwrap/sendmail.php",
+          "/idwrap/wp-content/themes/idwrap/sendmail.php",
           {
             method: "POST",
             body: formData,
@@ -35,20 +35,20 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         if (response.ok) {
-          form.classList.add("_sending");
-          result = await response.json();
-          //alert(result.message);
-          // formPreview.innerHTML = '';
-          form.reset();
-
-          window.location.href = "spasibo.php";
-          //Редирект на страницу спасибо
-          // setTimeout(function () {
-          // 	window.location.href = 'spasibo.html';
-          // }, 1 * 1000);
-          form.classList.remove("_sending");
+          try {
+            const result = await response.json();
+            if (result.success) {
+              window.location.href = "/thankyou";
+            } else {
+              alert(result.message);
+              form.classList.remove("_sending");
+            }
+          } catch (e) {
+            console.error("Error parsing JSON:", e);
+            window.location.href = "thankyou"; // Фолбек
+          }
         } else {
-          alert("Ошибка");
+          alert("Server error: " + response.status);
           form.classList.remove("_sending");
         }
       } else {
