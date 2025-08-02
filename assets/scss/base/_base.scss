@@ -939,18 +939,227 @@ a {
 
 
 
-.main-img {
-  margin-top: var(--indent);
-  position: relative;
-  padding-bottom: calc(700/1920*100%);
-  border-radius: 40px;
-  overflow: hidden;
 
-  @include mixins.md {
-    border-radius: 20px;
-    padding-bottom: 53%;
+
+
+
+
+
+
+
+
+
+
+
+
+.sec-12__form-social {
+  max-width: 140px;
+  min-height: 42px;
+  height: 42px;
+
+  gap: 10px;
+  color: #999999;
+  border: 1px solid #999999;
+  border-radius: 40px;
+  transition: all 0.25s ease-in-out;
+  text-transform: initial;
+  cursor: pointer;
+}
+
+.sec-12__form-social svg {
+  pointer-events: none;
+}
+
+.sec-12__form-social svg path {
+  transition: all 0.25s ease-in-out;
+}
+
+.sec-12__form-social._callbtn svg path {
+  fill: #999999;
+}
+
+.sec-12__form-social._whatsapp svg path {
+  fill: #999999;
+}
+
+.sec-12__form-social._telegram svg path {
+  fill: #999999;
+}
+
+.sec-12__form-social:hover._callbtn {
+  background-color: transparent;
+  border-color: #F37021;
+  color: #F37021;
+}
+
+.sec-12__form-social:hover._callbtn svg path {
+  fill: #F37021;
+}
+
+.sec-12__form-social:hover._telegram {
+  background-color: transparent;
+  border-color: var(--telegram-color);
+  color: var(--telegram-color);
+}
+
+.sec-12__form-social:hover._telegram svg path {
+  fill: var(--telegram-color);
+}
+
+.sec-12__form-social:hover._whatsapp {
+  background-color: transparent;
+  border-color: #25D366;
+  color: #25D366;
+}
+
+.sec-12__form-social:hover._whatsapp svg path {
+  fill: #25D366;
+}
+
+.sec-12__form-method {
+  position: absolute;
+  display: none !important;
+}
+
+.sec-12__form-method:checked+.sec-12__form-social {
+  color: #fff;
+}
+
+.sec-12__form-method:checked+.sec-12__form-social svg path {
+  fill: #fff;
+}
+
+.sec-12__form-method:checked+.sec-12__form-social._callbtn {
+  background-color: #F37021;
+  border-color: #F37021;
+}
+
+.sec-12__form-method:checked+.sec-12__form-social._telegram {
+  background-color: var(--telegram-color);
+  border-color: var(--telegram-color);
+}
+
+.sec-12__form-method:checked+.sec-12__form-social._whatsapp {
+  background-color: #25D366;
+  border-color: #25D366;
+}
+
+
+
+.label-check {
+  width: 100%;
+  cursor: pointer;
+  max-width: 140px;
+
+  input {
+    display: none;
+  }
+
+  input:checked+.label-check__inner {
+    color: var(--light-color) !important;
+    border-color: transparent;
+    background-color: var(--primary);
+
+    svg path {
+      fill: var(--light-color);
+    }
+  }
+
+  svg {
+    pointer-events: none;
+  }
+
+  input:checked+.callbtn {
+    background-color: var(--primary);
+  }
+
+  input:checked+.telegram {
+    background-color: var(--telegram-color);
+  }
+
+  input:checked+.whatsapp {
+    background-color: var(--whatsapp-color);
+  }
+
+  &__inner {
+    height: 42px;
+    gap: 10px;
+    color: #999999;
+    border: 1px solid #999999;
+    border-radius: 40px;
+    transition: all 0.25s ease-in-out;
+    text-transform: initial;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    width: 100%;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 157.1428571429%;
+
+    svg path {
+      transition: all .3s ease-in-out;
+      fill: #999999;
+    }
+
+    &:hover {
+      background-color: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+    &.callbtn:hover {
+      background-color: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
+
+      svg path {
+        fill: var(--primary);
+      }
+    }
+    &.callbtn:hover {
+      background-color: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
+
+      svg path {
+        fill: var(--primary);
+      }
+    }
+
+    &.telegram:hover {
+      background-color: transparent;
+      color: var(--telegram-color);
+      border-color: var(--telegram-color);
+
+      svg path {
+        fill: var(--telegram-color);
+      }
+    }
+
+    &.whatsapp:hover {
+      background-color: transparent;
+      color: var(--whatsapp-color);
+      border-color: var(--whatsapp-color);
+
+      svg path {
+        fill: var(--whatsapp-color);
+      }
+    }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 .swiper-button-prev,
 .swiper-button-next {

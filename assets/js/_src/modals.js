@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   // Функция для обработки клика по кнопке в модальном окне
   function handleModalButtonClick(input, priceElement) {
-    if (input.value.trim().length < 1) {
+    if (input.value.trim().length < 2 && Number(input.value) < 0) {
       priceElement.textContent = priceElement.textContent; // Оставляем цену без изменений
     } else if (priceElement) {
       priceElement.textContent = `${input.value} ₽`; // Обновляем цену

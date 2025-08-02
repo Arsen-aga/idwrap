@@ -1,16 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const callNowRadio = document.getElementById("call_now");
-  const callLaterRadio = document.getElementById("call_later");
-  const callTimeInput = document.getElementById("call_time_input");
-
-  function toggleCallTimeInput() {
-    callTimeInput.disabled = callNowRadio.checked; // Заблокировать, если выбрано "Сейчас"
+  const timeToggleWrapper = document.querySelectorAll(".time-check");
+  
+  if (timeToggleWrapper.length) {
+    timeToggleWrapper.forEach((wrapper) => {
+      const timeToggle = wrapper.querySelectorAll("input.time-toggle");
+      const timeInput = wrapper.querySelector(".time-input");
+      timeToggle.forEach(btn => {
+        btn.addEventListener("click", function () {
+          if (btn.value === "По времени" && btn.checked) {
+            timeInput.disabled = false;
+          } else {
+            timeInput.disabled = true;
+            timeInput.value = "";
+          }
+        });
+      });
+    });
   }
-
-  // Обработчики событий для переключения
-  callNowRadio.addEventListener("change", toggleCallTimeInput);
-  callLaterRadio.addEventListener("change", toggleCallTimeInput);
-
-  // Начальная проверка
-  toggleCallTimeInput();
 });
